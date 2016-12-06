@@ -26,6 +26,8 @@ class BernardTests: XCTestCase {
         let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         let viewController = storyboard.instantiateInitialViewController() as? ViewController
         self.loadView(for: viewController)
-        XCTAssertNotNil(viewController?.button);
+        XCTAssertNotNil(viewController?.button)
+        XCTAssertNotNil(viewController?.nameLabel)
+        XCTAssertEqual(viewController?.nameLabel?.text, "")
     }
 }
