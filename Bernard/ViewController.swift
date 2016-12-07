@@ -12,20 +12,15 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
+    var delegate : ViewControllerDelegate!
     
     @IBAction func buttonAction(_ sender: UIButton) {
-        
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        delegate = ViewControllerDelegate.init()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 

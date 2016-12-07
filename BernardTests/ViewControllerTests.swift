@@ -21,8 +21,6 @@ class ViewControllerTests: XCTestCase {
     }
     
     func testOutletsAndActions() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
         let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         let viewController = storyboard.instantiateInitialViewController() as? ViewController
         self.loadView(for: viewController)
@@ -34,5 +32,13 @@ class ViewControllerTests: XCTestCase {
                                                          forControlEvent: UIControlEvents.touchUpInside) {
             XCTAssertEqual(actions, ["buttonAction:"])
         }
+    }
+    
+    func testViewDidLoadInitializesDelegate() {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+        let viewController = storyboard.instantiateInitialViewController() as? ViewController
+        self.loadView(for: viewController)
+        
+        XCTAssertNotNil(viewController?.delegate)
     }
 }
