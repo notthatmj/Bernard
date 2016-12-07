@@ -29,5 +29,9 @@ class BernardTests: XCTestCase {
         XCTAssertNotNil(viewController?.button)
         XCTAssertNotNil(viewController?.nameLabel)
         XCTAssertEqual(viewController?.nameLabel?.text, "")
+        let actionsOptional = viewController?.button?.actions(forTarget: viewController, forControlEvent: UIControlEvents.touchUpInside)
+        if let actions = actionsOptional {
+            XCTAssertEqual(actions, ["buttonAction:"])
+        }
     }
 }

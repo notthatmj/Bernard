@@ -14,6 +14,8 @@
 		8957A6851DF61CFB00DB709F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8957A6831DF61CFB00DB709F /* LaunchScreen.storyboard */; };
 		8957A6901DF61CFB00DB709F /* BernardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A68F1DF61CFB00DB709F /* BernardTests.swift */; };
 		8957A69B1DF61CFB00DB709F /* BernardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A69A1DF61CFB00DB709F /* BernardUITests.swift */; };
+		8957A6A91DF777C100DB709F /* ViewControllerDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A6A81DF777C100DB709F /* ViewControllerDelegateTests.swift */; };
+		8957A6AB1DF77BA200DB709F /* ViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A6AA1DF77BA200DB709F /* ViewControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		8957A6961DF61CFB00DB709F /* BernardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BernardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8957A69A1DF61CFB00DB709F /* BernardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BernardUITests.swift; sourceTree = "<group>"; };
 		8957A69C1DF61CFB00DB709F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8957A6A81DF777C100DB709F /* ViewControllerDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegateTests.swift; sourceTree = "<group>"; };
+		8957A6AA1DF77BA200DB709F /* ViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 			children = (
 				8957A67A1DF61CFB00DB709F /* AppDelegate.swift */,
 				8957A67C1DF61CFB00DB709F /* ViewController.swift */,
+				8957A6AA1DF77BA200DB709F /* ViewControllerDelegate.swift */,
 				8957A67E1DF61CFB00DB709F /* Main.storyboard */,
 				8957A6811DF61CFB00DB709F /* Assets.xcassets */,
 				8957A6831DF61CFB00DB709F /* LaunchScreen.storyboard */,
@@ -111,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				8957A68F1DF61CFB00DB709F /* BernardTests.swift */,
+				8957A6A81DF777C100DB709F /* ViewControllerDelegateTests.swift */,
 				8957A6911DF61CFB00DB709F /* Info.plist */,
 			);
 			path = BernardTests;
@@ -264,6 +270,7 @@
 			files = (
 				8957A67D1DF61CFB00DB709F /* ViewController.swift in Sources */,
 				8957A67B1DF61CFB00DB709F /* AppDelegate.swift in Sources */,
+				8957A6AB1DF77BA200DB709F /* ViewControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8957A6901DF61CFB00DB709F /* BernardTests.swift in Sources */,
+				8957A6A91DF777C100DB709F /* ViewControllerDelegateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +520,7 @@
 				8957A6A11DF61CFB00DB709F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8957A6A21DF61CFB00DB709F /* Build configuration list for PBXNativeTarget "BernardTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +529,7 @@
 				8957A6A41DF61CFB00DB709F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8957A6A51DF61CFB00DB709F /* Build configuration list for PBXNativeTarget "BernardUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +538,7 @@
 				8957A6A71DF61CFB00DB709F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
