@@ -9,7 +9,7 @@
 import XCTest
 @testable import Bernard
 
-class BernardTests: XCTestCase {
+class ViewControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -20,7 +20,7 @@ class BernardTests: XCTestCase {
         _ = viewController?.view
     }
     
-    func testMainStoryboard() {
+    func testOutletsAndActions() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
@@ -29,8 +29,9 @@ class BernardTests: XCTestCase {
         XCTAssertNotNil(viewController?.button)
         XCTAssertNotNil(viewController?.nameLabel)
         XCTAssertEqual(viewController?.nameLabel?.text, "")
-        let actionsOptional = viewController?.button?.actions(forTarget: viewController, forControlEvent: UIControlEvents.touchUpInside)
-        if let actions = actionsOptional {
+
+        if let actions = viewController?.button?.actions(forTarget: viewController,
+                                                         forControlEvent: UIControlEvents.touchUpInside) {
             XCTAssertEqual(actions, ["buttonAction:"])
         }
     }
