@@ -11,9 +11,13 @@ import XCTest
 
 class ViewControllerTests: XCTestCase {
     
+    var viewController : ViewController?
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+        self.viewController = storyboard.instantiateInitialViewController() as? ViewController
     }
 
     func loadView(for viewController : UIViewController?) {
@@ -21,8 +25,6 @@ class ViewControllerTests: XCTestCase {
     }
     
     func testOutletsAndActions() {
-        let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-        let viewController = storyboard.instantiateInitialViewController() as? ViewController
         self.loadView(for: viewController)
         XCTAssertNotNil(viewController?.button)
         XCTAssertNotNil(viewController?.nameLabel)
@@ -35,10 +37,9 @@ class ViewControllerTests: XCTestCase {
     }
     
     func testViewDidLoadInitializesDelegate() {
-        let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-        let viewController = storyboard.instantiateInitialViewController() as? ViewController
         self.loadView(for: viewController)
         
         XCTAssertNotNil(viewController?.delegate)
     }
+    
 }
