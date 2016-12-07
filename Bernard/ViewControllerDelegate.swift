@@ -7,7 +7,12 @@
 //
 
 import Foundation
+import  UIKit
+protocol ViewControllerDelegateProtocol {
+    func buttonAction()
+}
 
-class ViewControllerDelegate {
-    
+class ViewControllerDelegate : ViewControllerDelegateProtocol {
+    func buttonAction() {
+    }
 }

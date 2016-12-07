@@ -12,14 +12,17 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
-    var delegate : ViewControllerDelegate!
+    var delegate : ViewControllerDelegateProtocol!
     
     @IBAction func buttonAction(_ sender: UIButton) {
+        delegate.buttonAction()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        delegate = ViewControllerDelegate.init()
+        if delegate == nil {
+            delegate = ViewControllerDelegate.init()
+        }
     }
 
 }

@@ -42,4 +42,21 @@ class ViewControllerTests: XCTestCase {
         XCTAssertNotNil(viewController?.delegate)
     }
     
+    func testButtonAction() {
+        class FakeDelegate:ViewControllerDelegateProtocol {
+            var buttonActionWasCalled = false
+            
+            func buttonAction() {
+                buttonActionWasCalled = true
+            }
+        }
+
+        let fakeDelegate = FakeDelegate.init()
+        viewController?.delegate = fakeDelegate
+        loadView(for: viewController)
+        if let button = viewController?.button {
+            viewController?.buttonAction(button)
+        }
+        XCTAssertTrue(fakeDelegate.buttonActionWasCalled);
+    }
 }
