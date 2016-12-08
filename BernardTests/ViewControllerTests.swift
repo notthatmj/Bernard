@@ -18,14 +18,16 @@ class ViewControllerTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         self.viewController = storyboard.instantiateInitialViewController() as? ViewController
+        XCTAssertNotNil(viewController)
+
     }
 
-    func loadView(for viewController : UIViewController?) {
+    func loadView() {
         _ = viewController?.view
     }
     
     func testOutletsAndActions() {
-        self.loadView(for: viewController)
+        self.loadView()
         XCTAssertNotNil(viewController?.button)
         XCTAssertNotNil(viewController?.nameLabel)
         XCTAssertEqual(viewController?.nameLabel?.text, "")
@@ -37,7 +39,7 @@ class ViewControllerTests: XCTestCase {
     }
     
     func testViewDidLoadInitializesDelegate() {
-        self.loadView(for: viewController)
+        self.loadView()
         
         XCTAssertNotNil(viewController?.delegate)
     }
@@ -53,10 +55,20 @@ class ViewControllerTests: XCTestCase {
 
         let fakeDelegate = FakeDelegate.init()
         viewController?.delegate = fakeDelegate
-        loadView(for: viewController)
+        loadView()
         if let button = viewController?.button {
             viewController?.buttonAction(button)
         }
         XCTAssertTrue(fakeDelegate.buttonActionWasCalled);
+    }
+    
+    func testNameText() {
+        XCTAssertEqual(viewController?.nameText,nil)
+        loadView()
+        XCTAssertEqual(viewController?.nameText,"")
+        let testText = "Foobar"
+        viewController?.nameText = testText
+        XCTAssertEqual(viewController?.nameText, testText)
+        XCTAssertEqual(viewController?.nameLabel.text, testText)
     }
 }

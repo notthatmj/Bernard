@@ -14,6 +14,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     var delegate : ViewControllerDelegateProtocol!
     
+    var nameText : String? {
+        get {
+            return nameLabel?.text
+        }
+        set {
+            nameLabel?.text = newValue
+        }
+    }
+    
     @IBAction func buttonAction(_ sender: UIButton) {
         delegate.buttonAction()
     }
