@@ -17,7 +17,7 @@ class ViewControllerTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-        self.viewController = storyboard.instantiateInitialViewController() as? ViewController
+        viewController = storyboard.instantiateInitialViewController() as? ViewController
         XCTAssertNotNil(viewController)
 
     }
@@ -27,7 +27,7 @@ class ViewControllerTests: XCTestCase {
     }
     
     func testOutletsAndActions() {
-        self.loadView()
+        loadView()
         XCTAssertNotNil(viewController?.button)
         XCTAssertNotNil(viewController?.nameLabel)
         XCTAssertEqual(viewController?.nameLabel?.text, "")
@@ -39,7 +39,7 @@ class ViewControllerTests: XCTestCase {
     }
     
     func testViewDidLoadInitializesDelegate() {
-        self.loadView()
+        loadView()
         
         XCTAssertNotNil(viewController?.delegate)
     }
