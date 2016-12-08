@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ViewControllerProtocol {
-    
+    var nameText : String? {get set}
 }
 
 class ViewController: UIViewController, ViewControllerProtocol {

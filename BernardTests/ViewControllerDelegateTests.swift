@@ -11,17 +11,24 @@ import XCTest
 
 class ViewControllerDelegateTests: XCTestCase {
     
+    class FakeViewController : ViewControllerProtocol {
+        var nameText : String? = nil
+    }
+    var fakeViewController = FakeViewController.init()
+    var SUT : ViewControllerDelegate!
+
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        SUT = ViewControllerDelegate.init(viewController:fakeViewController)
     }
     
-    func testCreate() {
-        class FakeViewController : ViewControllerProtocol {}
-        let fakeViewController = FakeViewController.init()
-        let SUT : ViewControllerDelegate = ViewControllerDelegate.init(viewController:fakeViewController);
-
-        XCTAssertNotNil(SUT);
+    func testButtonAction() {
+        SUT.buttonAction()
+        XCTAssertEqual(fakeViewController.nameText, "Foo")
+        SUT.buttonAction()
+        XCTAssertEqual(fakeViewController.nameText, "Bar")
+        SUT.buttonAction()
+        XCTAssertEqual(fakeViewController.nameText, "Foo")
     }
     
 }

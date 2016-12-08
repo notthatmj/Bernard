@@ -22,5 +22,11 @@ class ViewControllerDelegate : ViewControllerDelegateProtocol {
     }
     
     func buttonAction() {
+//        viewController.nameText = "Foobar"
+        if viewController.nameText == "Foo" {
+            viewController.nameText = "Bar"
+        } else {
+            viewController.nameText = "Foo"
+        }
     }
 }
