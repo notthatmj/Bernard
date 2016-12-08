@@ -17,8 +17,10 @@ class ViewControllerDelegateTests: XCTestCase {
     }
     
     func testCreate() {
-        let SUT : ViewControllerDelegate = ViewControllerDelegate.init();
-        
+        class FakeViewController : ViewControllerProtocol {}
+        let fakeViewController = FakeViewController.init()
+        let SUT : ViewControllerDelegate = ViewControllerDelegate.init(viewController:fakeViewController);
+
         XCTAssertNotNil(SUT);
     }
     

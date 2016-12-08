@@ -8,11 +8,19 @@
 
 import Foundation
 import  UIKit
+
 protocol ViewControllerDelegateProtocol {
     func buttonAction()
 }
 
 class ViewControllerDelegate : ViewControllerDelegateProtocol {
+    
+    var viewController : ViewControllerProtocol
+    
+    init(viewController : ViewControllerProtocol) {
+        self.viewController = viewController
+    }
+    
     func buttonAction() {
     }
 }

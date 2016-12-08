@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+protocol ViewControllerProtocol {
+    
+}
+
+class ViewController: UIViewController, ViewControllerProtocol {
 
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
@@ -30,7 +34,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if delegate == nil {
-            delegate = ViewControllerDelegate.init()
+            delegate = ViewControllerDelegate.init(viewController:self)
         }
     }
 
