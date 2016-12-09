@@ -14,6 +14,7 @@ protocol NameGenerating {
 
 class NameGenerator : NameGenerating {
     var count = 0
+    
     func createName() -> String {
         var name : String
         switch count {
@@ -27,4 +28,9 @@ class NameGenerator : NameGenerating {
         count += 1
         return name
     }
+    
+    func makeName(fromValues a : Int, _ b: Int, _ c: Int) -> String {
+        return "Apennin"
+    }
+
 }
