@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8925DDE11DFB31DF009A341D /* NameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8925DDE01DFB31DF009A341D /* NameGenerator.swift */; };
 		8957A67B1DF61CFB00DB709F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A67A1DF61CFB00DB709F /* AppDelegate.swift */; };
 		8957A67D1DF61CFB00DB709F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A67C1DF61CFB00DB709F /* ViewController.swift */; };
 		8957A6801DF61CFB00DB709F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8957A67E1DF61CFB00DB709F /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8925DDE01DFB31DF009A341D /* NameGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameGenerator.swift; sourceTree = "<group>"; };
 		8957A6771DF61CFB00DB709F /* Bernard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bernard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8957A67A1DF61CFB00DB709F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8957A67C1DF61CFB00DB709F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				8957A67A1DF61CFB00DB709F /* AppDelegate.swift */,
 				8957A67C1DF61CFB00DB709F /* ViewController.swift */,
 				8957A6AA1DF77BA200DB709F /* ViewControllerDelegate.swift */,
+				8925DDE01DFB31DF009A341D /* NameGenerator.swift */,
 				8957A67E1DF61CFB00DB709F /* Main.storyboard */,
 				8957A6811DF61CFB00DB709F /* Assets.xcassets */,
 				8957A6831DF61CFB00DB709F /* LaunchScreen.storyboard */,
@@ -270,6 +273,7 @@
 			files = (
 				8957A67D1DF61CFB00DB709F /* ViewController.swift in Sources */,
 				8957A67B1DF61CFB00DB709F /* AppDelegate.swift in Sources */,
+				8925DDE11DFB31DF009A341D /* NameGenerator.swift in Sources */,
 				8957A6AB1DF77BA200DB709F /* ViewControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

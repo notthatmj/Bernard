@@ -15,18 +15,15 @@ protocol ViewControllerDelegateProtocol {
 
 class ViewControllerDelegate : ViewControllerDelegateProtocol {
     
+    var nameGenerator : NameGenerating
     var viewController : ViewControllerProtocol
     
     init(viewController : ViewControllerProtocol) {
         self.viewController = viewController
+        nameGenerator = NameGenerator.init()
     }
     
     func buttonAction() {
-//        viewController.nameText = "Foobar"
-        if viewController.nameText == "Foo" {
-            viewController.nameText = "Bar"
-        } else {
-            viewController.nameText = "Foo"
-        }
+        viewController.nameText = nameGenerator.createName()
     }
 }

@@ -23,12 +23,31 @@ class ViewControllerDelegateTests: XCTestCase {
     }
     
     func testButtonAction() {
+        class FakeNameGenerator : NameGenerating {
+            var count = 0
+            func createName() -> String {
+                var name : String
+                switch count {
+                case 0:
+                    name = "Blammo"
+                case 1:
+                    name = "Kablooie"
+                default:
+                    name = "Spam"
+                }
+                count += 1
+                return name
+            }
+        }
+        // I want to set up a fake nameGenerator
+        SUT.nameGenerator = FakeNameGenerator.init()
         SUT.buttonAction()
-        XCTAssertEqual(fakeViewController.nameText, "Foo")
+        XCTAssertEqual(fakeViewController.nameText, "Blammo")
         SUT.buttonAction()
-        XCTAssertEqual(fakeViewController.nameText, "Bar")
+        XCTAssertEqual(fakeViewController.nameText, "Kablooie")
         SUT.buttonAction()
-        XCTAssertEqual(fakeViewController.nameText, "Foo")
+        XCTAssertEqual(fakeViewController.nameText, "Spam")
+
     }
     
 }
