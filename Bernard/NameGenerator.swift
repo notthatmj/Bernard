@@ -16,17 +16,10 @@ class NameGenerator : NameGenerating {
     var count = 0
     
     func createName() -> String {
-        var name : String
-        switch count {
-        case 0:
-            name = "Blammo"
-        case 1:
-            name = "Kablooie"
-        default:
-            name = "Spam"
-        }
-        count += 1
-        return name
+        let firstValue = Int(arc4random_uniform(20+1))
+        let secondValue = Int(arc4random_uniform(20+1))
+        let thirdValue = Int(arc4random_uniform(20+1))
+        return makeName(fromValues: firstValue, secondValue, thirdValue)
     }
     
     func makeName(fromValues a : Int, _ b: Int, _ c: Int) -> String {
