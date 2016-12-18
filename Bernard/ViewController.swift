@@ -27,7 +27,7 @@ class ViewController: UIViewController, ViewControllerProtocol {
         }
     }
     
-    @IBAction func buttonAction(_ sender: UIButton) {
+    @IBAction func nameButtonAction(_ sender: UIButton) {
         delegate.buttonAction()
     }
     

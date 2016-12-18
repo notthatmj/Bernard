@@ -34,7 +34,7 @@ class ViewControllerTests: XCTestCase {
 
         if let actions = viewController?.nextNameButton?.actions(forTarget: viewController,
                                                          forControlEvent: UIControlEvents.touchUpInside) {
-            XCTAssertEqual(actions, ["buttonAction:"])
+            XCTAssertEqual(actions, ["nameButtonAction:"])
         }
     }
     
@@ -57,7 +57,7 @@ class ViewControllerTests: XCTestCase {
         viewController?.delegate = fakeDelegate
         loadView()
         if let button = viewController?.nextNameButton {
-            viewController?.buttonAction(button)
+            viewController?.nameButtonAction(button)
         }
         XCTAssertTrue(fakeDelegate.buttonActionWasCalled);
     }
