@@ -14,7 +14,7 @@ protocol ViewControllerProtocol {
 
 class ViewController: UIViewController, ViewControllerProtocol {
 
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var nextNameButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     var delegate : ViewControllerDelegateProtocol!
     
