@@ -32,8 +32,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upJ-FL-spR">
-                                <rect key="frame" x="129" y="561" width="117" height="30"/>
-                                <state key="normal" title="Generate a name"/>
+                                <rect key="frame" x="150" y="561" width="76" height="30"/>
+                                <state key="normal" title="Next Name"/>
                                 <connections>
                                     <action selector="nameButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TcP-PA-4DA"/>
                                 </connections>
