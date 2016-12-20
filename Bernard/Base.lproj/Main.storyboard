@@ -39,7 +39,7 @@
                                 <rect key="frame" x="283" y="617" width="76" height="30"/>
                                 <state key="normal" title="Next Name"/>
                                 <connections>
-                                    <action selector="nameButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TcP-PA-4DA"/>
+                                    <action selector="nextNameButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7uB-EN-xCn"/>
                                 </connections>
                             </button>
                         </subviews>
