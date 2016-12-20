@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oie-XR-4N4">
-                                <rect key="frame" x="16" y="261" width="343" height="49"/>
+                                <rect key="frame" x="16" y="317" width="343" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="kDg-zS-9nu"/>
                                 </constraints>
@@ -31,8 +31,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wo3-jQ-sO9">
+                                <rect key="frame" x="16" y="617" width="103" height="30"/>
+                                <state key="normal" title="Previous Name"/>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upJ-FL-spR">
-                                <rect key="frame" x="150" y="561" width="76" height="30"/>
+                                <rect key="frame" x="283" y="617" width="76" height="30"/>
                                 <state key="normal" title="Next Name"/>
                                 <connections>
                                     <action selector="nameButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TcP-PA-4DA"/>
@@ -41,16 +45,19 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="upJ-FL-spR" secondAttribute="bottom" constant="76" id="B2X-Z6-ARi"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wo3-jQ-sO9" secondAttribute="bottom" constant="20" id="30l-9p-WI5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="upJ-FL-spR" secondAttribute="trailing" id="4Hc-0A-1BS"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="wo3-jQ-sO9" secondAttribute="leading" id="PMH-FF-iPV"/>
                             <constraint firstItem="upJ-FL-spR" firstAttribute="top" secondItem="Oie-XR-4N4" secondAttribute="bottom" constant="251" id="Q1A-Mt-Zix"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Oie-XR-4N4" secondAttribute="trailing" id="U2x-la-WOU"/>
-                            <constraint firstItem="upJ-FL-spR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fWS-b4-1eA"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="upJ-FL-spR" secondAttribute="bottom" constant="20" id="eEM-2C-pog"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Oie-XR-4N4" secondAttribute="leading" id="nCm-MY-L27"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="nameLabel" destination="Oie-XR-4N4" id="Ru8-xy-EEI"/>
                         <outlet property="nextNameButton" destination="upJ-FL-spR" id="SbT-LL-oUh"/>
+                        <outlet property="previousNameButton" destination="wo3-jQ-sO9" id="QTb-7c-5z0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

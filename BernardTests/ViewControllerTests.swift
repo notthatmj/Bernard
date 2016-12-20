@@ -31,11 +31,13 @@ class ViewControllerTests: XCTestCase {
         XCTAssertNotNil(viewController?.nextNameButton)
         XCTAssertNotNil(viewController?.nameLabel)
         XCTAssertEqual(viewController?.nameLabel?.text, "")
-
+        
         if let actions = viewController?.nextNameButton?.actions(forTarget: viewController,
                                                          forControlEvent: UIControlEvents.touchUpInside) {
             XCTAssertEqual(actions, ["nameButtonAction:"])
         }
+        
+        XCTAssertNotNil(viewController?.previousNameButton)
     }
     
     func testViewDidLoadInitializesDelegate() {

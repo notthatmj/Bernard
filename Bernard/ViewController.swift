@@ -14,8 +14,10 @@ protocol ViewControllerProtocol {
 
 class ViewController: UIViewController, ViewControllerProtocol {
 
+    @IBOutlet weak var previousNameButton: UIButton!
     @IBOutlet weak var nextNameButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
+    
     var delegate : ViewControllerDelegateProtocol!
     
     var nameText : String? {
