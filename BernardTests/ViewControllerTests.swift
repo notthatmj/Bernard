@@ -50,7 +50,7 @@ class ViewControllerTests: XCTestCase {
         class FakeDelegate:ViewControllerDelegateProtocol {
             var buttonActionWasCalled = false
             
-            func buttonAction() {
+            func nextNameButtonAction() {
                 buttonActionWasCalled = true
             }
         }

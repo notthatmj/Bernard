@@ -10,7 +10,7 @@ import Foundation
 import  UIKit
 
 protocol ViewControllerDelegateProtocol {
-    func buttonAction()
+    func nextNameButtonAction()
 }
 
 class ViewControllerDelegate : ViewControllerDelegateProtocol {
@@ -23,7 +23,7 @@ class ViewControllerDelegate : ViewControllerDelegateProtocol {
         nameGenerator = NameGenerator.init()
     }
     
-    func buttonAction() {
+    func nextNameButtonAction() {
         viewController.nameText = nameGenerator.createName()
     }
 }

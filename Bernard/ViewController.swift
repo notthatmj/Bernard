@@ -30,7 +30,7 @@ class ViewController: UIViewController, ViewControllerProtocol {
     }
     
     @IBAction func nameButtonAction(_ sender: UIButton) {
-        delegate.buttonAction()
+        delegate.nextNameButtonAction()
     }
     
     override func viewDidLoad() {

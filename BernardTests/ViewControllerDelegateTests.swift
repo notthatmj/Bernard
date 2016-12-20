@@ -41,11 +41,11 @@ class ViewControllerDelegateTests: XCTestCase {
         }
         // I want to set up a fake nameGenerator
         SUT.nameGenerator = FakeNameGenerator.init()
-        SUT.buttonAction()
+        SUT.nextNameButtonAction()
         XCTAssertEqual(fakeViewController.nameText, "Blammo")
-        SUT.buttonAction()
+        SUT.nextNameButtonAction()
         XCTAssertEqual(fakeViewController.nameText, "Kablooie")
-        SUT.buttonAction()
+        SUT.nextNameButtonAction()
         XCTAssertEqual(fakeViewController.nameText, "Spam")
 
     }
