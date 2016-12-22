@@ -32,7 +32,11 @@ class ViewController: UIViewController, ViewControllerProtocol {
     @IBAction func nextNameButtonAction(_ sender: UIButton) {
         delegate.nextNameButtonAction()
     }
-    
+
+    @IBAction func previousNameButtonAction(_ sender: UIButton) {
+        delegate.nextNameButtonAction()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if delegate == nil {

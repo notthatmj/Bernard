@@ -25,18 +25,24 @@ class ViewControllerTests: XCTestCase {
     func loadView() {
         _ = viewController?.view
     }
-    
-    func testOutletsAndActions() {
+
+    func checkThatActionName(for button: UIButton?, is name: String) {
+        let actionsOptional = button?.actions(forTarget: viewController,
+                                              forControlEvent: UIControlEvents.touchUpInside)
+        XCTAssertNotNil(actionsOptional)
+        if let actions = actionsOptional {
+            XCTAssertEqual(actions, [name])
+        }
+    }
+
+    func testOutletsAndActionSettings() {
         loadView()
         XCTAssertNotNil(viewController?.nextNameButton)
         XCTAssertNotNil(viewController?.nameLabel)
         XCTAssertEqual(viewController?.nameLabel?.text, "")
         
-        if let actions = viewController?.nextNameButton?.actions(forTarget: viewController,
-                                                         forControlEvent: UIControlEvents.touchUpInside) {
-            XCTAssertEqual(actions, ["nextNameButtonAction:"])
-        }
-        
+        checkThatActionName(for: viewController?.nextNameButton, is: "nextNameButtonAction:")
+        checkThatActionName(for: viewController?.previousNameButton, is: "previousNameButtonAction:")
         XCTAssertNotNil(viewController?.previousNameButton)
     }
     

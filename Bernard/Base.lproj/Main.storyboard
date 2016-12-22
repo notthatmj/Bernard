@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -34,12 +34,15 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wo3-jQ-sO9">
                                 <rect key="frame" x="16" y="617" width="103" height="30"/>
                                 <state key="normal" title="Previous Name"/>
+                                <connections>
+                                    <action selector="previousNameButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ScC-L5-f28"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upJ-FL-spR">
                                 <rect key="frame" x="283" y="617" width="76" height="30"/>
                                 <state key="normal" title="Next Name"/>
                                 <connections>
-                                    <action selector="nextNameButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7uB-EN-xCn"/>
+                                    <action selector="nextNameButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tu5-mu-Hvx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -56,7 +59,7 @@
                     </view>
                     <connections>
                         <outlet property="nameLabel" destination="Oie-XR-4N4" id="Ru8-xy-EEI"/>
-                        <outlet property="nextNameButton" destination="upJ-FL-spR" id="SbT-LL-oUh"/>
+                        <outlet property="nextNameButton" destination="upJ-FL-spR" id="3UT-Fx-xxS"/>
                         <outlet property="previousNameButton" destination="wo3-jQ-sO9" id="QTb-7c-5z0"/>
                     </connections>
                 </viewController>
