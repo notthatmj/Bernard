@@ -19,7 +19,6 @@ class ViewControllerDelegateTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        SUT = ViewControllerDelegate.init(viewController:fakeViewController)
     }
     
     func testButtonAction() {
@@ -39,8 +38,8 @@ class ViewControllerDelegateTests: XCTestCase {
                 return name
             }
         }
+        SUT = ViewControllerDelegate.init(viewController:fakeViewController, nameGenerator: FakeNameGenerator())
         // I want to set up a fake nameGenerator
-        SUT.nameGenerator = FakeNameGenerator.init()
         SUT.nextNameButtonAction()
         XCTAssertEqual(fakeViewController.nameText, "Blammo")
         SUT.nextNameButtonAction()

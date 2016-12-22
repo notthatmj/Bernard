@@ -15,15 +15,24 @@ protocol ViewControllerDelegateProtocol {
 
 class ViewControllerDelegate : ViewControllerDelegateProtocol {
     
-    var nameGenerator : NameGenerating
     var viewController : ViewControllerProtocol
+    var nameDataController : NameDataController
     
-    init(viewController : ViewControllerProtocol) {
+    convenience init(viewController : ViewControllerProtocol) {
+        self.init(viewController: viewController, nameDataController: NameDataController())
+    }
+
+    convenience init(viewController : ViewControllerProtocol, nameGenerator : NameGenerating) {
+        self.init(viewController: viewController,
+                  nameDataController: NameDataController(nameGenerator: nameGenerator))
+    }
+
+    init(viewController : ViewControllerProtocol, nameDataController : NameDataController) {
         self.viewController = viewController
-        nameGenerator = NameGenerator.init()
+        self.nameDataController = nameDataController
     }
     
     func nextNameButtonAction() {
-        viewController.nameText = nameGenerator.createName()
+        viewController.nameText = nameDataController.createName()
     }
 }

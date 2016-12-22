@@ -18,6 +18,8 @@
 		8957A69B1DF61CFB00DB709F /* BernardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A69A1DF61CFB00DB709F /* BernardUITests.swift */; };
 		8957A6A91DF777C100DB709F /* ViewControllerDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A6A81DF777C100DB709F /* ViewControllerDelegateTests.swift */; };
 		8957A6AB1DF77BA200DB709F /* ViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A6AA1DF77BA200DB709F /* ViewControllerDelegate.swift */; };
+		896FD8C81E09956B00247FCB /* NameDataControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896FD8C71E09956B00247FCB /* NameDataControllerTests.swift */; };
+		896FD8CA1E09961200247FCB /* NameDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896FD8C91E09961200247FCB /* NameDataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		8957A69C1DF61CFB00DB709F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8957A6A81DF777C100DB709F /* ViewControllerDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegateTests.swift; sourceTree = "<group>"; };
 		8957A6AA1DF77BA200DB709F /* ViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegate.swift; sourceTree = "<group>"; };
+		896FD8C71E09956B00247FCB /* NameDataControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameDataControllerTests.swift; sourceTree = "<group>"; };
+		896FD8C91E09961200247FCB /* NameDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameDataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				8957A67A1DF61CFB00DB709F /* AppDelegate.swift */,
+				896FD8C91E09961200247FCB /* NameDataController.swift */,
 				8957A67C1DF61CFB00DB709F /* ViewController.swift */,
 				8957A6AA1DF77BA200DB709F /* ViewControllerDelegate.swift */,
 				8925DDE01DFB31DF009A341D /* NameGenerator.swift */,
@@ -121,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				8957A68F1DF61CFB00DB709F /* ViewControllerTests.swift */,
+				896FD8C71E09956B00247FCB /* NameDataControllerTests.swift */,
 				8957A6A81DF777C100DB709F /* ViewControllerDelegateTests.swift */,
 				8911747F1DFB61B400878305 /* NameGeneratorTests.swift */,
 				8957A6911DF61CFB00DB709F /* Info.plist */,
@@ -276,6 +282,7 @@
 			files = (
 				8957A67D1DF61CFB00DB709F /* ViewController.swift in Sources */,
 				8957A67B1DF61CFB00DB709F /* AppDelegate.swift in Sources */,
+				896FD8CA1E09961200247FCB /* NameDataController.swift in Sources */,
 				8925DDE11DFB31DF009A341D /* NameGenerator.swift in Sources */,
 				8957A6AB1DF77BA200DB709F /* ViewControllerDelegate.swift in Sources */,
 			);
@@ -287,6 +294,7 @@
 			files = (
 				891174801DFB61B400878305 /* NameGeneratorTests.swift in Sources */,
 				8957A6901DF61CFB00DB709F /* ViewControllerTests.swift in Sources */,
+				896FD8C81E09956B00247FCB /* NameDataControllerTests.swift in Sources */,
 				8957A6A91DF777C100DB709F /* ViewControllerDelegateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
