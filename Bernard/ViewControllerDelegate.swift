@@ -11,6 +11,7 @@ import  UIKit
 
 protocol ViewControllerDelegateProtocol {
     func nextNameButtonAction()
+    func previousNameButtonAction()
 }
 
 class ViewControllerDelegate : ViewControllerDelegateProtocol {

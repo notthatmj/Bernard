@@ -34,7 +34,7 @@ class ViewController: UIViewController, ViewControllerProtocol {
     }
 
     @IBAction func previousNameButtonAction(_ sender: UIButton) {
-        delegate.nextNameButtonAction()
+        delegate.previousNameButtonAction()
     }
 
     override func viewDidLoad() {

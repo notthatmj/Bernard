@@ -59,6 +59,11 @@ class ViewControllerTests: XCTestCase {
             func nextNameButtonAction() {
                 buttonActionWasCalled = true
             }
+            
+            func previousNameButtonAction() {
+                buttonActionWasCalled = true
+            }
+
         }
 
         let fakeDelegate = FakeDelegate.init()
@@ -69,7 +74,32 @@ class ViewControllerTests: XCTestCase {
         }
         XCTAssertTrue(fakeDelegate.buttonActionWasCalled);
     }
-    
+
+    func testPreviousNameButtonAction() {
+        
+        class FakeDelegate:ViewControllerDelegateProtocol {
+            var nextNameButtonActionWasCalled = false
+            var previousNameButtonActionWasCalled = false
+            
+            func nextNameButtonAction() {
+                nextNameButtonActionWasCalled = true
+            }
+            
+            func previousNameButtonAction() {
+                previousNameButtonActionWasCalled = true
+            }
+
+        }
+        
+        let fakeDelegate = FakeDelegate.init()
+        viewController?.delegate = fakeDelegate
+        loadView()
+        if let button = viewController?.previousNameButton {
+            viewController?.previousNameButtonAction(button)
+        }
+        XCTAssertTrue(fakeDelegate.previousNameButtonActionWasCalled);
+    }
+
     func testNameText() {
         XCTAssertEqual(viewController?.nameText,nil)
         loadView()
