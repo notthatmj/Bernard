@@ -38,6 +38,6 @@ class ViewControllerDelegate : ViewControllerDelegateProtocol {
     }
     
     func previousNameButtonAction() {
-        
+        viewController.nameText = nameDataController.previousName()
     }
 }

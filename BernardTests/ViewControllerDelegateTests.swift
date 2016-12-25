@@ -59,6 +59,8 @@ class ViewControllerDelegateTests: XCTestCase {
         XCTAssertEqual(fakeViewController.nameText, "Blammo")
         SUT.nextNameButtonAction()
         XCTAssertEqual(fakeViewController.nameText, "Kablooie")
+        SUT.previousNameButtonAction()
+        XCTAssertEqual(fakeViewController.nameText, "Blammo")
         SUT.nextNameButtonAction()
         XCTAssertEqual(fakeViewController.nameText, "Spam")
     }
