@@ -21,7 +21,7 @@ class ViewControllerDelegateTests: XCTestCase {
         super.setUp()
     }
     
-    func testButtonAction() {
+    func testNextNameButtonAction() {
         class FakeNameGenerator : NameGenerating {
             var count = 0
             func createName() -> String {
