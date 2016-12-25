@@ -18,7 +18,7 @@ class NameDataController {
     init(nameGenerator : NameGenerating) {
         self.nameGenerator = nameGenerator
     }
-    func createName() -> String {
+    func nextName() -> String {
         return nameGenerator.createName()
     }
 }

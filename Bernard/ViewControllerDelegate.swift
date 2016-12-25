@@ -33,6 +33,6 @@ class ViewControllerDelegate : ViewControllerDelegateProtocol {
     }
     
     func nextNameButtonAction() {
-        viewController.nameText = nameDataController.createName()
+        viewController.nameText = nameDataController.nextName()
     }
 }
