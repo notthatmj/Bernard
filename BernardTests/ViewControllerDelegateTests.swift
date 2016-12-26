@@ -50,19 +50,16 @@ class ViewControllerDelegateTests: XCTestCase {
     }
 
     func testPreviousNameButtonAction() {
-        SUT = ViewControllerDelegate.init(viewController:fakeViewController, nameGenerator: FakeNameGenerator())
-        // I want to set up a fake nameGenerator
+        SUT = ViewControllerDelegate(viewController:fakeViewController, nameGenerator: FakeNameGenerator())
+        SUT.previousNameButtonAction()
         XCTAssertEqual(fakeViewController.nameText, nil)
         SUT.nextNameButtonAction()
-        XCTAssertEqual(fakeViewController.nameText, "Blammo")
-        SUT.previousNameButtonAction()
-        XCTAssertEqual(fakeViewController.nameText, "Blammo")
         SUT.nextNameButtonAction()
+        SUT.nextNameButtonAction()
+        SUT.previousNameButtonAction()
         XCTAssertEqual(fakeViewController.nameText, "Kablooie")
         SUT.previousNameButtonAction()
         XCTAssertEqual(fakeViewController.nameText, "Blammo")
-        SUT.nextNameButtonAction()
-        XCTAssertEqual(fakeViewController.nameText, "Spam")
     }
-    
+
 }
