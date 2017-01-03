@@ -1,5 +1,5 @@
 //
-//  NameDataControllerTests.swift
+//  NamesModelTests.swift
 //  Bernard
 //
 //  Created by Michael Johnson on 12/20/16.
@@ -9,10 +9,10 @@
 import XCTest
 @testable import Bernard
 
-class NameDataControllerTests: XCTestCase {
+class NamesModelTests: XCTestCase {
     
-    func testNameDataController() {
+    func testNamesModel() {
         
-        _ = NameDataController()
+        _ = NamesModel()
     }
 }

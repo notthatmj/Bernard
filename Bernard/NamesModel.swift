@@ -1,5 +1,5 @@
 //
-//  NameDataController.swift
+//  NamesModel.swift
 //  Bernard
 //
 //  Created by Michael Johnson on 12/20/16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NameDataController {
+class NamesModel {
     private var nameGenerator : NameGenerating
     private var namesHistory : [String]
     private var currentNameIndex : Int?

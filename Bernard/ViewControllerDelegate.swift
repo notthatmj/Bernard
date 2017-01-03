@@ -17,27 +17,27 @@ protocol ViewControllerDelegateProtocol {
 class ViewControllerDelegate : ViewControllerDelegateProtocol {
     
     var viewController : ViewControllerProtocol
-    var nameDataController : NameDataController
+    var namesModel : NamesModel
     
     convenience init(viewController : ViewControllerProtocol) {
-        self.init(viewController: viewController, nameDataController: NameDataController())
+        self.init(viewController: viewController, namesModel: NamesModel())
     }
 
     convenience init(viewController : ViewControllerProtocol, nameGenerator : NameGenerating) {
         self.init(viewController: viewController,
-                  nameDataController: NameDataController(nameGenerator: nameGenerator))
+                  namesModel: NamesModel(nameGenerator: nameGenerator))
     }
 
-    init(viewController : ViewControllerProtocol, nameDataController : NameDataController) {
+    init(viewController : ViewControllerProtocol, namesModel : NamesModel) {
         self.viewController = viewController
-        self.nameDataController = nameDataController
+        self.namesModel = namesModel
     }
     
     func nextNameButtonAction() {
-        viewController.nameText = nameDataController.nextName()
+        viewController.nameText = namesModel.nextName()
     }
     
     func previousNameButtonAction() {
-        viewController.nameText = nameDataController.previousName()
+        viewController.nameText = namesModel.previousName()
     }
 }
