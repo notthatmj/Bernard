@@ -13,6 +13,7 @@ class ViewControllerDelegateTests: XCTestCase {
     
     class FakeViewController : ViewControllerProtocol {
         var nameText : String? = nil
+        var favoriteToggleIsOn: Bool! = false
     }
     var fakeViewController = FakeViewController.init()
     var SUT : ViewControllerDelegate!
@@ -36,11 +37,10 @@ class ViewControllerDelegateTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
+        SUT = ViewControllerDelegate.init(viewController:fakeViewController, nameGenerator: FakeNameGenerator())
     }
     
     func testNextNameButtonAction() {
-        SUT = ViewControllerDelegate.init(viewController:fakeViewController, nameGenerator: FakeNameGenerator())
-        // I want to set up a fake nameGenerator
         SUT.nextNameButtonAction()
         XCTAssertEqual(fakeViewController.nameText, "Blammo")
         SUT.nextNameButtonAction()
@@ -49,8 +49,50 @@ class ViewControllerDelegateTests: XCTestCase {
         XCTAssertEqual(fakeViewController.nameText, "Spam")
     }
 
+    func testNextNameButtonAction2() {
+        XCTAssertEqual(fakeViewController.favoriteToggleIsOn, false)
+        fakeViewController.favoriteToggleIsOn = true
+        SUT.nextNameButtonAction()
+        XCTAssertEqual(fakeViewController.favoriteToggleIsOn, false)
+    }
+    
+    func testThatFavoritesAreRemembered() {
+        XCTAssertFalse(fakeViewController.favoriteToggleIsOn)
+        SUT.nextNameButtonAction()
+
+        // First name
+        XCTAssertFalse(fakeViewController.favoriteToggleIsOn)
+        fakeViewController.favoriteToggleIsOn = true
+        SUT.favoriteToggleWasUpdatedAction()
+        SUT.nextNameButtonAction()
+        
+        // Second name
+        XCTAssertFalse(fakeViewController.favoriteToggleIsOn)
+        SUT.nextNameButtonAction()
+        
+        // Third name
+        XCTAssertFalse(fakeViewController.favoriteToggleIsOn)
+        fakeViewController.favoriteToggleIsOn = true
+        SUT.favoriteToggleWasUpdatedAction()
+        SUT.previousNameButtonAction()
+        
+        // Second name
+        XCTAssertFalse(fakeViewController.favoriteToggleIsOn)
+        SUT.previousNameButtonAction()
+        
+        // First name
+        XCTAssertTrue(fakeViewController.favoriteToggleIsOn)
+        SUT.nextNameButtonAction()
+        
+        // Second name
+        XCTAssertFalse(fakeViewController.favoriteToggleIsOn)
+        SUT.nextNameButtonAction()
+
+        // Third name
+        XCTAssertTrue(fakeViewController.favoriteToggleIsOn)
+    }
+
     func testPreviousNameButtonAction() {
-        SUT = ViewControllerDelegate(viewController:fakeViewController, nameGenerator: FakeNameGenerator())
         SUT.previousNameButtonAction()
         XCTAssertEqual(fakeViewController.nameText, nil)
         SUT.nextNameButtonAction()

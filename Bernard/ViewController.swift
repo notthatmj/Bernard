@@ -10,6 +10,7 @@ import UIKit
 
 protocol ViewControllerProtocol {
     var nameText : String? {get set}
+    var favoriteToggleIsOn : Bool! {get set}
 }
 
 class ViewController: UIViewController, ViewControllerProtocol {
@@ -17,6 +18,7 @@ class ViewController: UIViewController, ViewControllerProtocol {
     @IBOutlet weak var previousNameButton: UIButton!
     @IBOutlet weak var nextNameButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var favoriteToggle: UISwitch!
     
     var delegate : ViewControllerDelegateProtocol!
     
@@ -29,6 +31,15 @@ class ViewController: UIViewController, ViewControllerProtocol {
         }
     }
     
+    var favoriteToggleIsOn : Bool! {
+        get {
+            return favoriteToggle.isOn
+        }
+        set {
+            favoriteToggle.setOn(newValue, animated: true)
+        }
+    }
+    
     @IBAction func nextNameButtonAction(_ sender: UIButton) {
         delegate.nextNameButtonAction()
     }
@@ -37,6 +48,9 @@ class ViewController: UIViewController, ViewControllerProtocol {
         delegate.previousNameButtonAction()
     }
 
+    @IBAction func favoriteToggleWasUpdatedAction(_ sender: UISwitch) {
+        delegate.favoriteToggleWasUpdatedAction()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         if delegate == nil {

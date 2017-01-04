@@ -12,6 +12,7 @@ import  UIKit
 protocol ViewControllerDelegateProtocol {
     func nextNameButtonAction()
     func previousNameButtonAction()
+    func favoriteToggleWasUpdatedAction()
 }
 
 class ViewControllerDelegate : ViewControllerDelegateProtocol {
@@ -35,9 +36,15 @@ class ViewControllerDelegate : ViewControllerDelegateProtocol {
     
     func nextNameButtonAction() {
         viewController.nameText = namesModel.nextName()
+        viewController.favoriteToggleIsOn = namesModel.currentNameIsFavorite
     }
     
     func previousNameButtonAction() {
         viewController.nameText = namesModel.previousName()
+        viewController.favoriteToggleIsOn = namesModel.currentNameIsFavorite
+    }
+    
+    func favoriteToggleWasUpdatedAction() {
+        namesModel.currentNameIsFavorite = viewController.favoriteToggleIsOn
     }
 }

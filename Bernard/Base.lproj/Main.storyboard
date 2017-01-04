@@ -45,6 +45,18 @@
                                     <action selector="nextNameButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tu5-mu-Hvx"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4qy-C7-9er">
+                                <rect key="frame" x="310" y="374" width="51" height="31"/>
+                                <connections>
+                                    <action selector="favoriteToggleWasUpdatedAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="xXK-x3-i0Y"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJe-h5-1Kr">
+                                <rect key="frame" x="236" y="379" width="66" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -52,12 +64,17 @@
                             <constraint firstAttribute="trailingMargin" secondItem="upJ-FL-spR" secondAttribute="trailing" id="4Hc-0A-1BS"/>
                             <constraint firstAttribute="leadingMargin" secondItem="wo3-jQ-sO9" secondAttribute="leading" id="PMH-FF-iPV"/>
                             <constraint firstItem="upJ-FL-spR" firstAttribute="top" secondItem="Oie-XR-4N4" secondAttribute="bottom" constant="251" id="Q1A-Mt-Zix"/>
+                            <constraint firstItem="XJe-h5-1Kr" firstAttribute="centerY" secondItem="4qy-C7-9er" secondAttribute="centerY" id="RKF-lO-ju3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4qy-C7-9er" secondAttribute="trailing" id="S9Q-hY-uln"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Oie-XR-4N4" secondAttribute="trailing" id="U2x-la-WOU"/>
+                            <constraint firstItem="4qy-C7-9er" firstAttribute="leading" secondItem="XJe-h5-1Kr" secondAttribute="trailing" constant="8" id="bik-IX-LQC"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="upJ-FL-spR" secondAttribute="bottom" constant="20" id="eEM-2C-pog"/>
+                            <constraint firstItem="4qy-C7-9er" firstAttribute="top" secondItem="Oie-XR-4N4" secondAttribute="bottom" constant="8" id="g36-bK-qRr"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Oie-XR-4N4" secondAttribute="leading" id="nCm-MY-L27"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="favoriteToggle" destination="4qy-C7-9er" id="PBt-59-Kf8"/>
                         <outlet property="nameLabel" destination="Oie-XR-4N4" id="Ru8-xy-EEI"/>
                         <outlet property="nextNameButton" destination="upJ-FL-spR" id="3UT-Fx-xxS"/>
                         <outlet property="previousNameButton" destination="wo3-jQ-sO9" id="QTb-7c-5z0"/>

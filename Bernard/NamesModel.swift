@@ -11,9 +11,19 @@ import Foundation
 class NamesModel {
     private var nameGenerator : NameGenerating
     private var namesHistory : [String]
+    private var favesHistory : [Bool]
     private var currentNameIndex : Int?
     private var currentName : String? {
         get { return currentNameIndex == nil ? nil : namesHistory[currentNameIndex!] }
+    }
+    
+    var currentNameIsFavorite : Bool {
+        get { return currentNameIndex == nil ? false : favesHistory[currentNameIndex!] }
+        set {
+            if currentNameIndex != nil {
+                favesHistory[currentNameIndex!] = newValue
+            }
+        }
     }
     
     convenience init() {
@@ -24,6 +34,7 @@ class NamesModel {
     init(nameGenerator : NameGenerating) {
         self.nameGenerator = nameGenerator
         self.namesHistory = [String]()
+        self.favesHistory = [Bool]()
     }
     
     func nextName() -> String {
@@ -33,6 +44,7 @@ class NamesModel {
             currentNameIndex! += 1
         }
         namesHistory.append(nameGenerator.createName())
+        favesHistory.append(false)
         return currentName!
     }
 

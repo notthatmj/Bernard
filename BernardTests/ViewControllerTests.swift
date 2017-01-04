@@ -40,10 +40,16 @@ class ViewControllerTests: XCTestCase {
         XCTAssertNotNil(viewController?.nextNameButton)
         XCTAssertNotNil(viewController?.nameLabel)
         XCTAssertEqual(viewController?.nameLabel?.text, "")
-        
+        XCTAssertNotNil(viewController?.favoriteToggle)
         checkThatActionName(for: viewController?.nextNameButton, is: "nextNameButtonAction:")
         checkThatActionName(for: viewController?.previousNameButton, is: "previousNameButtonAction:")
         XCTAssertNotNil(viewController?.previousNameButton)
+        
+        let actionsOptional = viewController?.favoriteToggle?.actions(forTarget: viewController, forControlEvent: UIControlEvents.valueChanged)
+        XCTAssertNotNil(actionsOptional)
+        if let actions = actionsOptional {
+            XCTAssertEqual(actions, ["favoriteToggleWasUpdatedAction:"])
+        }
     }
     
     func testViewDidLoadInitializesDelegate() {
@@ -63,6 +69,8 @@ class ViewControllerTests: XCTestCase {
             func previousNameButtonAction() {
                 buttonActionWasCalled = true
             }
+            
+            func favoriteToggleWasUpdatedAction() {}
 
         }
 
@@ -88,6 +96,7 @@ class ViewControllerTests: XCTestCase {
             func previousNameButtonAction() {
                 previousNameButtonActionWasCalled = true
             }
+            func favoriteToggleWasUpdatedAction() {}
 
         }
         
@@ -100,6 +109,37 @@ class ViewControllerTests: XCTestCase {
         XCTAssertTrue(fakeDelegate.previousNameButtonActionWasCalled);
     }
 
+    func testFavoriteToggleWasUpdatedAction() {
+        
+        class FakeDelegate:ViewControllerDelegateProtocol {
+            var nextNameButtonActionWasCalled = false
+            var previousNameButtonActionWasCalled = false
+            var favoriteToggleWasUpdatedActionWasCalled = false
+            
+            func nextNameButtonAction() {
+                nextNameButtonActionWasCalled = true
+            }
+            
+            func previousNameButtonAction() {
+                previousNameButtonActionWasCalled = true
+            }
+            
+            func favoriteToggleWasUpdatedAction() {
+                favoriteToggleWasUpdatedActionWasCalled = true
+            }
+            
+        }
+        
+        let fakeDelegate = FakeDelegate.init()
+        viewController?.delegate = fakeDelegate
+        loadView()
+        if let favoriteToggle = viewController?.favoriteToggle {
+            viewController?.favoriteToggleWasUpdatedAction(favoriteToggle)
+        }
+        XCTAssertTrue(fakeDelegate.favoriteToggleWasUpdatedActionWasCalled)
+    }
+
+    
     func testNameText() {
         XCTAssertEqual(viewController?.nameText,nil)
         loadView()
@@ -109,4 +149,30 @@ class ViewControllerTests: XCTestCase {
         XCTAssertEqual(viewController?.nameText, testText)
         XCTAssertEqual(viewController?.nameLabel.text, testText)
     }
+    
+    func testFavoriteToggle() {
+        loadView()
+        if let isOn = viewController?.favoriteToggle?.isOn {
+            XCTAssertFalse(isOn)
+        } else {
+            XCTFail("`viewController?.favoriteToggle?.isOn` was `nil`")
+        }
+    }
+    
+    func testGetFavoriteToggleIsOn() {
+        loadView()
+        viewController?.favoriteToggle?.isOn = false
+        XCTAssertEqual(viewController?.favoriteToggleIsOn, false)
+        viewController?.favoriteToggle?.isOn = true
+        XCTAssertEqual(viewController?.favoriteToggleIsOn, true)
+    }
+
+    func testSetFavoriteToggleIsOn() {
+        loadView()
+        viewController?.favoriteToggleIsOn = false
+        XCTAssertEqual(viewController?.favoriteToggle?.isOn, false)
+        viewController?.favoriteToggleIsOn = true
+        XCTAssertEqual(viewController?.favoriteToggle?.isOn, true)
+    }
+    
 }
