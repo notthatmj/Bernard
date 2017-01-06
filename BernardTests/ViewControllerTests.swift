@@ -9,7 +9,7 @@
 import XCTest
 @testable import Bernard
 
-class FakeDelegate:ViewControllerDelegateProtocol {
+class FakeController:ControllerProtocol {
     
     var nextNameButtonActionWasCalled = false
     var previousNameButtonActionWasCalled = false
@@ -32,16 +32,16 @@ class FakeDelegate:ViewControllerDelegateProtocol {
 class ViewControllerTests: XCTestCase {
     
     var viewController : ViewController?
-    var fakeDelegate : FakeDelegate!
+    var fakeController : FakeController!
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         viewController = storyboard.instantiateInitialViewController() as? ViewController
-        fakeDelegate = FakeDelegate.init()
+        fakeController = FakeController.init()
         XCTAssertNotNil(viewController)
-        viewController?.delegate = fakeDelegate
+        viewController?.controller = fakeController
     }
 
     func loadView() {
@@ -84,7 +84,7 @@ class ViewControllerTests: XCTestCase {
     func testViewDidLoadInitializesDelegate() {
         loadView()
         
-        XCTAssertNotNil(viewController?.delegate)
+        XCTAssertNotNil(viewController?.controller)
     }
     
     func testNextNameButtonAction() {
@@ -92,7 +92,7 @@ class ViewControllerTests: XCTestCase {
         if let button = viewController?.nextNameButton {
             viewController?.nextNameButtonAction(button)
         }
-        XCTAssertTrue(fakeDelegate.nextNameButtonActionWasCalled);
+        XCTAssertTrue(fakeController.nextNameButtonActionWasCalled);
     }
 
     func testPreviousNameButtonAction() {
@@ -100,7 +100,7 @@ class ViewControllerTests: XCTestCase {
         if let button = viewController?.previousNameButton {
             viewController?.previousNameButtonAction(button)
         }
-        XCTAssertTrue(fakeDelegate.previousNameButtonActionWasCalled);
+        XCTAssertTrue(fakeController.previousNameButtonActionWasCalled);
     }
 
     func testFavoriteToggleWasUpdatedAction() {
@@ -108,7 +108,7 @@ class ViewControllerTests: XCTestCase {
         if let favoriteToggle = viewController?.favoriteToggle {
             viewController?.favoriteToggleWasUpdatedAction(favoriteToggle)
         }
-        XCTAssertTrue(fakeDelegate.favoriteToggleWasUpdatedActionWasCalled)
+        XCTAssertTrue(fakeController.favoriteToggleWasUpdatedActionWasCalled)
     }
 
     

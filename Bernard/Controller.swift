@@ -9,13 +9,13 @@
 import Foundation
 import  UIKit
 
-protocol ViewControllerDelegateProtocol {
+protocol ControllerProtocol {
     func nextNameButtonAction()
     func previousNameButtonAction()
     func favoriteToggleWasUpdatedAction()
 }
 
-class ViewControllerDelegate : ViewControllerDelegateProtocol {
+class Controller : ControllerProtocol {
     
     var viewController : ViewControllerProtocol
     var namesModel : NamesModel

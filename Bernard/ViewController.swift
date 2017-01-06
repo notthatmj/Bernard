@@ -20,7 +20,7 @@ class ViewController: UIViewController, ViewControllerProtocol {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var favoriteToggle: UISwitch!
     
-    var delegate : ViewControllerDelegateProtocol!
+    var controller : ControllerProtocol!
     
     var nameText : String? {
         get {
@@ -41,20 +41,20 @@ class ViewController: UIViewController, ViewControllerProtocol {
     }
     
     @IBAction func nextNameButtonAction(_ sender: UIButton) {
-        delegate.nextNameButtonAction()
+        controller.nextNameButtonAction()
     }
 
     @IBAction func previousNameButtonAction(_ sender: UIButton) {
-        delegate.previousNameButtonAction()
+        controller.previousNameButtonAction()
     }
 
     @IBAction func favoriteToggleWasUpdatedAction(_ sender: UISwitch) {
-        delegate.favoriteToggleWasUpdatedAction()
+        controller.favoriteToggleWasUpdatedAction()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        if delegate == nil {
-            delegate = ViewControllerDelegate.init(viewController:self)
+        if controller == nil {
+            controller = Controller.init(viewController:self)
         }
     }
 

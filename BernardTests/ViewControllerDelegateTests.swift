@@ -16,7 +16,7 @@ class ViewControllerDelegateTests: XCTestCase {
         var favoriteToggleIsOn: Bool = false
     }
     var fakeViewController = FakeViewController.init()
-    var SUT : ViewControllerDelegate!
+    var SUT : Controller!
 
     class FakeNameGenerator : NameGenerating {
         var count = 0
@@ -37,7 +37,7 @@ class ViewControllerDelegateTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        SUT = ViewControllerDelegate.init(viewController:fakeViewController, nameGenerator: FakeNameGenerator())
+        SUT = Controller.init(viewController:fakeViewController, nameGenerator: FakeNameGenerator())
     }
     
     func testNextNameButtonAction() {
