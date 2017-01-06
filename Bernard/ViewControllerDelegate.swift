@@ -36,15 +36,15 @@ class ViewControllerDelegate : ViewControllerDelegateProtocol {
     
     func nextNameButtonAction() {
         viewController.nameText = namesModel.nextName()
-        viewController.favoriteToggleIsOn = namesModel.currentNameIsFavorite
+        viewController.favoriteToggleIsOn = namesModel.currentNameIsFavorited
     }
     
     func previousNameButtonAction() {
         viewController.nameText = namesModel.previousName()
-        viewController.favoriteToggleIsOn = namesModel.currentNameIsFavorite
+        viewController.favoriteToggleIsOn = namesModel.currentNameIsFavorited
     }
     
     func favoriteToggleWasUpdatedAction() {
-        namesModel.currentNameIsFavorite = viewController.favoriteToggleIsOn
+        namesModel.currentNameIsFavorited = viewController.favoriteToggleIsOn
     }
 }

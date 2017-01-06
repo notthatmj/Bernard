@@ -49,13 +49,6 @@ class ViewControllerDelegateTests: XCTestCase {
         XCTAssertEqual(fakeViewController.nameText, "Spam")
     }
 
-    func testNextNameButtonAction2() {
-        XCTAssertEqual(fakeViewController.favoriteToggleIsOn, false)
-        fakeViewController.favoriteToggleIsOn = true
-        SUT.nextNameButtonAction()
-        XCTAssertEqual(fakeViewController.favoriteToggleIsOn, false)
-    }
-    
     func testThatFavoritesAreRemembered() {
         XCTAssertFalse(fakeViewController.favoriteToggleIsOn)
         SUT.nextNameButtonAction()

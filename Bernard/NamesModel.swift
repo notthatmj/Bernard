@@ -8,20 +8,25 @@
 
 import Foundation
 
+struct Name {
+    var name : String
+    var isFavorited : Bool
+}
+
 class NamesModel {
     private var nameGenerator : NameGenerating
-    private var namesHistory : [String]
-    private var favesHistory : [Bool]
+    private var namesHistory : [Name]
     private var currentNameIndex : Int?
+
     private var currentName : String? {
-        get { return currentNameIndex == nil ? nil : namesHistory[currentNameIndex!] }
+        get { return currentNameIndex == nil ? nil : namesHistory[currentNameIndex!].name }
     }
     
-    var currentNameIsFavorite : Bool {
-        get { return currentNameIndex == nil ? false : favesHistory[currentNameIndex!] }
+    var currentNameIsFavorited : Bool {
+        get { return currentNameIndex == nil ? false : namesHistory[currentNameIndex!].isFavorited }
         set {
             if currentNameIndex != nil {
-                favesHistory[currentNameIndex!] = newValue
+                namesHistory[currentNameIndex!].isFavorited = newValue
             }
         }
     }
@@ -33,8 +38,7 @@ class NamesModel {
     
     init(nameGenerator : NameGenerating) {
         self.nameGenerator = nameGenerator
-        self.namesHistory = [String]()
-        self.favesHistory = [Bool]()
+        namesHistory = [Name]()
     }
     
     func nextName() -> String {
@@ -43,8 +47,9 @@ class NamesModel {
         } else {
             currentNameIndex! += 1
         }
-        namesHistory.append(nameGenerator.createName())
-        favesHistory.append(false)
+        let createdName = nameGenerator.createName()
+        let name = Name(name: createdName, isFavorited: false)
+        namesHistory.append(name)
         return currentName!
     }
 

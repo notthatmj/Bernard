@@ -18,7 +18,6 @@
 		8957A69B1DF61CFB00DB709F /* BernardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A69A1DF61CFB00DB709F /* BernardUITests.swift */; };
 		8957A6A91DF777C100DB709F /* ViewControllerDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A6A81DF777C100DB709F /* ViewControllerDelegateTests.swift */; };
 		8957A6AB1DF77BA200DB709F /* ViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A6AA1DF77BA200DB709F /* ViewControllerDelegate.swift */; };
-		896FD8C81E09956B00247FCB /* NamesModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896FD8C71E09956B00247FCB /* NamesModelTests.swift */; };
 		896FD8CA1E09961200247FCB /* NamesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896FD8C91E09961200247FCB /* NamesModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +56,6 @@
 		8957A69C1DF61CFB00DB709F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8957A6A81DF777C100DB709F /* ViewControllerDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegateTests.swift; sourceTree = "<group>"; };
 		8957A6AA1DF77BA200DB709F /* ViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegate.swift; sourceTree = "<group>"; };
-		896FD8C71E09956B00247FCB /* NamesModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamesModelTests.swift; sourceTree = "<group>"; };
 		896FD8C91E09961200247FCB /* NamesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamesModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				8957A68F1DF61CFB00DB709F /* ViewControllerTests.swift */,
-				896FD8C71E09956B00247FCB /* NamesModelTests.swift */,
 				8957A6A81DF777C100DB709F /* ViewControllerDelegateTests.swift */,
 				8911747F1DFB61B400878305 /* NameGeneratorTests.swift */,
 				8957A6911DF61CFB00DB709F /* Info.plist */,
@@ -294,7 +291,6 @@
 			files = (
 				891174801DFB61B400878305 /* NameGeneratorTests.swift in Sources */,
 				8957A6901DF61CFB00DB709F /* ViewControllerTests.swift in Sources */,
-				896FD8C81E09956B00247FCB /* NamesModelTests.swift in Sources */,
 				8957A6A91DF777C100DB709F /* ViewControllerDelegateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
