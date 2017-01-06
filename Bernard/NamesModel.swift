@@ -9,7 +9,7 @@
 import Foundation
 
 struct Name {
-    var name : String
+    let name : String
     var isFavorited : Bool
 }
 

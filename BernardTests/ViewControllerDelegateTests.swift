@@ -13,7 +13,7 @@ class ViewControllerDelegateTests: XCTestCase {
     
     class FakeViewController : ViewControllerProtocol {
         var nameText : String? = nil
-        var favoriteToggleIsOn: Bool! = false
+        var favoriteToggleIsOn: Bool = false
     }
     var fakeViewController = FakeViewController.init()
     var SUT : ViewControllerDelegate!

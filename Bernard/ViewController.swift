@@ -10,7 +10,7 @@ import UIKit
 
 protocol ViewControllerProtocol {
     var nameText : String? {get set}
-    var favoriteToggleIsOn : Bool! {get set}
+    var favoriteToggleIsOn : Bool {get set}
 }
 
 class ViewController: UIViewController, ViewControllerProtocol {
@@ -31,7 +31,7 @@ class ViewController: UIViewController, ViewControllerProtocol {
         }
     }
     
-    var favoriteToggleIsOn : Bool! {
+    var favoriteToggleIsOn : Bool {
         get {
             return favoriteToggle.isOn
         }
