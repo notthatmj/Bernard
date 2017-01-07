@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Names-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Bernard" customModuleProvider="target" sceneMemberID="viewController">
@@ -73,7 +73,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="Oie-XR-4N4" secondAttribute="leading" id="nCm-MY-L27"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="uOF-uy-CZ3"/>
+                    <tabBarItem key="tabBarItem" title="Names" id="uOF-uy-CZ3"/>
                     <connections>
                         <outlet property="favoriteToggle" destination="4qy-C7-9er" id="PBt-59-Kf8"/>
                         <outlet property="nameLabel" destination="Oie-XR-4N4" id="Ru8-xy-EEI"/>
@@ -85,7 +85,7 @@
             </objects>
             <point key="canvasLocation" x="1014" y="-342"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="XiH-0q-a9O">
             <objects>
                 <viewController id="TwQ-w0-1zh" sceneMemberID="viewController">
@@ -98,7 +98,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="myK-d3-pAs"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="myK-d3-pAs"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zhZ-Ip-ijC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
