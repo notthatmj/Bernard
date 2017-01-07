@@ -83,7 +83,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="972" y="37.331334332833585"/>
+            <point key="canvasLocation" x="1014" y="-342"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="XiH-0q-a9O">
+            <objects>
+                <viewController id="TwQ-w0-1zh" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xDB-fk-tH0"/>
+                        <viewControllerLayoutGuide type="bottom" id="UeR-Ao-tj3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="etA-RI-jgl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="myK-d3-pAs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zhZ-Ip-ijC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1014" y="387"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qZQ-0F-SrF">
@@ -97,6 +116,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="hDK-x1-Ggk"/>
+                        <segue destination="TwQ-w0-1zh" kind="relationship" relationship="viewControllers" id="PlM-yd-HdU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovz-Ss-jAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
