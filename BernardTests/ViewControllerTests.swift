@@ -38,7 +38,7 @@ class ViewControllerTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-        viewController = storyboard.instantiateInitialViewController() as? ViewController
+        viewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController
         fakeController = FakeController.init()
         XCTAssertNotNil(viewController)
         viewController?.controller = fakeController

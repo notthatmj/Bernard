@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8902A8AE1E206328006359B5 /* TabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8902A8AD1E206328006359B5 /* TabBarControllerTests.swift */; };
 		891174801DFB61B400878305 /* NameGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8911747F1DFB61B400878305 /* NameGeneratorTests.swift */; };
 		8925DDE11DFB31DF009A341D /* NameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8925DDE01DFB31DF009A341D /* NameGenerator.swift */; };
 		8957A67B1DF61CFB00DB709F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A67A1DF61CFB00DB709F /* AppDelegate.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8902A8AD1E206328006359B5 /* TabBarControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerTests.swift; sourceTree = "<group>"; };
 		8911747F1DFB61B400878305 /* NameGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameGeneratorTests.swift; sourceTree = "<group>"; };
 		8925DDE01DFB31DF009A341D /* NameGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameGenerator.swift; sourceTree = "<group>"; };
 		8957A6771DF61CFB00DB709F /* Bernard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bernard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				8957A68F1DF61CFB00DB709F /* ViewControllerTests.swift */,
+				8902A8AD1E206328006359B5 /* TabBarControllerTests.swift */,
 				8957A6A81DF777C100DB709F /* ViewControllerDelegateTests.swift */,
 				8911747F1DFB61B400878305 /* NameGeneratorTests.swift */,
 				8957A6911DF61CFB00DB709F /* Info.plist */,
@@ -290,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				891174801DFB61B400878305 /* NameGeneratorTests.swift in Sources */,
+				8902A8AE1E206328006359B5 /* TabBarControllerTests.swift in Sources */,
 				8957A6901DF61CFB00DB709F /* ViewControllerTests.swift in Sources */,
 				8957A6A91DF777C100DB709F /* ViewControllerDelegateTests.swift in Sources */,
 			);
