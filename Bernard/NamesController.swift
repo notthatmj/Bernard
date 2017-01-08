@@ -15,7 +15,7 @@ protocol ControllerProtocol {
     func favoriteToggleWasUpdatedAction()
 }
 
-class Controller : ControllerProtocol {
+class NamesController : ControllerProtocol {
     
     var viewController : ViewControllerProtocol
     var namesModel : NamesModel

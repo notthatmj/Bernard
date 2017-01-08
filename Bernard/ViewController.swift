@@ -54,7 +54,7 @@ class ViewController: UIViewController, ViewControllerProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         if controller == nil {
-            controller = Controller.init(viewController:self)
+            controller = NamesController.init(viewController:self)
         }
     }
 
