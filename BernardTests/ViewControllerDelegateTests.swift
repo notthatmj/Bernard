@@ -9,9 +9,9 @@
 import XCTest
 @testable import Bernard
 
-class ViewControllerDelegateTests: XCTestCase {
+class NamesControllerTests: XCTestCase {
     
-    class FakeViewController : ViewControllerProtocol {
+    class FakeViewController : NamesViewControllerProtocol {
         var nameText : String? = nil
         var favoriteToggleIsOn: Bool = false
     }

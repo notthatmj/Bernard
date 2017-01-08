@@ -8,19 +8,19 @@
 
 import UIKit
 
-protocol ViewControllerProtocol {
+protocol NamesViewControllerProtocol {
     var nameText : String? {get set}
     var favoriteToggleIsOn : Bool {get set}
 }
 
-class ViewController: UIViewController, ViewControllerProtocol {
+class NamesViewController: UIViewController, NamesViewControllerProtocol {
 
     @IBOutlet weak var previousNameButton: UIButton!
     @IBOutlet weak var nextNameButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var favoriteToggle: UISwitch!
     
-    var controller : ControllerProtocol!
+    var controller : NamesControllerProtocol!
     
     var nameText : String? {
         get {

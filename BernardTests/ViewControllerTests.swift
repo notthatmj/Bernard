@@ -9,7 +9,7 @@
 import XCTest
 @testable import Bernard
 
-class FakeController:ControllerProtocol {
+class FakeController:NamesControllerProtocol {
     
     var nextNameButtonActionWasCalled = false
     var previousNameButtonActionWasCalled = false
@@ -29,16 +29,16 @@ class FakeController:ControllerProtocol {
     
 }
 
-class ViewControllerTests: XCTestCase {
+class NamesViewControllerTests: XCTestCase {
     
-    var viewController : ViewController?
+    var viewController : NamesViewController?
     var fakeController : FakeController!
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-        viewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController
+        viewController = storyboard.instantiateViewController(withIdentifier: "NamesViewController") as? NamesViewController
         fakeController = FakeController.init()
         XCTAssertNotNil(viewController)
         viewController?.controller = fakeController

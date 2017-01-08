@@ -23,7 +23,7 @@ class TabBarControllerTests: XCTestCase {
         XCTAssertNotNil(SUT?.viewControllers)
         if let viewControllers = SUT?.viewControllers {
             XCTAssertEqual(viewControllers.count, 2)
-            XCTAssertNotNil(viewControllers[0] as? ViewController)
+            XCTAssertNotNil(viewControllers[0] as? NamesViewController)
             XCTAssertNotNil(viewControllers[1] as? FavoritesTableViewController)
         }
     }

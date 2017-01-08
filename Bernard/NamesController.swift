@@ -1,5 +1,5 @@
 //
-//  ViewControllerDelegate.swift
+//  NamesController.swift
 //  Bernard
 //
 //  Created by Michael Johnson on 12/6/16.
@@ -9,27 +9,27 @@
 import Foundation
 import  UIKit
 
-protocol ControllerProtocol {
+protocol NamesControllerProtocol {
     func nextNameButtonAction()
     func previousNameButtonAction()
     func favoriteToggleWasUpdatedAction()
 }
 
-class NamesController : ControllerProtocol {
+class NamesController : NamesControllerProtocol {
     
-    var viewController : ViewControllerProtocol
+    var viewController : NamesViewControllerProtocol
     var namesModel : NamesModel
     
-    convenience init(viewController : ViewControllerProtocol) {
+    convenience init(viewController : NamesViewControllerProtocol) {
         self.init(viewController: viewController, namesModel: NamesModel())
     }
 
-    convenience init(viewController : ViewControllerProtocol, nameGenerator : NameGenerating) {
+    convenience init(viewController : NamesViewControllerProtocol, nameGenerator : NameGenerating) {
         self.init(viewController: viewController,
                   namesModel: NamesModel(nameGenerator: nameGenerator))
     }
 
-    init(viewController : ViewControllerProtocol, namesModel : NamesModel) {
+    init(viewController : NamesViewControllerProtocol, namesModel : NamesModel) {
         self.viewController = viewController
         self.namesModel = namesModel
     }
