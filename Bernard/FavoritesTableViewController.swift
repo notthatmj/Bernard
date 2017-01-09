@@ -10,6 +10,8 @@ import UIKit
 
 class FavoritesTableViewController: UITableViewController {
 
+    var controller : FavoritesControllerProtocol! = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

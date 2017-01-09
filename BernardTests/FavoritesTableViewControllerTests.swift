@@ -9,6 +9,9 @@
 import XCTest
 @testable import Bernard
 
+fileprivate class FakeFavoritesController : FavoritesControllerProtocol {
+}
+
 class FavoritesTableViewControllerTests: XCTestCase {
     
     override func setUp() {
@@ -19,6 +22,9 @@ class FavoritesTableViewControllerTests: XCTestCase {
         let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         let SUT = storyboard.instantiateViewController(withIdentifier: "FavoritesTableViewController") as? FavoritesTableViewController
         XCTAssertNotNil(SUT)
+        let fakeFavoritesController = FakeFavoritesController()
+        
+        SUT?.controller = fakeFavoritesController
     }
     
 }

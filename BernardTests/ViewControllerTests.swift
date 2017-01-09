@@ -9,7 +9,7 @@
 import XCTest
 @testable import Bernard
 
-class FakeController:NamesControllerProtocol {
+fileprivate class FakeController:NamesControllerProtocol {
     
     var nextNameButtonActionWasCalled = false
     var previousNameButtonActionWasCalled = false
@@ -32,7 +32,7 @@ class FakeController:NamesControllerProtocol {
 class NamesViewControllerTests: XCTestCase {
     
     var viewController : NamesViewController?
-    var fakeController : FakeController!
+    fileprivate var fakeController : FakeController!
     
     override func setUp() {
         super.setUp()

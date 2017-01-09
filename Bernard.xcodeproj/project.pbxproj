@@ -23,6 +23,7 @@
 		89CC1B0C1E24347000AEF281 /* FavoritesDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC1B0B1E24347000AEF281 /* FavoritesDataSourceTests.swift */; };
 		89CC1B0E1E24356200AEF281 /* FavoritesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC1B0D1E24356200AEF281 /* FavoritesDataSource.swift */; };
 		89CC1B121E24373900AEF281 /* FavoritesTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC1B111E24373900AEF281 /* FavoritesTableViewControllerTests.swift */; };
+		89CC1B141E244BBA00AEF281 /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC1B131E244BBA00AEF281 /* FavoritesController.swift */; };
 		89CE80C51E22B9AE0049A367 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CE80C41E22B9AE0049A367 /* FavoritesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		89CC1B0B1E24347000AEF281 /* FavoritesDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesDataSourceTests.swift; sourceTree = "<group>"; };
 		89CC1B0D1E24356200AEF281 /* FavoritesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesDataSource.swift; sourceTree = "<group>"; };
 		89CC1B111E24373900AEF281 /* FavoritesTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewControllerTests.swift; sourceTree = "<group>"; };
+		89CC1B131E244BBA00AEF281 /* FavoritesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
 		89CE80C41E22B9AE0049A367 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +124,7 @@
 				8957A67C1DF61CFB00DB709F /* NamesViewController.swift */,
 				8957A6AA1DF77BA200DB709F /* NamesController.swift */,
 				89CE80C41E22B9AE0049A367 /* FavoritesTableViewController.swift */,
+				89CC1B131E244BBA00AEF281 /* FavoritesController.swift */,
 				89CC1B0D1E24356200AEF281 /* FavoritesDataSource.swift */,
 				8925DDE01DFB31DF009A341D /* NameGenerator.swift */,
 				8957A67E1DF61CFB00DB709F /* Main.storyboard */,
@@ -295,6 +298,7 @@
 				8957A67D1DF61CFB00DB709F /* NamesViewController.swift in Sources */,
 				89CC1B0E1E24356200AEF281 /* FavoritesDataSource.swift in Sources */,
 				8957A67B1DF61CFB00DB709F /* AppDelegate.swift in Sources */,
+				89CC1B141E244BBA00AEF281 /* FavoritesController.swift in Sources */,
 				89CE80C51E22B9AE0049A367 /* FavoritesTableViewController.swift in Sources */,
 				896FD8CA1E09961200247FCB /* NamesModel.swift in Sources */,
 				8925DDE11DFB31DF009A341D /* NameGenerator.swift in Sources */,
