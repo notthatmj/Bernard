@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
 
 protocol FavoritesControllerProtocol {
+    func numberOfSections() -> Int
 }
