@@ -11,34 +11,48 @@ import XCTest
 
 fileprivate class FakeFavoritesController : FavoritesControllerProtocol {
     let numberOfSectionsConstant : Int
-
-    init(numberOfSections : Int) {
+    let numberOfRowsConstant : Int
+    
+    init(numberOfSections : Int, numberOfRows: Int) {
         self.numberOfSectionsConstant = numberOfSections
+        self.numberOfRowsConstant = numberOfRows
     }
     
     func numberOfSections() -> Int {
         return numberOfSectionsConstant
     }
+    
+    func numberOfRows() -> Int {
+        return numberOfRowsConstant
+    }
 }
 
 class FavoritesTableViewControllerTests: XCTestCase {
+
+    var SUT : FavoritesTableViewController?
+    var arbitraryTableView : UITableView!
     
     override func setUp() {
         super.setUp()
+        let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+        SUT = storyboard.instantiateViewController(withIdentifier: "FavoritesTableViewController") as? FavoritesTableViewController
+        let fakeFavoritesController = FakeFavoritesController(numberOfSections: 1, numberOfRows: 5)
+        SUT?.controller = fakeFavoritesController
+        arbitraryTableView = UITableView()
+
     }
     
-    func testFavoritesTableViewController() {
-        let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-        let SUT = storyboard.instantiateViewController(withIdentifier: "FavoritesTableViewController") as? FavoritesTableViewController
+    func testCanLoadViewControllerFromStoryboard() {
         XCTAssertNotNil(SUT)
-        let fakeFavoritesController = FakeFavoritesController(numberOfSections: 1)
-        
-        SUT?.controller = fakeFavoritesController
-        
-        let arbitraryTableView = UITableView()
+    }
+    
+    func testNumberOfSections() {
         XCTAssertEqual(SUT?.numberOfSections(in: arbitraryTableView), 1)
+    }
 
-    
-}
-    
+    func testNumberOfRows() {
+        XCTAssertEqual(SUT?.tableView(arbitraryTableView, numberOfRowsInSection: 0), 5)
+        
+    }
+
 }

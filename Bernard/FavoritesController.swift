@@ -11,4 +11,5 @@ import UIKit
 
 protocol FavoritesControllerProtocol {
     func numberOfSections() -> Int
+    func numberOfRows() -> Int
 }
