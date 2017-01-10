@@ -45,7 +45,15 @@ class FavoritesTableViewControllerTests: XCTestCase {
     func testNumberOfRows() {
         SUT?.controller = FakeFavoritesController()
         XCTAssertEqual(SUT?.tableView(arbitraryTableView, numberOfRowsInSection: 0), 5)
-        
     }
 
+    func testThatViewDidLoadInitializesControllerIfItsNil() {
+        XCTAssertNil(SUT?.controller)
+        SUT?.viewDidLoad()
+        XCTAssertNotNil(SUT?.controller)
+    }
+    
+    func testThatViewDidLoadLeavesControllerAloneIfItsNotNil() {
+        
+    }
 }

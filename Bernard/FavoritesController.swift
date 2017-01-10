@@ -13,3 +13,12 @@ protocol FavoritesControllerProtocol {
     func numberOfSections() -> Int
     func numberOfRows() -> Int
 }
+
+class FavoritesController : FavoritesControllerProtocol {
+    func numberOfSections() -> Int {
+        return 1
+    }
+    func numberOfRows() -> Int {
+        return 0
+    }
+}

@@ -24,6 +24,7 @@
 		89CC1B0E1E24356200AEF281 /* FavoritesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC1B0D1E24356200AEF281 /* FavoritesDataSource.swift */; };
 		89CC1B121E24373900AEF281 /* FavoritesTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC1B111E24373900AEF281 /* FavoritesTableViewControllerTests.swift */; };
 		89CC1B141E244BBA00AEF281 /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC1B131E244BBA00AEF281 /* FavoritesController.swift */; };
+		89CC1B161E2547B600AEF281 /* FavoritesControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC1B151E2547B600AEF281 /* FavoritesControllerTests.swift */; };
 		89CE80C51E22B9AE0049A367 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CE80C41E22B9AE0049A367 /* FavoritesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		89CC1B0D1E24356200AEF281 /* FavoritesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesDataSource.swift; sourceTree = "<group>"; };
 		89CC1B111E24373900AEF281 /* FavoritesTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewControllerTests.swift; sourceTree = "<group>"; };
 		89CC1B131E244BBA00AEF281 /* FavoritesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
+		89CC1B151E2547B600AEF281 /* FavoritesControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesControllerTests.swift; sourceTree = "<group>"; };
 		89CE80C41E22B9AE0049A367 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +147,7 @@
 				8957A6A81DF777C100DB709F /* NamesControllerTests.swift */,
 				8911747F1DFB61B400878305 /* NameGeneratorTests.swift */,
 				8957A6911DF61CFB00DB709F /* Info.plist */,
+				89CC1B151E2547B600AEF281 /* FavoritesControllerTests.swift */,
 			);
 			path = BernardTests;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89CC1B0C1E24347000AEF281 /* FavoritesDataSourceTests.swift in Sources */,
+				89CC1B161E2547B600AEF281 /* FavoritesControllerTests.swift in Sources */,
 				891174801DFB61B400878305 /* NameGeneratorTests.swift in Sources */,
 				8902A8AE1E206328006359B5 /* TabBarControllerTests.swift in Sources */,
 				89CC1B121E24373900AEF281 /* FavoritesTableViewControllerTests.swift in Sources */,
