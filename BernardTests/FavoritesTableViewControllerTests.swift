@@ -10,20 +10,13 @@ import XCTest
 @testable import Bernard
 
 fileprivate class FakeFavoritesController : FavoritesControllerProtocol {
-    let numberOfSectionsConstant : Int
-    let numberOfRowsConstant : Int
-    
-    init(numberOfSections : Int, numberOfRows: Int) {
-        self.numberOfSectionsConstant = numberOfSections
-        self.numberOfRowsConstant = numberOfRows
-    }
     
     func numberOfSections() -> Int {
-        return numberOfSectionsConstant
+        return 1
     }
     
     func numberOfRows() -> Int {
-        return numberOfRowsConstant
+        return 5
     }
 }
 
@@ -36,8 +29,6 @@ class FavoritesTableViewControllerTests: XCTestCase {
         super.setUp()
         let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         SUT = storyboard.instantiateViewController(withIdentifier: "FavoritesTableViewController") as? FavoritesTableViewController
-        let fakeFavoritesController = FakeFavoritesController(numberOfSections: 1, numberOfRows: 5)
-        SUT?.controller = fakeFavoritesController
         arbitraryTableView = UITableView()
 
     }
@@ -47,10 +38,12 @@ class FavoritesTableViewControllerTests: XCTestCase {
     }
     
     func testNumberOfSections() {
+        SUT?.controller = FakeFavoritesController()
         XCTAssertEqual(SUT?.numberOfSections(in: arbitraryTableView), 1)
     }
 
     func testNumberOfRows() {
+        SUT?.controller = FakeFavoritesController()
         XCTAssertEqual(SUT?.tableView(arbitraryTableView, numberOfRowsInSection: 0), 5)
         
     }
