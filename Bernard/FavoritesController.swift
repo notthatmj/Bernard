@@ -12,13 +12,20 @@ import UIKit
 protocol FavoritesControllerProtocol {
     func numberOfSections() -> Int
     func numberOfRows() -> Int
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
 }
 
 class FavoritesController : FavoritesControllerProtocol {
+    
     func numberOfSections() -> Int {
         return 1
     }
+    
     func numberOfRows() -> Int {
-        return 0
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 }

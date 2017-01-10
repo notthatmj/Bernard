@@ -11,12 +11,35 @@ import XCTest
 
 fileprivate class FakeFavoritesController : FavoritesControllerProtocol {
     
+    var tableViewCellForRowAtIndexPathWasCalled = false
+    var tableView : UITableView? = nil
+    var indexPath : IndexPath? = nil
+    var cannedCell : UITableViewCell? = nil
+    
     func numberOfSections() -> Int {
         return 1
     }
     
     func numberOfRows() -> Int {
         return 5
+    }
+    
+    func tableView(_ tableView : UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        self.tableView = tableView
+        self.indexPath = indexPath
+        tableViewCellForRowAtIndexPathWasCalled = true
+        return cannedCell!
+    }
+    
+    func tableViewCellForRowAtIndexPathWasCalled(withTableView tableView: UITableView,
+                                                 indexPath: IndexPath) -> Bool {
+        if self.tableViewCellForRowAtIndexPathWasCalled &&
+            self.tableView === tableView &&
+            self.indexPath == indexPath {
+            return true
+        }
+        
+        return false
     }
 }
 
@@ -53,7 +76,15 @@ class FavoritesTableViewControllerTests: XCTestCase {
         XCTAssertNotNil(SUT?.controller)
     }
     
-    func testThatViewDidLoadLeavesControllerAloneIfItsNotNil() {
+    func testThatTableViewCellForRowAtDelegatesToController() {
+        let fakeFavoritesController = FakeFavoritesController()
+        fakeFavoritesController.cannedCell = UITableViewCell()
+        SUT?.controller = fakeFavoritesController
+        
+        let returnValue = SUT?.tableView(arbitraryTableView, cellForRowAt: IndexPath(row: 0, section: 0))
+        
+        XCTAssertTrue(fakeFavoritesController.tableViewCellForRowAtIndexPathWasCalled(withTableView:arbitraryTableView, indexPath: IndexPath(row:0, section:0 )))
+        XCTAssertTrue(returnValue === fakeFavoritesController.cannedCell)
         
     }
 }
