@@ -126,7 +126,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="qZQ-0F-SrF">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="SJM-6c-DCN" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="SJM-6c-DCN" customClass="TabBarController" customModule="Bernard" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="t2W-7O-Y9F">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

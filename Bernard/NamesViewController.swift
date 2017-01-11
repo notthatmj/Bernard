@@ -11,6 +11,7 @@ import UIKit
 protocol NamesViewControllerProtocol {
     var nameText : String? {get set}
     var favoriteToggleIsOn : Bool {get set}
+    var tabBarController : UITabBarController? { get }
 }
 
 class NamesViewController: UIViewController, NamesViewControllerProtocol {
@@ -57,6 +58,6 @@ class NamesViewController: UIViewController, NamesViewControllerProtocol {
             controller = NamesController.init(viewController:self)
         }
     }
-
+    
 }
 

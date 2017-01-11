@@ -14,6 +14,7 @@ class NamesControllerTests: XCTestCase {
     class FakeViewController : NamesViewControllerProtocol {
         var nameText : String? = nil
         var favoriteToggleIsOn: Bool = false
+        var tabBarController: UITabBarController? = nil
     }
     var fakeViewController = FakeViewController.init()
     var SUT : NamesController!

@@ -18,10 +18,18 @@ protocol NamesControllerProtocol {
 class NamesController : NamesControllerProtocol {
     
     var viewController : NamesViewControllerProtocol
+    var tabBarController : TabBarController? {
+        return viewController.tabBarController as? TabBarController
+    }
     var namesModel : NamesModel
     
     convenience init(viewController : NamesViewControllerProtocol) {
-        self.init(viewController: viewController, namesModel: NamesModel())
+        let tabBarController = viewController.tabBarController as? TabBarController
+        var namesModel = tabBarController?.namesModel
+        if namesModel == nil {
+            namesModel = NamesModel()
+        }
+        self.init(viewController: viewController, namesModel: namesModel!)
     }
 
     convenience init(viewController : NamesViewControllerProtocol, nameGenerator : NameGenerating) {
