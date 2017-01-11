@@ -9,6 +9,8 @@
 import XCTest
 @testable import Bernard
 
+fileprivate class FakeViewController {}
+
 fileprivate class FakeFavoritesController : FavoritesControllerProtocol {
     
     var tableViewCellForRowAtIndexPathWasCalled = false
@@ -16,11 +18,7 @@ fileprivate class FakeFavoritesController : FavoritesControllerProtocol {
     var indexPath : IndexPath? = nil
     var cannedCell : UITableViewCell? = nil
     
-    var viewController: UIViewController {
-        get {
-            return UIViewController()
-        }
-    }
+    var viewController: AnyObject = FakeViewController()
     
     func numberOfSections() -> Int {
         return 1
@@ -81,7 +79,8 @@ class FavoritesTableViewControllerTests: XCTestCase {
         SUT?.viewDidLoad()
         XCTAssertNotNil(SUT?.controller)
         XCTAssertNotNil(SUT?.controller.viewController)
-        XCTAssertEqual(SUT?.controller.viewController, SUT)
+//        XCTAssertEqual(SUT?.controller.viewController, SUT)
+        XCTAssert((SUT?.controller.viewController)! === SUT!)
     }
     
     func testThatTableViewCellForRowAtDelegatesToController() {

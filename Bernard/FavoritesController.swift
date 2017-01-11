@@ -14,16 +14,15 @@ protocol FavoritesControllerProtocol {
     func numberOfRows() -> Int
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
 
-    var viewController : UIViewController {
-        get
-    }
+    var viewController : AnyObject { get }
+
 }
 
 class FavoritesController : FavoritesControllerProtocol {
 
-    var viewController : UIViewController
+    var viewController : AnyObject
     
-    init(viewController: UIViewController) {
+    init(viewController: AnyObject) {
         self.viewController = viewController
     }
     
@@ -38,4 +37,5 @@ class FavoritesController : FavoritesControllerProtocol {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
+    
 }
