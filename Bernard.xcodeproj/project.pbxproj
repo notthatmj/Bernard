@@ -147,10 +147,10 @@
 				89CC1B0B1E24347000AEF281 /* FavoritesDataSourceTests.swift */,
 				8902A8AD1E206328006359B5 /* TabBarControllerTests.swift */,
 				89CC1B111E24373900AEF281 /* FavoritesTableViewControllerTests.swift */,
+				89CC1B151E2547B600AEF281 /* FavoritesControllerTests.swift */,
 				8957A6A81DF777C100DB709F /* NamesControllerTests.swift */,
 				8911747F1DFB61B400878305 /* NameGeneratorTests.swift */,
 				8957A6911DF61CFB00DB709F /* Info.plist */,
-				89CC1B151E2547B600AEF281 /* FavoritesControllerTests.swift */,
 			);
 			path = BernardTests;
 			sourceTree = "<group>";

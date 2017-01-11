@@ -15,7 +15,39 @@ class FavoritesControllerTests: XCTestCase {
         super.setUp()
     }
     
-    func testExample() {
+    func testTableViewCellForRowAt() {
+        class FakeViewController {}
+        let fakeViewController = FakeViewController()
+        let SUT = FavoritesController(viewController: fakeViewController)
+        class FakeTableView : UITableView {
+            var cannedCell : UITableViewCell = UITableViewCell()
+            override func dequeueReusableCell(withIdentifier identifier: String) -> UITableViewCell? {
+                if identifier == "cell" {
+                    return cannedCell
+                }
+                return nil
+            }
+        }
+        let fakeTableView = FakeTableView()
+        let cell = SUT.tableView(fakeTableView, cellForRowAt: IndexPath(row: 0, section: 0))
+        XCTAssert(cell === fakeTableView.cannedCell)
     }
     
+    func testTableViewCellForRowAtWithNilValue() {
+        class FakeViewController {}
+        let fakeViewController = FakeViewController()
+        let SUT = FavoritesController(viewController: fakeViewController)
+        class FakeTableView : UITableView {
+            var cannedCell : UITableViewCell? = UITableViewCell()
+            override func dequeueReusableCell(withIdentifier identifier: String) -> UITableViewCell? {
+                if identifier == "cell" {
+                    return cannedCell
+                }
+                return nil
+            }
+        }
+        let fakeTableView = FakeTableView()
+        let cell = SUT.tableView(fakeTableView, cellForRowAt: IndexPath(row: 0, section: 0))
+        XCTAssert(cell === fakeTableView.cannedCell)
+    }
 }
