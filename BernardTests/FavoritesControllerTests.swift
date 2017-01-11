@@ -18,8 +18,4 @@ class FavoritesControllerTests: XCTestCase {
     func testExample() {
     }
     
-    func testNumberOfRows() {
-        let SUT = FavoritesController()
-        XCTAssertEqual(SUT.numberOfRows(),1)
-    }
 }

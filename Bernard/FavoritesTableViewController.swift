@@ -12,10 +12,21 @@ class FavoritesTableViewController: UITableViewController {
 
     var controller : FavoritesControllerProtocol! = nil
     
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        if (controller == nil) {
+//            controller = FavoritesController()
+//        }
+//    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if (controller == nil) {
-            controller = FavoritesController()
+            controller = FavoritesController(viewController: self)
+//            controller.viewController = self
+//            if let tabBarController = self.tabBarController as? TabBarController {
+//                self.controller.namesModel = tabBarController.namesModel
+//            }
         }
     }
 

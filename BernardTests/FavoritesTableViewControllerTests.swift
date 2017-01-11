@@ -16,6 +16,12 @@ fileprivate class FakeFavoritesController : FavoritesControllerProtocol {
     var indexPath : IndexPath? = nil
     var cannedCell : UITableViewCell? = nil
     
+    var viewController: UIViewController {
+        get {
+            return UIViewController()
+        }
+    }
+    
     func numberOfSections() -> Int {
         return 1
     }
@@ -74,6 +80,8 @@ class FavoritesTableViewControllerTests: XCTestCase {
         XCTAssertNil(SUT?.controller)
         SUT?.viewDidLoad()
         XCTAssertNotNil(SUT?.controller)
+        XCTAssertNotNil(SUT?.controller.viewController)
+        XCTAssertEqual(SUT?.controller.viewController, SUT)
     }
     
     func testThatTableViewCellForRowAtDelegatesToController() {
