@@ -42,6 +42,7 @@ class NamesModel {
             if currentNameIndex != nil {
                 namesHistory[currentNameIndex!].isFavorited = newValue
             }
+            notifyObserversOfUpdate()
         }
     }
     
@@ -68,9 +69,7 @@ class NamesModel {
         let createdName = nameGenerator.createName()
         let name = Name(name: createdName, isFavorited: false)
         namesHistory.append(name)
-        for observer in observers {
-            observer.namesModelDidUpdate()
-        }
+        notifyObserversOfUpdate()
         return currentName!
     }
 
@@ -88,5 +87,11 @@ class NamesModel {
     
     func addObserver(_ observer: NamesModelObserving) {
         observers.append(observer)
+    }
+    
+    func notifyObserversOfUpdate() {
+        for observer in observers {
+            observer.namesModelDidUpdate()
+        }
     }
 }
