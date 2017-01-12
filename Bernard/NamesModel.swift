@@ -13,6 +13,12 @@ struct Name {
     var isFavorited : Bool
 }
 
+extension Name : Equatable {}
+
+func ==(lhs: Name, rhs: Name) -> Bool {
+    return lhs.name == rhs.name && lhs.isFavorited == rhs.isFavorited
+}
+
 protocol NamesModelObserving {
     func namesModelDidUpdate()
 }
@@ -21,6 +27,10 @@ class NamesModel {
     private var namesHistory : [Name]
     private var currentNameIndex : Int?
     private var observers : [NamesModelObserving] = [NamesModelObserving]()
+    
+    var favorites : [String] {
+        get { return namesHistory.filter({$0.isFavorited}).map({$0.name}) }
+    }
     
     private var currentName : String? {
         get { return currentNameIndex == nil ? nil : namesHistory[currentNameIndex!].name }

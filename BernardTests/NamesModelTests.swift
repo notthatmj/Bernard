@@ -42,11 +42,21 @@ class NamesModelTests: XCTestCase {
                 updated = true
             }
         }
-        
         let observer = Observer()
         SUT.addObserver(observer)
         _ = SUT.nextName()
         XCTAssert(observer.updated)
+    }
+    
+    func testFavorites() {
+        _ = SUT.favorites
+        XCTAssertEqual(SUT.favorites, [])
+        let firstName = SUT.nextName()
+        SUT.currentNameIsFavorited = true
+        _ = SUT.nextName()
+        let thirdName = SUT.nextName()
+        SUT.currentNameIsFavorited = true
+        XCTAssertEqual(SUT.favorites, [firstName, thirdName])
         
     }
 }
