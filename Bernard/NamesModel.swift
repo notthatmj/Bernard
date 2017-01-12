@@ -13,10 +13,14 @@ struct Name {
     var isFavorited : Bool
 }
 
+protocol NamesModelObserving {
+    func namesModelDidUpdate()
+}
 class NamesModel {
     private var nameGenerator : NameGenerating
     private var namesHistory : [Name]
     private var currentNameIndex : Int?
+    private var observers : [NamesModelObserving] = [NamesModelObserving]()
     
     private var currentName : String? {
         get { return currentNameIndex == nil ? nil : namesHistory[currentNameIndex!].name }
@@ -54,6 +58,9 @@ class NamesModel {
         let createdName = nameGenerator.createName()
         let name = Name(name: createdName, isFavorited: false)
         namesHistory.append(name)
+        for observer in observers {
+            observer.namesModelDidUpdate()
+        }
         return currentName!
     }
 
@@ -67,5 +74,9 @@ class NamesModel {
     func nameAtIndex(_ index:Int) -> Name {
         let name = self.namesHistory[index]
         return name
+    }
+    
+    func addObserver(_ observer: NamesModelObserving) {
+        observers.append(observer)
     }
 }
