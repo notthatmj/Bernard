@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoritesTableViewController: UITableViewController {
+class FavoritesTableViewController: UITableViewController, NamesModelObserving {
 
     private var namesModel : NamesModel? {
         get {
@@ -18,8 +18,14 @@ class FavoritesTableViewController: UITableViewController {
             return nil
         }
     }
+    
+    func namesModelDidUpdate() {
+        self.tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        namesModel?.addObserver(self)
     }
 
     override func didReceiveMemoryWarning() {
