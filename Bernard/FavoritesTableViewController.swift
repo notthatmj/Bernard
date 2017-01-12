@@ -10,44 +10,49 @@ import UIKit
 
 class FavoritesTableViewController: UITableViewController {
 
-    var controller : FavoritesControllerProtocol! = nil
-    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        if (controller == nil) {
-//            controller = FavoritesController()
-//        }
-//    }
-
+    private var namesModel : NamesModel? {
+        get {
+            if let tabBarController = tabBarController as? TabBarController {
+                return tabBarController.namesModel
+            }
+            return nil
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (controller == nil) {
-            controller = FavoritesController(viewController: self)
-//            controller.viewController = self
-//            if let tabBarController = self.tabBarController as? TabBarController {
-//                self.controller.namesModel = tabBarController.namesModel
-//            }
-        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return self.controller.numberOfSections()
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.controller.numberOfRows()
+        var nameCount = 0
+        if namesModel != nil {
+            nameCount = namesModel!.count
+        }
+        return nameCount
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = controller.tableView(tableView, cellForRowAt: indexPath)
-        return cell
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        
+        if cell == nil {
+            cell = UITableViewCell()
+        }
+        
+        if namesModel != nil {
+            let name = namesModel!.nameAtIndex(indexPath.row)
+            cell?.textLabel?.text = name.name
+        }
+
+        return cell!
     }
 
     /*

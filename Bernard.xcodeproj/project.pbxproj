@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8902A8AE1E206328006359B5 /* TabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8902A8AD1E206328006359B5 /* TabBarControllerTests.swift */; };
+		890B65AC1E27F732004595D0 /* NamesModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B65AB1E27F732004595D0 /* NamesModelTests.swift */; };
 		891174801DFB61B400878305 /* NameGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8911747F1DFB61B400878305 /* NameGeneratorTests.swift */; };
 		8925DDE11DFB31DF009A341D /* NameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8925DDE01DFB31DF009A341D /* NameGenerator.swift */; };
 		8957A67B1DF61CFB00DB709F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A67A1DF61CFB00DB709F /* AppDelegate.swift */; };
@@ -20,11 +21,6 @@
 		8957A6A91DF777C100DB709F /* NamesControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A6A81DF777C100DB709F /* NamesControllerTests.swift */; };
 		8957A6AB1DF77BA200DB709F /* NamesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A6AA1DF77BA200DB709F /* NamesController.swift */; };
 		896FD8CA1E09961200247FCB /* NamesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896FD8C91E09961200247FCB /* NamesModel.swift */; };
-		89CC1B0C1E24347000AEF281 /* FavoritesDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC1B0B1E24347000AEF281 /* FavoritesDataSourceTests.swift */; };
-		89CC1B0E1E24356200AEF281 /* FavoritesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC1B0D1E24356200AEF281 /* FavoritesDataSource.swift */; };
-		89CC1B121E24373900AEF281 /* FavoritesTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC1B111E24373900AEF281 /* FavoritesTableViewControllerTests.swift */; };
-		89CC1B141E244BBA00AEF281 /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC1B131E244BBA00AEF281 /* FavoritesController.swift */; };
-		89CC1B161E2547B600AEF281 /* FavoritesControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC1B151E2547B600AEF281 /* FavoritesControllerTests.swift */; };
 		89CC1B1A1E259D8000AEF281 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC1B191E259D8000AEF281 /* TabBarController.swift */; };
 		89CE80C51E22B9AE0049A367 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CE80C41E22B9AE0049A367 /* FavoritesTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		8902A8AD1E206328006359B5 /* TabBarControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerTests.swift; sourceTree = "<group>"; };
+		890B65AB1E27F732004595D0 /* NamesModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamesModelTests.swift; sourceTree = "<group>"; };
 		8911747F1DFB61B400878305 /* NameGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameGeneratorTests.swift; sourceTree = "<group>"; };
 		8925DDE01DFB31DF009A341D /* NameGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameGenerator.swift; sourceTree = "<group>"; };
 		8957A6771DF61CFB00DB709F /* Bernard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bernard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,11 +63,6 @@
 		8957A6A81DF777C100DB709F /* NamesControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamesControllerTests.swift; sourceTree = "<group>"; };
 		8957A6AA1DF77BA200DB709F /* NamesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamesController.swift; sourceTree = "<group>"; };
 		896FD8C91E09961200247FCB /* NamesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamesModel.swift; sourceTree = "<group>"; };
-		89CC1B0B1E24347000AEF281 /* FavoritesDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesDataSourceTests.swift; sourceTree = "<group>"; };
-		89CC1B0D1E24356200AEF281 /* FavoritesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesDataSource.swift; sourceTree = "<group>"; };
-		89CC1B111E24373900AEF281 /* FavoritesTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewControllerTests.swift; sourceTree = "<group>"; };
-		89CC1B131E244BBA00AEF281 /* FavoritesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
-		89CC1B151E2547B600AEF281 /* FavoritesControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesControllerTests.swift; sourceTree = "<group>"; };
 		89CC1B191E259D8000AEF281 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		89CE80C41E22B9AE0049A367 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,8 +120,6 @@
 				8957A67C1DF61CFB00DB709F /* NamesViewController.swift */,
 				8957A6AA1DF77BA200DB709F /* NamesController.swift */,
 				89CE80C41E22B9AE0049A367 /* FavoritesTableViewController.swift */,
-				89CC1B131E244BBA00AEF281 /* FavoritesController.swift */,
-				89CC1B0D1E24356200AEF281 /* FavoritesDataSource.swift */,
 				89CC1B191E259D8000AEF281 /* TabBarController.swift */,
 				8925DDE01DFB31DF009A341D /* NameGenerator.swift */,
 				8957A67E1DF61CFB00DB709F /* Main.storyboard */,
@@ -144,11 +134,9 @@
 			isa = PBXGroup;
 			children = (
 				8957A68F1DF61CFB00DB709F /*  NamesViewControllerTests.swift */,
-				89CC1B0B1E24347000AEF281 /* FavoritesDataSourceTests.swift */,
 				8902A8AD1E206328006359B5 /* TabBarControllerTests.swift */,
-				89CC1B111E24373900AEF281 /* FavoritesTableViewControllerTests.swift */,
-				89CC1B151E2547B600AEF281 /* FavoritesControllerTests.swift */,
 				8957A6A81DF777C100DB709F /* NamesControllerTests.swift */,
+				890B65AB1E27F732004595D0 /* NamesModelTests.swift */,
 				8911747F1DFB61B400878305 /* NameGeneratorTests.swift */,
 				8957A6911DF61CFB00DB709F /* Info.plist */,
 			);
@@ -302,10 +290,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8957A67D1DF61CFB00DB709F /* NamesViewController.swift in Sources */,
-				89CC1B0E1E24356200AEF281 /* FavoritesDataSource.swift in Sources */,
 				8957A67B1DF61CFB00DB709F /* AppDelegate.swift in Sources */,
 				89CC1B1A1E259D8000AEF281 /* TabBarController.swift in Sources */,
-				89CC1B141E244BBA00AEF281 /* FavoritesController.swift in Sources */,
 				89CE80C51E22B9AE0049A367 /* FavoritesTableViewController.swift in Sources */,
 				896FD8CA1E09961200247FCB /* NamesModel.swift in Sources */,
 				8925DDE11DFB31DF009A341D /* NameGenerator.swift in Sources */,
@@ -317,12 +303,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89CC1B0C1E24347000AEF281 /* FavoritesDataSourceTests.swift in Sources */,
-				89CC1B161E2547B600AEF281 /* FavoritesControllerTests.swift in Sources */,
 				891174801DFB61B400878305 /* NameGeneratorTests.swift in Sources */,
 				8902A8AE1E206328006359B5 /* TabBarControllerTests.swift in Sources */,
-				89CC1B121E24373900AEF281 /* FavoritesTableViewControllerTests.swift in Sources */,
 				8957A6901DF61CFB00DB709F /*  NamesViewControllerTests.swift in Sources */,
+				890B65AC1E27F732004595D0 /* NamesModelTests.swift in Sources */,
 				8957A6A91DF777C100DB709F /* NamesControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

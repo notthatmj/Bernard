@@ -17,7 +17,7 @@ class NamesModel {
     private var nameGenerator : NameGenerating
     private var namesHistory : [Name]
     private var currentNameIndex : Int?
-
+    
     private var currentName : String? {
         get { return currentNameIndex == nil ? nil : namesHistory[currentNameIndex!].name }
     }
@@ -29,6 +29,10 @@ class NamesModel {
                 namesHistory[currentNameIndex!].isFavorited = newValue
             }
         }
+    }
+    
+    var count : Int {
+        return namesHistory.count
     }
     
     convenience init() {
@@ -60,4 +64,8 @@ class NamesModel {
         return currentName
     }
     
+    func nameAtIndex(_ index:Int) -> Name {
+        let name = self.namesHistory[index]
+        return name
+    }
 }
