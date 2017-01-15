@@ -28,10 +28,6 @@ class FavoritesTableViewController: UITableViewController, NamesModelObserving {
         namesModel?.addObserver(self)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
