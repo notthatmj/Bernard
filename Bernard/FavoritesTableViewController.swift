@@ -31,26 +31,16 @@ class FavoritesTableViewController: UITableViewController, NamesModelObserving {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var nameCount = 0
-        if namesModel != nil {
-            nameCount = namesModel!.favorites.count
+        if let namesModelFavoritesCount = namesModel?.favorites.count {
+            return namesModelFavoritesCount
         }
-        return nameCount
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        
-        if cell == nil {
-            cell = UITableViewCell()
-        }
-        
-        if namesModel != nil {
-            let name = namesModel!.favorites[indexPath.row]
-            cell?.textLabel?.text = name
-        }
-
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = namesModel?.favorites[indexPath.row]
+        return cell
     }
 
 }
