@@ -29,11 +29,11 @@ class NamesModel {
     private var observers : [NamesModelObserving] = [NamesModelObserving]()
     
     var favorites : [String] {
-        get { return namesHistory.filter({$0.isFavorited}).map({$0.name}) }
+        return namesHistory.filter({$0.isFavorited}).map({$0.name})
     }
     
     private var currentName : String? {
-        get { return currentNameIndex == nil ? nil : namesHistory[currentNameIndex!].name }
+        return currentNameIndex == nil ? nil : namesHistory[currentNameIndex!].name
     }
     
     var currentNameIsFavorited : Bool {
