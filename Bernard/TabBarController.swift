@@ -12,8 +12,4 @@ class TabBarController: UITabBarController {
 
     lazy var namesModel : NamesModel = NamesModel()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
 }
