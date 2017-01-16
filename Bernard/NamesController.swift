@@ -18,8 +18,8 @@ protocol NamesControllerProtocol {
 class NamesController : NamesControllerProtocol {
     
     var viewController : NamesViewControllerProtocol
-    var tabBarController : TabBarController? {
-        return viewController.tabBarController as? TabBarController
+    var tabBarController : UITabBarController? {
+        return viewController.tabBarController
     }
     var namesModel : NamesModel
     
