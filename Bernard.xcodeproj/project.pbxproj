@@ -23,7 +23,6 @@
 		8957A6AB1DF77BA200DB709F /* NamesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A6AA1DF77BA200DB709F /* NamesController.swift */; };
 		896FD8CA1E09961200247FCB /* NamesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896FD8C91E09961200247FCB /* NamesModel.swift */; };
 		89CC1B1A1E259D8000AEF281 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC1B191E259D8000AEF281 /* TabBarController.swift */; };
-		89CE80C51E22B9AE0049A367 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CE80C41E22B9AE0049A367 /* FavoritesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +65,6 @@
 		8957A6AA1DF77BA200DB709F /* NamesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamesController.swift; sourceTree = "<group>"; };
 		896FD8C91E09961200247FCB /* NamesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamesModel.swift; sourceTree = "<group>"; };
 		89CC1B191E259D8000AEF281 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		89CE80C41E22B9AE0049A367 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +119,6 @@
 				896FD8C91E09961200247FCB /* NamesModel.swift */,
 				8957A67C1DF61CFB00DB709F /* NamesViewController.swift */,
 				8957A6AA1DF77BA200DB709F /* NamesController.swift */,
-				89CE80C41E22B9AE0049A367 /* FavoritesTableViewController.swift */,
 				890EC4971E2EB83C0091337D /* FavoritesViewController.swift */,
 				89CC1B191E259D8000AEF281 /* TabBarController.swift */,
 				8925DDE01DFB31DF009A341D /* NameGenerator.swift */,
@@ -296,7 +293,6 @@
 				8957A67B1DF61CFB00DB709F /* AppDelegate.swift in Sources */,
 				890EC4981E2EB83C0091337D /* FavoritesViewController.swift in Sources */,
 				89CC1B1A1E259D8000AEF281 /* TabBarController.swift in Sources */,
-				89CE80C51E22B9AE0049A367 /* FavoritesTableViewController.swift in Sources */,
 				896FD8CA1E09961200247FCB /* NamesModel.swift in Sources */,
 				8925DDE11DFB31DF009A341D /* NameGenerator.swift in Sources */,
 				8957A6AB1DF77BA200DB709F /* NamesController.swift in Sources */,
