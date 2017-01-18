@@ -27,7 +27,7 @@ protocol NamesModelProtocol {
     func clearFavorites()
 }
 
-class NamesModel {
+class NamesModel : NamesModelProtocol {
     private var nameGenerator : NameGenerating
     private var namesHistory : [Name]
     private var currentNameIndex : Int?
@@ -99,4 +99,12 @@ class NamesModel {
             observer.namesModelDidUpdate()
         }
     }
+    
+    func clearFavorites() {
+        for i in 0..<namesHistory.count {
+            namesHistory[i].isFavorited = false
+        }
+        notifyObserversOfUpdate()
+    }
+    
 }

@@ -59,4 +59,26 @@ class NamesModelTests: XCTestCase {
         XCTAssertEqual(SUT.favorites, [firstName, thirdName])
         
     }
+    
+    func testClearFavorites() {
+        class Observer : NamesModelObserving {
+            var updated : Bool = false
+            func namesModelDidUpdate() {
+                updated = true
+            }
+        }
+        _ = SUT.nextName()
+        SUT.currentNameIsFavorited = true
+        _ = SUT.nextName()
+        _ = SUT.nextName()
+        SUT.currentNameIsFavorited = true
+        let observer = Observer()
+        SUT.addObserver(observer)
+        
+        SUT.clearFavorites()
+        
+        XCTAssertEqual(SUT.favorites, [])
+        XCTAssertTrue(observer.updated)
+    }
+    
 }
