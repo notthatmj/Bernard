@@ -29,6 +29,14 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         self.present(alertController, animated: true, completion: nil)
     }
     
+    @IBAction func shareButtonAction(_ sender: UIButton) {
+        if let activityItems : [String]? = namesModel?.favorites, activityItems! != [] {
+            let activityViewController = UIActivityViewController(activityItems: activityItems!,
+                                                                  applicationActivities: nil)
+            self.present(activityViewController, animated: true, completion: nil)
+        }
+    }
+    
     private var namesModel : NamesModel? {
         if let tabBarController = tabBarController as? TabBarController {
             return tabBarController.namesModel
