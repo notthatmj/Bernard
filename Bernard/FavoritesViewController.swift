@@ -19,6 +19,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     @IBAction func clearButtonAction(_ sender: Any) {
         let alertController = UIAlertController(title: "Clear Favorites", message: "Are you sure you want to clear the favorites list? This action cannot be undone.", preferredStyle: UIAlertControllerStyle.actionSheet)
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.destructive) {(action: UIAlertAction) in
+            self.namesModel?.clearFavorites()
             return
         }
         alertController.addAction(okAction)

@@ -9,6 +9,13 @@
 import XCTest
 @testable import Bernard
 
+fileprivate class Observer : NamesModelObserving {
+    var updated : Bool = false
+    func namesModelDidUpdate() {
+        updated = true
+    }
+}
+
 class NamesModelTests: XCTestCase {
     
     var SUT : NamesModel!
@@ -36,12 +43,6 @@ class NamesModelTests: XCTestCase {
 
     
     func testAddObserver() {
-        class Observer : NamesModelObserving {
-            var updated : Bool = false
-            func namesModelDidUpdate() {
-                updated = true
-            }
-        }
         let observer = Observer()
         SUT.addObserver(observer)
         _ = SUT.nextName()
@@ -61,12 +62,6 @@ class NamesModelTests: XCTestCase {
     }
     
     func testClearFavorites() {
-        class Observer : NamesModelObserving {
-            var updated : Bool = false
-            func namesModelDidUpdate() {
-                updated = true
-            }
-        }
         _ = SUT.nextName()
         SUT.currentNameIsFavorited = true
         _ = SUT.nextName()
