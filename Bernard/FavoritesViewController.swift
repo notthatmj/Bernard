@@ -10,6 +10,8 @@ import UIKit
 
 class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NamesModelObserving {
     
+    lazy var controller = FavoritesController()
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
@@ -51,6 +53,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         self.tableView.dataSource = self
         namesModel?.addObserver(self)
+        
     }
 
     func namesModelDidUpdate() {

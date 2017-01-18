@@ -22,6 +22,8 @@
 		8957A6A91DF777C100DB709F /* NamesControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A6A81DF777C100DB709F /* NamesControllerTests.swift */; };
 		8957A6AB1DF77BA200DB709F /* NamesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A6AA1DF77BA200DB709F /* NamesController.swift */; };
 		896FD8CA1E09961200247FCB /* NamesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896FD8C91E09961200247FCB /* NamesModel.swift */; };
+		899271F61E2EF1A60055BA82 /* FavoritesControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899271F51E2EF1A60055BA82 /* FavoritesControllerTests.swift */; };
+		899271F81E2EF29A0055BA82 /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899271F71E2EF29A0055BA82 /* FavoritesController.swift */; };
 		89CC1B1A1E259D8000AEF281 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC1B191E259D8000AEF281 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 		8957A6A81DF777C100DB709F /* NamesControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamesControllerTests.swift; sourceTree = "<group>"; };
 		8957A6AA1DF77BA200DB709F /* NamesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamesController.swift; sourceTree = "<group>"; };
 		896FD8C91E09961200247FCB /* NamesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamesModel.swift; sourceTree = "<group>"; };
+		899271F51E2EF1A60055BA82 /* FavoritesControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesControllerTests.swift; sourceTree = "<group>"; };
+		899271F71E2EF29A0055BA82 /* FavoritesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
 		89CC1B191E259D8000AEF281 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +124,7 @@
 				8957A67C1DF61CFB00DB709F /* NamesViewController.swift */,
 				8957A6AA1DF77BA200DB709F /* NamesController.swift */,
 				890EC4971E2EB83C0091337D /* FavoritesViewController.swift */,
+				899271F71E2EF29A0055BA82 /* FavoritesController.swift */,
 				89CC1B191E259D8000AEF281 /* TabBarController.swift */,
 				8925DDE01DFB31DF009A341D /* NameGenerator.swift */,
 				8957A67E1DF61CFB00DB709F /* Main.storyboard */,
@@ -134,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				8957A68F1DF61CFB00DB709F /*  NamesViewControllerTests.swift */,
+				899271F51E2EF1A60055BA82 /* FavoritesControllerTests.swift */,
 				8902A8AD1E206328006359B5 /* TabBarControllerTests.swift */,
 				8957A6A81DF777C100DB709F /* NamesControllerTests.swift */,
 				890B65AB1E27F732004595D0 /* NamesModelTests.swift */,
@@ -292,6 +298,7 @@
 				8957A67D1DF61CFB00DB709F /* NamesViewController.swift in Sources */,
 				8957A67B1DF61CFB00DB709F /* AppDelegate.swift in Sources */,
 				890EC4981E2EB83C0091337D /* FavoritesViewController.swift in Sources */,
+				899271F81E2EF29A0055BA82 /* FavoritesController.swift in Sources */,
 				89CC1B1A1E259D8000AEF281 /* TabBarController.swift in Sources */,
 				896FD8CA1E09961200247FCB /* NamesModel.swift in Sources */,
 				8925DDE11DFB31DF009A341D /* NameGenerator.swift in Sources */,
@@ -308,6 +315,7 @@
 				8957A6901DF61CFB00DB709F /*  NamesViewControllerTests.swift in Sources */,
 				890B65AC1E27F732004595D0 /* NamesModelTests.swift in Sources */,
 				8957A6A91DF777C100DB709F /* NamesControllerTests.swift in Sources */,
+				899271F61E2EF1A60055BA82 /* FavoritesControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
