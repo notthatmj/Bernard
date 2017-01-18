@@ -22,6 +22,11 @@ func ==(lhs: Name, rhs: Name) -> Bool {
 protocol NamesModelObserving {
     func namesModelDidUpdate()
 }
+
+protocol NamesModelProtocol {
+    func clearFavorites()
+}
+
 class NamesModel {
     private var nameGenerator : NameGenerating
     private var namesHistory : [Name]

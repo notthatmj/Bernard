@@ -17,7 +17,19 @@ class FavoritesControllerTests: XCTestCase {
     }
     
     func testFavoritesController() {
-        _ = FavoritesController()
+        
+        class FakeNamesModel : NamesModelProtocol {
+            var clearFavoritesWasCalled = false
+            func clearFavorites() {
+                clearFavoritesWasCalled = true
+            }
+        }
+        
+        let fakeNamesModel = FakeNamesModel()
+        let SUT = FavoritesController(namesModel: fakeNamesModel)
+        
+        SUT.clearFavoritesAction()
+        XCTAssertTrue(fakeNamesModel.clearFavoritesWasCalled)
     }
 
 }

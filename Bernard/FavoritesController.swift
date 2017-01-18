@@ -9,5 +9,13 @@
 import Foundation
 
 class FavoritesController {
+    let namesModel : NamesModelProtocol
     
+    init(namesModel: NamesModelProtocol) {
+        self.namesModel = namesModel
+    }
+    
+    func clearFavoritesAction() {
+        namesModel.clearFavorites()
+    }
 }
