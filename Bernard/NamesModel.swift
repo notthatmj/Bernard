@@ -31,7 +31,7 @@ class NamesModel : NamesModelProtocol {
     private var nameGenerator : NameGenerating
     private var namesHistory : [Name]
     private var currentNameIndex : Int?
-    private var observers : [NamesModelObserving] = [NamesModelObserving]()
+    private(set) var observers : [NamesModelObserving] = [NamesModelObserving]()
     
     var favorites : [String] {
         return namesHistory.filter({$0.isFavorited}).map({$0.name})

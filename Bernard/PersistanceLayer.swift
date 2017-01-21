@@ -8,7 +8,15 @@
 
 import Foundation
 
-class PersistanceLayer {
+class PersistanceLayer : NamesModelObserving {
     static let sharedInstance : PersistanceLayer = PersistanceLayer()
-    var namesModel = NamesModel()
+    var namesModel : NamesModel
+
+    init() {
+        self.namesModel = NamesModel()
+        self.namesModel.addObserver(self)
+    }
+    
+    func namesModelDidUpdate() {
+    }
 }
