@@ -26,6 +26,8 @@
 		899271F81E2EF29A0055BA82 /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899271F71E2EF29A0055BA82 /* FavoritesController.swift */; };
 		899272061E34201F0055BA82 /* PersistanceLayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899272051E34201F0055BA82 /* PersistanceLayerTests.swift */; };
 		899272081E3420CD0055BA82 /* PersistanceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899272071E3420CD0055BA82 /* PersistanceLayer.swift */; };
+		8992720A1E3444E60055BA82 /* ArchiverGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899272091E3444E60055BA82 /* ArchiverGateway.swift */; };
+		8992720C1E355BFF0055BA82 /* ArchiverGatewayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8992720B1E355BFF0055BA82 /* ArchiverGatewayTests.swift */; };
 		89CC1B1A1E259D8000AEF281 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC1B191E259D8000AEF281 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,8 @@
 		899271F71E2EF29A0055BA82 /* FavoritesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
 		899272051E34201F0055BA82 /* PersistanceLayerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistanceLayerTests.swift; sourceTree = "<group>"; };
 		899272071E3420CD0055BA82 /* PersistanceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistanceLayer.swift; sourceTree = "<group>"; };
+		899272091E3444E60055BA82 /* ArchiverGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiverGateway.swift; sourceTree = "<group>"; };
+		8992720B1E355BFF0055BA82 /* ArchiverGatewayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiverGatewayTests.swift; sourceTree = "<group>"; };
 		89CC1B191E259D8000AEF281 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +136,7 @@
 				89CC1B191E259D8000AEF281 /* TabBarController.swift */,
 				8925DDE01DFB31DF009A341D /* NameGenerator.swift */,
 				899272071E3420CD0055BA82 /* PersistanceLayer.swift */,
+				899272091E3444E60055BA82 /* ArchiverGateway.swift */,
 				8957A67E1DF61CFB00DB709F /* Main.storyboard */,
 				8957A6811DF61CFB00DB709F /* Assets.xcassets */,
 				8957A6831DF61CFB00DB709F /* LaunchScreen.storyboard */,
@@ -150,6 +155,7 @@
 				890B65AB1E27F732004595D0 /* NamesModelTests.swift */,
 				8911747F1DFB61B400878305 /* NameGeneratorTests.swift */,
 				899272051E34201F0055BA82 /* PersistanceLayerTests.swift */,
+				8992720B1E355BFF0055BA82 /* ArchiverGatewayTests.swift */,
 				8957A6911DF61CFB00DB709F /* Info.plist */,
 			);
 			path = BernardTests;
@@ -302,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				899272081E3420CD0055BA82 /* PersistanceLayer.swift in Sources */,
+				8992720A1E3444E60055BA82 /* ArchiverGateway.swift in Sources */,
 				8957A67D1DF61CFB00DB709F /* NamesViewController.swift in Sources */,
 				8957A67B1DF61CFB00DB709F /* AppDelegate.swift in Sources */,
 				890EC4981E2EB83C0091337D /* FavoritesViewController.swift in Sources */,
@@ -323,6 +330,7 @@
 				8957A6901DF61CFB00DB709F /* NamesViewControllerTests.swift in Sources */,
 				890B65AC1E27F732004595D0 /* NamesModelTests.swift in Sources */,
 				8957A6A91DF777C100DB709F /* NamesControllerTests.swift in Sources */,
+				8992720C1E355BFF0055BA82 /* ArchiverGatewayTests.swift in Sources */,
 				899271F61E2EF1A60055BA82 /* FavoritesControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
