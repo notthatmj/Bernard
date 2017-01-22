@@ -9,35 +9,35 @@
 import Foundation
 
 class ArchiverGateway {
+
+    private var dataDirectoryURL : URL?
     
-    private func dataDirectoryURL() -> URL? {
-        let sharedManager = FileManager.default
-        let appDirectoryURL = sharedManager.urls(for: FileManager.SearchPathDirectory.applicationSupportDirectory,
-                                                 in: FileManager.SearchPathDomainMask.userDomainMask)[0]
-        if let bundleID = Bundle.main.bundleIdentifier {
-            let dataDirectoryURL = appDirectoryURL.appendingPathComponent(bundleID)
-            return dataDirectoryURL
+    init?() {
+        let directoryURLs = FileManager.default.urls(for: FileManager.SearchPathDirectory.applicationSupportDirectory,
+                                                     in: FileManager.SearchPathDomainMask.userDomainMask)
+        guard directoryURLs.count >= 1,
+            let bundleID = Bundle.main.bundleIdentifier else {
+            return nil
         }
-        
-        return nil
+        let appDirectoryURL = directoryURLs[0]
+        dataDirectoryURL = appDirectoryURL.appendingPathComponent(bundleID)
     }
 
-    func archive(_ t: NSObject, toFile filename:String) -> Bool {
-        guard let dataDirectoryURL = dataDirectoryURL() else {
+    func archiveObject(_ object: NSObject, toFile filename:String) -> Bool {
+        guard let dataDirectoryURL = self.dataDirectoryURL else {
             return false
         }
-            
         let dataFilePath = dataDirectoryURL.appendingPathComponent(filename).path
-        try? FileManager.default.createDirectory(at: dataDirectoryURL, withIntermediateDirectories: true, attributes: nil)
-        return NSKeyedArchiver.archiveRootObject(t, toFile: dataFilePath)
+        try? FileManager.default.createDirectory(at: dataDirectoryURL,
+                                                 withIntermediateDirectories: true, attributes: nil)
+        return NSKeyedArchiver.archiveRootObject(object, toFile: dataFilePath)
     }
-    
-    func unarchiveObjectFromFile(_ filename:String) -> NSObject? {
-        if let dataDirectoryURL = dataDirectoryURL() {
-            let dataFilePath = dataDirectoryURL.appendingPathComponent(filename).path
-            return NSKeyedUnarchiver.unarchiveObject(withFile: dataFilePath) as? NSObject
+
+    func unarchiveObject(withFile filename:String) -> NSObject? {
+        guard let dataFilePath = dataDirectoryURL?.appendingPathComponent(filename).path else {
+            return nil
         }
-        return nil
+        return NSKeyedUnarchiver.unarchiveObject(withFile: dataFilePath) as? NSObject
     }
     
 }

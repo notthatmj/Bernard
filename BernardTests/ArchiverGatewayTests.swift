@@ -16,12 +16,17 @@ class ArchiverGatewayTests: XCTestCase {
     }
     
     func testArchiverGateway() {
-        let SUT = ArchiverGateway()
+        guard let SUT = ArchiverGateway() else {
+            XCTAssert(false)
+            return
+        }
+        
+//        let SUT = ArchiverGateway()
         let objectToArchive : NSArray = ["foo","bar"]
         
-        XCTAssertTrue(SUT.archive(objectToArchive, toFile: "testArchive"))
+        XCTAssertTrue(SUT.archiveObject(objectToArchive, toFile: "testArchive"))
+        let unarchivedObject = SUT.unarchiveObject(withFile: "testArchive")
         
-        let unarchivedObject = SUT.unarchiveObjectFromFile("testArchive")
         XCTAssertEqual(objectToArchive, unarchivedObject as? NSArray)        
     }
     
