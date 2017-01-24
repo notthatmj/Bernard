@@ -76,4 +76,24 @@ class NamesModelTests: XCTestCase {
         XCTAssertTrue(observer.updated)
     }
     
+    func testArchiving() {
+        let SUT = NamesModel()
+        guard let archiver = ArchiverGateway() else {
+            XCTAssert(false)
+            return
+        }
+        
+        let firstName = SUT.nextName()
+        let secondName = SUT.nextName()
+        
+        XCTAssert(archiver.archiveObject(SUT, toFile: "testData"))
+        guard let unarchivedModel = archiver.unarchiveObject(withFile: "testData") as? NamesModel else {
+            XCTAssertFalse(false)
+            return
+        }
+        XCTAssertEqual(unarchivedModel.currentName, secondName)
+        XCTAssertEqual(unarchivedModel.previousName(), firstName)
+        
+    }
+    
 }

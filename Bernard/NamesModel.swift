@@ -13,6 +13,38 @@ struct Name {
     var isFavorited : Bool
 }
 
+class ArchivableName : NSObject, NSCoding {
+    let name : String
+    let isFavorited : Bool
+    
+    init(name : String, isFavorited: Bool) {
+        self.name = name
+        self.isFavorited = isFavorited
+        super.init()
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.name, forKey: "name")
+        aCoder.encode(self.isFavorited, forKey: "isFavorited")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        if let name = aDecoder.decodeObject(forKey: "name") as? String {
+            self.name = name
+        } else {
+            self.name = ""
+        }
+        if let isFavorited = aDecoder.decodeObject(forKey: "isFavorited") as? Bool {
+            self.isFavorited = isFavorited
+        } else {
+            self.isFavorited = false
+        }
+        
+        super.init()
+    }
+    
+}
+
 extension Name : Equatable {}
 
 func ==(lhs: Name, rhs: Name) -> Bool {
@@ -27,7 +59,8 @@ protocol NamesModelProtocol {
     func clearFavorites()
 }
 
-class NamesModel : NamesModelProtocol {
+class NamesModel : NSObject, NSCoding, NamesModelProtocol {
+
     private var nameGenerator : NameGenerating
     private var namesHistory : [Name]
     private var currentNameIndex : Int?
@@ -37,7 +70,7 @@ class NamesModel : NamesModelProtocol {
         return namesHistory.filter({$0.isFavorited}).map({$0.name})
     }
     
-    private var currentName : String? {
+    var currentName : String? {
         return currentNameIndex == nil ? nil : namesHistory[currentNameIndex!].name
     }
     
@@ -55,7 +88,21 @@ class NamesModel : NamesModelProtocol {
         return namesHistory.count
     }
     
-    convenience init() {
+    required public init?(coder aDecoder: NSCoder) {
+        if let unarchivedHistory = aDecoder.decodeObject(forKey: "namesHistory") as? [ArchivableName] {
+            namesHistory = [Name]()
+            for name in unarchivedHistory {
+                namesHistory.append(Name(name: name.name, isFavorited: name.isFavorited))
+            }
+        } else {
+            self.namesHistory = []
+        }
+        self.currentNameIndex = Int(aDecoder.decodeInt32(forKey: "currentNameIndex"))
+        self.nameGenerator = NameGenerator()
+        super.init()
+    }
+
+    override convenience init() {
         self.init(nameGenerator : NameGenerator())
         
     }
@@ -63,6 +110,7 @@ class NamesModel : NamesModelProtocol {
     init(nameGenerator : NameGenerating) {
         self.nameGenerator = nameGenerator
         namesHistory = [Name]()
+        super.init()
     }
     
     func nextName() -> String {
@@ -105,6 +153,16 @@ class NamesModel : NamesModelProtocol {
             namesHistory[i].isFavorited = false
         }
         notifyObserversOfUpdate()
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        var archivableNamesHistory = [ArchivableName]()
+        for name in namesHistory {
+            let archivableName = ArchivableName(name: name.name, isFavorited: name.isFavorited)
+            archivableNamesHistory.append(archivableName)
+        }
+        aCoder.encode(archivableNamesHistory as NSArray, forKey: "namesHistory")
+        aCoder.encode(currentNameIndex!, forKey: "currentNameIndex")
     }
     
 }

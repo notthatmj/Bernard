@@ -23,7 +23,7 @@ class ArchiverGateway {
         dataDirectoryURL = appDirectoryURL.appendingPathComponent(bundleID)
     }
 
-    func archiveObject(_ object: NSObject, toFile filename:String) -> Bool {
+    func archiveObject(_ object: NSCoding, toFile filename:String) -> Bool {
         guard let dataDirectoryURL = self.dataDirectoryURL else {
             return false
         }
