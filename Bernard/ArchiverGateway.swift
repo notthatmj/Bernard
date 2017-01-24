@@ -8,7 +8,12 @@
 
 import Foundation
 
-class ArchiverGateway {
+protocol Archiving {
+    func archiveObject(_ object: NSCoding, toFile filename:String) -> Bool
+    func unarchiveObject(withFile filename:String) -> NSObject?
+}
+
+class ArchiverGateway : Archiving {
 
     private var dataDirectoryURL : URL?
     
