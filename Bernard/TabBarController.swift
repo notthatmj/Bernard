@@ -10,6 +10,6 @@ import UIKit
 
 class TabBarController: UITabBarController {
 
-    lazy var namesModel : NamesModel = PersistanceLayer.sharedInstance.namesModel
+    lazy var namesModel : NamesModelProtocol = PersistanceLayer.sharedInstance.namesModel
     
 }

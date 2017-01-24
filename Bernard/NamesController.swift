@@ -13,6 +13,7 @@ protocol NamesControllerProtocol {
     func nextNameButtonAction()
     func previousNameButtonAction()
     func favoriteToggleWasUpdatedAction()
+    func viewDidLoad()
 }
 
 class NamesController : NamesControllerProtocol {
@@ -21,7 +22,7 @@ class NamesController : NamesControllerProtocol {
     var tabBarController : UITabBarController? {
         return viewController.tabBarController
     }
-    var namesModel : NamesModel
+    var namesModel : NamesModelProtocol
     
     convenience init(viewController : NamesViewControllerProtocol) {
         let tabBarController = viewController.tabBarController as? TabBarController
@@ -37,7 +38,7 @@ class NamesController : NamesControllerProtocol {
                   namesModel: NamesModel(nameGenerator: nameGenerator))
     }
 
-    init(viewController : NamesViewControllerProtocol, namesModel : NamesModel) {
+    init(viewController : NamesViewControllerProtocol, namesModel : NamesModelProtocol) {
         self.viewController = viewController
         self.namesModel = namesModel
     }
@@ -54,5 +55,10 @@ class NamesController : NamesControllerProtocol {
     
     func favoriteToggleWasUpdatedAction() {
         namesModel.currentNameIsFavorited = viewController.favoriteToggleIsOn
+    }
+    
+    func viewDidLoad() {
+        viewController.favoriteToggleIsOn = namesModel.currentNameIsFavorited
+        viewController.nameText = namesModel.currentName ?? ""
     }
 }

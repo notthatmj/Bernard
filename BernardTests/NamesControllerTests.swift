@@ -97,5 +97,15 @@ class NamesControllerTests: XCTestCase {
         SUT.previousNameButtonAction()
         XCTAssertEqual(fakeViewController.nameText, "Blammo")
     }
-
+    
+    func testViewDidLoad() {
+        let namesModel = NamesModel()
+        let firstName = namesModel.nextName()
+        namesModel.currentNameIsFavorited = true
+        SUT.namesModel = namesModel
+        SUT.viewDidLoad()
+        XCTAssertEqual(SUT.viewController.nameText, firstName)
+        XCTAssertEqual(SUT.viewController.favoriteToggleIsOn, true)
+    }
+    
 }

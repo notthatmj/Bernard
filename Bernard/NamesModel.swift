@@ -34,12 +34,7 @@ class ArchivableName : NSObject, NSCoding {
         } else {
             self.name = ""
         }
-        if let isFavorited = aDecoder.decodeObject(forKey: "isFavorited") as? Bool {
-            self.isFavorited = isFavorited
-        } else {
-            self.isFavorited = false
-        }
-        
+        self.isFavorited = aDecoder.decodeBool(forKey: "isFavorited")
         super.init()
     }
     
@@ -56,7 +51,17 @@ protocol NamesModelObserving {
 }
 
 protocol NamesModelProtocol {
+    var currentNameIsFavorited : Bool {get set}
+    var favorites : [String] {get}
+    var observers : [NamesModelObserving] {get}
+    var currentName : String? {get}
+    
     func clearFavorites()
+    func archivableState() -> NSCoding
+    func addObserver(_ observer: NamesModelObserving)
+    func nextName() -> String
+    func previousName() -> String?
+    
 }
 
 class NamesModel : NSObject, NSCoding, NamesModelProtocol {
@@ -163,6 +168,10 @@ class NamesModel : NSObject, NSCoding, NamesModelProtocol {
         }
         aCoder.encode(archivableNamesHistory as NSArray, forKey: "namesHistory")
         aCoder.encode(currentNameIndex!, forKey: "currentNameIndex")
+    }
+
+    func archivableState() -> NSCoding {
+        return self
     }
     
 }

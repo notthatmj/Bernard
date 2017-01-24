@@ -52,11 +52,13 @@ class NamesViewController: UIViewController, NamesViewControllerProtocol {
     @IBAction func favoriteToggleWasUpdatedAction(_ sender: UISwitch) {
         controller.favoriteToggleWasUpdatedAction()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if controller == nil {
             controller = NamesController.init(viewController:self)
         }
+        controller.viewDidLoad()
     }
     
 }

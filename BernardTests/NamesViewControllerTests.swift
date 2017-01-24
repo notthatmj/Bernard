@@ -26,6 +26,7 @@ fileprivate class FakeController:NamesControllerProtocol {
     func favoriteToggleWasUpdatedAction() {
         favoriteToggleWasUpdatedActionWasCalled = true
     }
+    func viewDidLoad() {}
     
 }
 

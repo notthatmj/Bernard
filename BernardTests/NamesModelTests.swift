@@ -85,6 +85,7 @@ class NamesModelTests: XCTestCase {
         
         let firstName = SUT.nextName()
         let secondName = SUT.nextName()
+        SUT.currentNameIsFavorited = true
         
         XCTAssert(archiver.archiveObject(SUT, toFile: "testData"))
         guard let unarchivedModel = archiver.unarchiveObject(withFile: "testData") as? NamesModel else {
@@ -92,7 +93,9 @@ class NamesModelTests: XCTestCase {
             return
         }
         XCTAssertEqual(unarchivedModel.currentName, secondName)
+        XCTAssertTrue(unarchivedModel.currentNameIsFavorited)
         XCTAssertEqual(unarchivedModel.previousName(), firstName)
+        XCTAssertFalse(unarchivedModel.currentNameIsFavorited)
         
     }
     

@@ -23,6 +23,16 @@ class FavoritesControllerTests: XCTestCase {
             func clearFavorites() {
                 clearFavoritesWasCalled = true
             }
+            func archivableState() -> NSCoding {
+                return NSArray()
+            }
+            func addObserver(_ observer: NamesModelObserving) {}
+            func nextName() -> String { return "" }
+            func previousName() -> String? { return "" }
+            var currentNameIsFavorited: Bool = false
+            var favorites: [String] = []
+            var observers: [NamesModelObserving] = []
+            var currentName: String? = nil
         }
         
         let fakeNamesModel = FakeNamesModel()

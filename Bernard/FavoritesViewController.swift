@@ -37,7 +37,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-    private var namesModel : NamesModel? {
+    private var namesModel : NamesModelProtocol? {
         if let tabBarController = tabBarController as? TabBarController {
             return tabBarController.namesModel
         }
