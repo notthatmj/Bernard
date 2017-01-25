@@ -19,6 +19,9 @@ class FavoritesControllerTests: XCTestCase {
     func testFavoritesController() {
         
         class FakeNamesModel : NamesModelProtocol {
+            public func encode(with aCoder: NSCoder) {}
+            required init?(coder aDecoder: NSCoder) {}
+            init() {}
             var clearFavoritesWasCalled = false
             func clearFavorites() {
                 clearFavoritesWasCalled = true

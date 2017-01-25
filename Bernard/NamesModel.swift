@@ -8,16 +8,129 @@
 
 import Foundation
 
-struct Name {
-    let name : String
-    var isFavorited : Bool
+protocol NamesModelObserving {
+    func namesModelDidUpdate()
 }
 
-class ArchivableName : NSObject, NSCoding {
-    let name : String
-    let isFavorited : Bool
+protocol NamesModelProtocol : NSCoding {
+    var currentName : String? {get}
+    var currentNameIsFavorited : Bool {get set}
+    var favorites : [String] {get}
+    var observers : [NamesModelObserving] {get}
     
-    init(name : String, isFavorited: Bool) {
+    func clearFavorites()
+    func nextName() -> String
+    func previousName() -> String?
+    func addObserver(_ observer: NamesModelObserving)
+
+}
+
+class NamesModel : NSObject, NSCoding, NamesModelProtocol {
+
+    // MARK: Initializers (excluding the initializer required by NSCoding)
+    override convenience init() {
+        self.init(nameGenerator : NameGenerator())
+    }
+    
+    init(nameGenerator : NameGenerating) {
+        self.nameGenerator = nameGenerator
+        namesHistory = [GeneratedName]()
+        super.init()
+    }
+    
+
+    // MARK: NamesModelProtocol properties/methods
+    var currentName : String? {
+        return currentGeneratedName == nil ? nil : currentGeneratedName!.name
+    }
+    
+    var currentNameIsFavorited : Bool {
+        get { return currentGeneratedName == nil ? false : currentGeneratedName!.isFavorited }
+        set {
+            if currentGeneratedName != nil {
+                currentGeneratedName?.isFavorited = newValue
+            }
+            notifyObserversOfUpdate()
+        }
+    }
+
+    var favorites : [String] {
+        return namesHistory.filter({$0.isFavorited}).map({$0.name})
+    }
+
+    private(set) var observers : [NamesModelObserving] = [NamesModelObserving]()
+    
+    func clearFavorites() {
+        for generatedName in namesHistory {
+            generatedName.isFavorited = false
+        }
+        notifyObserversOfUpdate()
+    }
+
+    func nextName() -> String {
+        if currentNameIndex == nil {
+            currentNameIndex = 0
+        } else {
+            currentNameIndex! += 1
+        }
+        let createdName = nameGenerator.createName()
+        let name = GeneratedName(name: createdName, isFavorited: false)
+        namesHistory.append(name)
+        notifyObserversOfUpdate()
+        return currentName!
+    }
+    
+    func previousName() -> String? {
+        if currentNameIndex != nil && currentNameIndex! > 0 {
+            currentNameIndex! -= 1
+        }
+        return currentName
+    }
+    
+    func addObserver(_ observer: NamesModelObserving) {
+        observers.append(observer)
+    }
+    
+    // MARK: NSCoding methods
+    required public init?(coder aDecoder: NSCoder) {
+        namesHistory = aDecoder.decodeObject(forKey: "namesHistory") as? [GeneratedName] ?? []
+        self.currentNameIndex = Int(aDecoder.decodeInt32(forKey: "currentNameIndex"))
+        self.nameGenerator = NameGenerator()
+        super.init()
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        var archivableNamesHistory = [GeneratedName]()
+        for name in namesHistory {
+            let archivableName = GeneratedName(name: name.name, isFavorited: name.isFavorited)
+            archivableNamesHistory.append(archivableName)
+        }
+        aCoder.encode(archivableNamesHistory as NSArray, forKey: "namesHistory")
+        aCoder.encode(currentNameIndex!, forKey: "currentNameIndex")
+    }
+    
+    // MARK: Private
+    private var nameGenerator : NameGenerating
+    private var namesHistory : [GeneratedName]
+    private var currentNameIndex : Int?
+
+    private func notifyObserversOfUpdate() {
+        for observer in observers {
+            observer.namesModelDidUpdate()
+        }
+    }
+    
+    private var currentGeneratedName : GeneratedName? {
+        return currentNameIndex == nil ? nil : namesHistory[currentNameIndex!]
+    }
+}
+
+class GeneratedName : NSObject, NSCoding {
+    
+    let name : String
+    var isFavorited : Bool
+    
+    init(name : String, isFavorited : Bool) {
         self.name = name
         self.isFavorited = isFavorited
         super.init()
@@ -36,142 +149,6 @@ class ArchivableName : NSObject, NSCoding {
         }
         self.isFavorited = aDecoder.decodeBool(forKey: "isFavorited")
         super.init()
-    }
-    
-}
-
-extension Name : Equatable {}
-
-func ==(lhs: Name, rhs: Name) -> Bool {
-    return lhs.name == rhs.name && lhs.isFavorited == rhs.isFavorited
-}
-
-protocol NamesModelObserving {
-    func namesModelDidUpdate()
-}
-
-protocol NamesModelProtocol {
-    var currentNameIsFavorited : Bool {get set}
-    var favorites : [String] {get}
-    var observers : [NamesModelObserving] {get}
-    var currentName : String? {get}
-    
-    func clearFavorites()
-    func archivableState() -> NSCoding
-    func addObserver(_ observer: NamesModelObserving)
-    func nextName() -> String
-    func previousName() -> String?
-    
-}
-
-class NamesModel : NSObject, NSCoding, NamesModelProtocol {
-
-    private var nameGenerator : NameGenerating
-    private var namesHistory : [Name]
-    private var currentNameIndex : Int?
-    private(set) var observers : [NamesModelObserving] = [NamesModelObserving]()
-    
-    var favorites : [String] {
-        return namesHistory.filter({$0.isFavorited}).map({$0.name})
-    }
-    
-    var currentName : String? {
-        return currentNameIndex == nil ? nil : namesHistory[currentNameIndex!].name
-    }
-    
-    var currentNameIsFavorited : Bool {
-        get { return currentNameIndex == nil ? false : namesHistory[currentNameIndex!].isFavorited }
-        set {
-            if currentNameIndex != nil {
-                namesHistory[currentNameIndex!].isFavorited = newValue
-            }
-            notifyObserversOfUpdate()
-        }
-    }
-    
-    var count : Int {
-        return namesHistory.count
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        if let unarchivedHistory = aDecoder.decodeObject(forKey: "namesHistory") as? [ArchivableName] {
-            namesHistory = [Name]()
-            for name in unarchivedHistory {
-                namesHistory.append(Name(name: name.name, isFavorited: name.isFavorited))
-            }
-        } else {
-            self.namesHistory = []
-        }
-        self.currentNameIndex = Int(aDecoder.decodeInt32(forKey: "currentNameIndex"))
-        self.nameGenerator = NameGenerator()
-        super.init()
-    }
-
-    override convenience init() {
-        self.init(nameGenerator : NameGenerator())
-        
-    }
-    
-    init(nameGenerator : NameGenerating) {
-        self.nameGenerator = nameGenerator
-        namesHistory = [Name]()
-        super.init()
-    }
-    
-    func nextName() -> String {
-        if currentNameIndex == nil {
-            currentNameIndex = 0
-        } else {
-            currentNameIndex! += 1
-        }
-        let createdName = nameGenerator.createName()
-        let name = Name(name: createdName, isFavorited: false)
-        namesHistory.append(name)
-        notifyObserversOfUpdate()
-        return currentName!
-    }
-
-    func previousName() -> String? {
-        if currentNameIndex != nil && currentNameIndex! > 0 {
-            currentNameIndex! -= 1
-        }
-        return currentName
-    }
-    
-    func nameAtIndex(_ index:Int) -> Name {
-        let name = self.namesHistory[index]
-        return name
-    }
-    
-    func addObserver(_ observer: NamesModelObserving) {
-        observers.append(observer)
-    }
-    
-    func notifyObserversOfUpdate() {
-        for observer in observers {
-            observer.namesModelDidUpdate()
-        }
-    }
-    
-    func clearFavorites() {
-        for i in 0..<namesHistory.count {
-            namesHistory[i].isFavorited = false
-        }
-        notifyObserversOfUpdate()
-    }
-    
-    func encode(with aCoder: NSCoder) {
-        var archivableNamesHistory = [ArchivableName]()
-        for name in namesHistory {
-            let archivableName = ArchivableName(name: name.name, isFavorited: name.isFavorited)
-            archivableNamesHistory.append(archivableName)
-        }
-        aCoder.encode(archivableNamesHistory as NSArray, forKey: "namesHistory")
-        aCoder.encode(currentNameIndex!, forKey: "currentNameIndex")
-    }
-
-    func archivableState() -> NSCoding {
-        return self
     }
     
 }

@@ -26,6 +26,11 @@ class PersistanceLayerTests: XCTestCase {
     
     func testNamesModelDidUpdate() {
         class FakeNamesModel : NamesModelProtocol {
+            public func encode(with aCoder: NSCoder) {}
+            required init?(coder aDecoder: NSCoder) {}
+            init() {}
+//            public func encode(with aCoder: NSCoder) {}
+
             func clearFavorites() {}
             func archivableState() -> NSCoding {
                 return NSString.init(string: "Test state")
@@ -63,6 +68,6 @@ class PersistanceLayerTests: XCTestCase {
         
         XCTAssertNotNil(fakeArchiver.archivedObject)
         XCTAssertEqual(fakeArchiver.archiveFilename, SUT.dataFilename)
-        XCTAssertEqual(fakeArchiver.archivedObject as? NSString, NSString.init(string: "Test state"))
+        XCTAssert(fakeArchiver.archivedObject as? FakeNamesModel === fakeNamesModel)
     }
 }

@@ -24,7 +24,6 @@ class PersistanceLayer : NamesModelObserving {
     }
     
     func namesModelDidUpdate() {
-//        self.archiver.archiveObject(self.namesModel.archivableState, toFile: "names-data.plist")
-        _ = self.archiver?.archiveObject(self.namesModel.archivableState(), toFile: self.dataFilename)
+        _ = self.archiver?.archiveObject(self.namesModel, toFile: self.dataFilename)
     }
 }

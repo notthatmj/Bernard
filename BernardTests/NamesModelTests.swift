@@ -26,22 +26,6 @@ class NamesModelTests: XCTestCase {
         SUT = NamesModel()
     }
     
-    func testNameAtIndex() {
-        let firstName = SUT.nextName()
-        let secondName = SUT.nextName()
-        XCTAssertEqual(SUT.nameAtIndex(0).name,firstName)
-        XCTAssertEqual(SUT.nameAtIndex(1).name,secondName)
-    }
-
-    func testCount() {
-        XCTAssertEqual(SUT.count,0)
-        _ = SUT.nextName()
-        XCTAssertEqual(SUT.count,1)
-        _ = SUT.nextName()
-        XCTAssertEqual(SUT.count,2)
-    }
-
-    
     func testAddObserver() {
         let observer = Observer()
         SUT.addObserver(observer)
