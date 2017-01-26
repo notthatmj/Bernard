@@ -13,7 +13,7 @@ class PersistanceLayer : NamesModelObserving {
     var namesModel : NamesModelProtocol
     var archiver : Archiving? = ArchiverGateway()
     let dataFilename : String = "names-data.plist"
-    
+    private var queue : DispatchQueue = DispatchQueue( label: "Persistence")
     init() {
         if let savedNamesModel = self.archiver?.unarchiveObject(withFile: self.dataFilename) as? NamesModel {
             self.namesModel = savedNamesModel
@@ -24,6 +24,8 @@ class PersistanceLayer : NamesModelObserving {
     }
     
     func namesModelDidUpdate() {
-        _ = self.archiver?.archiveObject(self.namesModel, toFile: self.dataFilename)
+        queue.async {
+            _ = self.archiver?.archiveObject(self.namesModel, toFile: self.dataFilename)
+        }
     }
 }
