@@ -21,7 +21,6 @@ class ArchiverGatewayTests: XCTestCase {
             return
         }
         
-//        let SUT = ArchiverGateway()
         let objectToArchive : NSArray = ["foo","bar"]
         
         XCTAssertTrue(SUT.archive(objectToArchive, toFile: "testArchive"))
@@ -29,17 +28,5 @@ class ArchiverGatewayTests: XCTestCase {
         
         XCTAssertEqual(objectToArchive, unarchivedObject as? NSArray)        
     }
-    
-//    func testArchiverGateway2() {
-//        guard let SUT = ArchiverGateway() else {
-//            return
-//        }
-//        
-//        var namesModel = NamesModel()
-//        
-//        SUT.archiveObject(namesModel, toFile: "testArchive")
-//        
-//        let unarchivedOjbect = SUT.unarchiveObject(withFile: "testArchive")
-//    }
-    
+
 }
