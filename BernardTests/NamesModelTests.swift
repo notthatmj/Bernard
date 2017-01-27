@@ -82,5 +82,20 @@ class NamesModelTests: XCTestCase {
         XCTAssertFalse(unarchivedModel.currentNameIsFavorited)
         
     }
-    
+
+    func testArchiveFreshModel() {
+        let SUT = NamesModel()
+        guard let archiver = ArchiverGateway() else {
+            XCTAssert(false)
+            return
+        }
+        
+        XCTAssert(archiver.archive(SUT, toFile: "testData"))
+        guard let unarchivedModel = archiver.unarchiveObject(withFile: "testData") as? NamesModel else {
+            XCTAssertFalse(false)
+            return
+        }
+        XCTAssertNil(unarchivedModel.currentName)
+    }
+
 }

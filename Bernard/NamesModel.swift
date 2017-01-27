@@ -94,7 +94,11 @@ class NamesModel : NSObject, NSCoding, NamesModelProtocol {
     // MARK: NSCoding methods
     required public init?(coder aDecoder: NSCoder) {
         namesHistory = aDecoder.decodeObject(forKey: "namesHistory") as? [GeneratedName] ?? []
-        self.currentNameIndex = Int(aDecoder.decodeInt32(forKey: "currentNameIndex"))
+        if (namesHistory.count == 0) {
+            self.currentNameIndex = nil
+        } else {
+            self.currentNameIndex = Int(aDecoder.decodeInt32(forKey: "currentNameIndex"))
+        }
         self.nameGenerator = NameGenerator()
         super.init()
     }
@@ -106,7 +110,7 @@ class NamesModel : NSObject, NSCoding, NamesModelProtocol {
             archivableNamesHistory.append(archivableName)
         }
         aCoder.encode(archivableNamesHistory as NSArray, forKey: "namesHistory")
-        aCoder.encode(currentNameIndex!, forKey: "currentNameIndex")
+        aCoder.encode(currentNameIndex ?? 0, forKey: "currentNameIndex")
     }
     
     // MARK: Private
