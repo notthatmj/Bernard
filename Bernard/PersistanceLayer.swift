@@ -25,7 +25,7 @@ class PersistanceLayer : NamesModelObserving {
     
     func namesModelDidUpdate() {
         queue.async {
-            _ = self.archiver?.archiveObject(self.namesModel, toFile: self.dataFilename)
+            _ = self.archiver?.archive(self.namesModel, toFile: self.dataFilename)
         }
     }
 }
