@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8902A8AE1E206328006359B5 /* TabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8902A8AD1E206328006359B5 /* TabBarControllerTests.swift */; };
 		890B65AC1E27F732004595D0 /* NamesModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B65AB1E27F732004595D0 /* NamesModelTests.swift */; };
 		890EC4981E2EB83C0091337D /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890EC4971E2EB83C0091337D /* FavoritesViewController.swift */; };
 		891174801DFB61B400878305 /* NameGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8911747F1DFB61B400878305 /* NameGeneratorTests.swift */; };
@@ -47,7 +46,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8902A8AD1E206328006359B5 /* TabBarControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerTests.swift; sourceTree = "<group>"; };
 		890B65AB1E27F732004595D0 /* NamesModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamesModelTests.swift; sourceTree = "<group>"; };
 		890EC4971E2EB83C0091337D /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		8911747F1DFB61B400878305 /* NameGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameGeneratorTests.swift; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 			children = (
 				8957A68F1DF61CFB00DB709F /* NamesViewControllerTests.swift */,
 				899271F51E2EF1A60055BA82 /* FavoritesControllerTests.swift */,
-				8902A8AD1E206328006359B5 /* TabBarControllerTests.swift */,
 				8957A6A81DF777C100DB709F /* NamesControllerTests.swift */,
 				890B65AB1E27F732004595D0 /* NamesModelTests.swift */,
 				8911747F1DFB61B400878305 /* NameGeneratorTests.swift */,
@@ -318,7 +315,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				891174801DFB61B400878305 /* NameGeneratorTests.swift in Sources */,
-				8902A8AE1E206328006359B5 /* TabBarControllerTests.swift in Sources */,
 				8957A6901DF61CFB00DB709F /* NamesViewControllerTests.swift in Sources */,
 				890B65AC1E27F732004595D0 /* NamesModelTests.swift in Sources */,
 				8957A6A91DF777C100DB709F /* NamesControllerTests.swift in Sources */,
