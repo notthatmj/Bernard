@@ -38,10 +38,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     private var namesModel : NamesModelProtocol? {
-        if let tabBarController = tabBarController as? TabBarController {
-            return tabBarController.namesModel
-        }
-        return nil
+        return PersistanceLayer.sharedInstance.namesModel
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
