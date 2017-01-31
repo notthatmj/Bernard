@@ -80,6 +80,8 @@ class NamesViewControllerTests: XCTestCase {
 
         XCTAssertNotNil(viewController?.previousNameButton)
         checkThatActionName(forButton: viewController?.previousNameButton, is: "previousNameButtonAction:")
+        
+        XCTAssertNotNil(viewController?.toolbar)
     }
     
     func testViewDidLoadInitializesDelegate() {

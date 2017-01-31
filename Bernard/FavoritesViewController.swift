@@ -8,13 +8,21 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NamesModelObserving {
+
+protocol FavoritesViewControllerProtocol {
+    func dismiss(animated flag: Bool, completion: (() -> Void)?)
+}
+
+class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NamesModelObserving, FavoritesViewControllerProtocol {
     
-    var controller : FavoritesController!
-    
+    lazy var controller : FavoritesControllerProtocol! =
+        FavoritesController(namesModel: PersistanceLayer.sharedInstance.namesModel,
+                            favoritesViewController: self)
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
     
     @IBAction func clearButtonAction(_ sender: Any) {
         let alertController = UIAlertController(title: "Clear Favorites", message: "Are you sure you want to clear the favorites list? This action cannot be undone.", preferredStyle: UIAlertControllerStyle.actionSheet)
@@ -35,6 +43,10 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
                                                                   applicationActivities: nil)
             self.present(activityViewController, animated: true, completion: nil)
         }
+    }
+    
+    @IBAction func doneButtonAction(_ sender: UIBarButtonItem) {
+        self.controller.doneButtonAction()
     }
     
     private var namesModel : NamesModelProtocol? {
@@ -64,5 +76,4 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     func namesModelDidUpdate() {
         self.tableView.reloadData()
     }
-
 }

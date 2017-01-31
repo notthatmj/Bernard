@@ -20,6 +20,7 @@ class NamesViewController: UIViewController, NamesViewControllerProtocol {
     @IBOutlet weak var nextNameButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var favoriteToggle: UISwitch!
+    @IBOutlet weak var toolbar: UIToolbar!
     
     var controller : NamesControllerProtocol!
     

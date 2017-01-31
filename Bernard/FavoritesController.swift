@@ -8,11 +8,22 @@
 
 import Foundation
 
-class FavoritesController {
+protocol FavoritesControllerProtocol {
+    func doneButtonAction()
+    func clearFavoritesAction()
+}
+
+class FavoritesController : FavoritesControllerProtocol {
     let namesModel : NamesModelProtocol
+    let favoritesViewController : FavoritesViewControllerProtocol
     
-    init(namesModel: NamesModelProtocol) {
+    init(namesModel: NamesModelProtocol, favoritesViewController: FavoritesViewControllerProtocol) {
         self.namesModel = namesModel
+        self.favoritesViewController = favoritesViewController
+    }
+    
+    func doneButtonAction() {
+        favoritesViewController.dismiss(animated: true, completion: nil)
     }
     
     func clearFavoritesAction() {
