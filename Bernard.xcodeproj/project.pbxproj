@@ -18,7 +18,6 @@
 		8957A6821DF61CFB00DB709F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8957A6811DF61CFB00DB709F /* Assets.xcassets */; };
 		8957A6851DF61CFB00DB709F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8957A6831DF61CFB00DB709F /* LaunchScreen.storyboard */; };
 		8957A6901DF61CFB00DB709F /* NamesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A68F1DF61CFB00DB709F /* NamesViewControllerTests.swift */; };
-		8957A69B1DF61CFB00DB709F /* BernardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A69A1DF61CFB00DB709F /* BernardUITests.swift */; };
 		8957A6A91DF777C100DB709F /* NamesControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A6A81DF777C100DB709F /* NamesControllerTests.swift */; };
 		8957A6AB1DF77BA200DB709F /* NamesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957A6AA1DF77BA200DB709F /* NamesController.swift */; };
 		896FD8CA1E09961200247FCB /* NamesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896FD8C91E09961200247FCB /* NamesModel.swift */; };
@@ -31,13 +30,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		8957A68C1DF61CFB00DB709F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8957A66F1DF61CFB00DB709F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8957A6761DF61CFB00DB709F;
-			remoteInfo = Bernard;
-		};
-		8957A6971DF61CFB00DB709F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8957A66F1DF61CFB00DB709F /* Project object */;
 			proxyType = 1;
@@ -62,9 +54,6 @@
 		8957A68B1DF61CFB00DB709F /* BernardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BernardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8957A68F1DF61CFB00DB709F /* NamesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesViewControllerTests.swift; sourceTree = "<group>"; };
 		8957A6911DF61CFB00DB709F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8957A6961DF61CFB00DB709F /* BernardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BernardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8957A69A1DF61CFB00DB709F /* BernardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BernardUITests.swift; sourceTree = "<group>"; };
-		8957A69C1DF61CFB00DB709F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8957A6A81DF777C100DB709F /* NamesControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamesControllerTests.swift; sourceTree = "<group>"; };
 		8957A6AA1DF77BA200DB709F /* NamesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamesController.swift; sourceTree = "<group>"; };
 		896FD8C91E09961200247FCB /* NamesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamesModel.swift; sourceTree = "<group>"; };
@@ -90,13 +79,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8957A6931DF61CFB00DB709F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -105,7 +87,6 @@
 			children = (
 				8957A6791DF61CFB00DB709F /* Bernard */,
 				8957A68E1DF61CFB00DB709F /* BernardTests */,
-				8957A6991DF61CFB00DB709F /* BernardUITests */,
 				8957A6781DF61CFB00DB709F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -115,7 +96,6 @@
 			children = (
 				8957A6771DF61CFB00DB709F /* Bernard.app */,
 				8957A68B1DF61CFB00DB709F /* BernardTests.xctest */,
-				8957A6961DF61CFB00DB709F /* BernardUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,15 +133,6 @@
 				8957A6911DF61CFB00DB709F /* Info.plist */,
 			);
 			path = BernardTests;
-			sourceTree = "<group>";
-		};
-		8957A6991DF61CFB00DB709F /* BernardUITests */ = {
-			isa = PBXGroup;
-			children = (
-				8957A69A1DF61CFB00DB709F /* BernardUITests.swift */,
-				8957A69C1DF61CFB00DB709F /* Info.plist */,
-			);
-			path = BernardUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,24 +173,6 @@
 			productReference = 8957A68B1DF61CFB00DB709F /* BernardTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8957A6951DF61CFB00DB709F /* BernardUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8957A6A51DF61CFB00DB709F /* Build configuration list for PBXNativeTarget "BernardUITests" */;
-			buildPhases = (
-				8957A6921DF61CFB00DB709F /* Sources */,
-				8957A6931DF61CFB00DB709F /* Frameworks */,
-				8957A6941DF61CFB00DB709F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8957A6981DF61CFB00DB709F /* PBXTargetDependency */,
-			);
-			name = BernardUITests;
-			productName = BernardUITests;
-			productReference = 8957A6961DF61CFB00DB709F /* BernardUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -236,12 +189,6 @@
 						ProvisioningStyle = Automatic;
 					};
 					8957A68A1DF61CFB00DB709F = {
-						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = G366SNANE6;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 8957A6761DF61CFB00DB709F;
-					};
-					8957A6951DF61CFB00DB709F = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = G366SNANE6;
 						ProvisioningStyle = Automatic;
@@ -264,7 +211,6 @@
 			targets = (
 				8957A6761DF61CFB00DB709F /* Bernard */,
 				8957A68A1DF61CFB00DB709F /* BernardTests */,
-				8957A6951DF61CFB00DB709F /* BernardUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -281,13 +227,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		8957A6891DF61CFB00DB709F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8957A6941DF61CFB00DB709F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -327,14 +266,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8957A6921DF61CFB00DB709F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8957A69B1DF61CFB00DB709F /* BernardUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -342,11 +273,6 @@
 			isa = PBXTargetDependency;
 			target = 8957A6761DF61CFB00DB709F /* Bernard */;
 			targetProxy = 8957A68C1DF61CFB00DB709F /* PBXContainerItemProxy */;
-		};
-		8957A6981DF61CFB00DB709F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8957A6761DF61CFB00DB709F /* Bernard */;
-			targetProxy = 8957A6971DF61CFB00DB709F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -519,34 +445,6 @@
 			};
 			name = Release;
 		};
-		8957A6A61DF61CFB00DB709F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = G366SNANE6;
-				INFOPLIST_FILE = BernardUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.notthatmj.BernardUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Bernard;
-			};
-			name = Debug;
-		};
-		8957A6A71DF61CFB00DB709F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = G366SNANE6;
-				INFOPLIST_FILE = BernardUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.notthatmj.BernardUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Bernard;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -573,15 +471,6 @@
 			buildConfigurations = (
 				8957A6A31DF61CFB00DB709F /* Debug */,
 				8957A6A41DF61CFB00DB709F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8957A6A51DF61CFB00DB709F /* Build configuration list for PBXNativeTarget "BernardUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8957A6A61DF61CFB00DB709F /* Debug */,
-				8957A6A71DF61CFB00DB709F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
