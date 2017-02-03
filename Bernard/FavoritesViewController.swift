@@ -13,7 +13,13 @@ protocol FavoritesViewControllerProtocol {
     func dismiss(animated flag: Bool, completion: (() -> Void)?)
 }
 
-class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NamesModelObserving, FavoritesViewControllerProtocol {
+class FavoritesNavigationBarDelegate: NSObject, UINavigationBarDelegate {
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return UIBarPosition.topAttached
+    }
+}
+
+class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationBarDelegate, NamesModelObserving, FavoritesViewControllerProtocol {
     
     lazy var controller : FavoritesControllerProtocol! =
         FavoritesController(namesModel: PersistanceLayer.sharedInstance.namesModel,
@@ -72,9 +78,14 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         self.tableView.dataSource = self
         namesModel?.addObserver(self)
+        self.navigationBar.delegate = self
     }
 
     func namesModelDidUpdate() {
         self.tableView.reloadData()
+    }
+
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return UIBarPosition.topAttached
     }
 }

@@ -38,7 +38,7 @@ class FavoritesViewControllerTests: XCTestCase {
         
     }
     
-    func testFavoritesViewController() {
+    func testDoneButtonAction() {
         // Setup
         guard let sender = SUT.doneButton else {
             XCTAssertTrue(false)
@@ -61,6 +61,14 @@ class FavoritesViewControllerTests: XCTestCase {
         XCTAssertNotNil(SUT.clearButton)
         XCTAssertNotNil(SUT.shareButton)
         XCTAssertNotNil(SUT.doneButton)
+    }
+    
+    func testPosition() {
+        XCTAssertEqual(SUT.position(for: SUT.navigationBar), UIBarPosition.topAttached)
+    }
+    
+    func testNavigationBarDelegate() {
+        XCTAssert(SUT.navigationBar.delegate === SUT)
     }
 
 }
