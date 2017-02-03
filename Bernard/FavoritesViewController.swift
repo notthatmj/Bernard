@@ -13,12 +13,6 @@ protocol FavoritesViewControllerProtocol {
     func dismiss(animated flag: Bool, completion: (() -> Void)?)
 }
 
-//class FavoritesNavigationBarDelegate: UINavigationBarDelegate {
-//    func position(for bar: UIBarPositioning) -> UIBarPosition {
-//        return UIBarPosition.topAttached
-//    }
-//}
-
 class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NamesModelObserving, FavoritesViewControllerProtocol {
     
     lazy var controller : FavoritesControllerProtocol! =

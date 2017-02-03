@@ -57,6 +57,10 @@ class FavoritesViewControllerTests: XCTestCase {
 
     func testOutlets() {
         XCTAssertNotNil(SUT.navigationBar)
+        XCTAssertNotNil(SUT.tableView)
+        XCTAssertNotNil(SUT.clearButton)
+        XCTAssertNotNil(SUT.shareButton)
+        XCTAssertNotNil(SUT.doneButton)
     }
 
 }
