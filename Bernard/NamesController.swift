@@ -16,7 +16,7 @@ protocol NamesControllerProtocol {
     func viewDidLoad()
 }
 
-class NamesController : NamesControllerProtocol {
+class NamesController : NamesControllerProtocol, NamesModelObserving {
     
     var viewController : NamesViewControllerProtocol
     var namesModel : NamesModelProtocol
@@ -52,5 +52,10 @@ class NamesController : NamesControllerProtocol {
     func viewDidLoad() {
         viewController.favoriteToggleIsOn = namesModel.currentNameIsFavorited
         viewController.nameText = namesModel.currentName ?? ""
+        namesModel.addObserver(self)
+    }
+    
+    func namesModelDidUpdate() {
+        viewController.favoriteToggleIsOn = namesModel.currentNameIsFavorited
     }
 }

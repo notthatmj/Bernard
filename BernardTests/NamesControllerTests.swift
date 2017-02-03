@@ -99,13 +99,28 @@ class NamesControllerTests: XCTestCase {
     }
     
     func testViewDidLoad() {
+        // Setup
         let namesModel = NamesModel()
         let firstName = namesModel.nextName()
         namesModel.currentNameIsFavorited = true
         SUT.namesModel = namesModel
+        
+        // Test
         SUT.viewDidLoad()
+        
+        // Assert
         XCTAssertEqual(SUT.viewController.nameText, firstName)
         XCTAssertEqual(SUT.viewController.favoriteToggleIsOn, true)
+        XCTAssert(namesModel.observers.contains(where: { $0 as? NamesController === SUT!}))
+    }
+    
+    func testFavoritesToggleChangesWhenNamesCleared() {
+        SUT.viewDidLoad()
+        _ = SUT.nextNameButtonAction()
+        fakeViewController.favoriteToggleIsOn = true
+        SUT.favoriteToggleWasUpdatedAction()
+        SUT.namesModel.clearFavorites()
+        XCTAssertFalse(fakeViewController.favoriteToggleIsOn)
     }
     
 }
