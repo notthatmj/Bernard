@@ -9,37 +9,41 @@
 import XCTest
 @testable import Bernard
 
+fileprivate class FakeNamesModel : NamesModelProtocol {
+    public func encode(with aCoder: NSCoder) {}
+    required init?(coder aDecoder: NSCoder) {}
+    init() {}
+    var clearFavoritesWasCalled = false
+    func clearFavorites() {
+        clearFavoritesWasCalled = true
+    }
+    func archivableState() -> NSCoding {
+        return NSArray()
+    }
+    func addObserver(_ observer: NamesModelObserving) {}
+    func nextName() -> String { return "" }
+    func previousName() -> String? { return "" }
+    var currentNameIsFavorited: Bool = false
+    var favorites: [String] = []
+    var observers: [NamesModelObserving] = []
+    var currentName: String? = nil
+}
+
+fileprivate class FakeFavoritesViewController : FavoritesViewControllerProtocol {
+    var dismissWasCalled = false
+    var dismissAnimatedArg : Bool? = nil
+    var dismissCompletionArg: (() -> Void)? = nil
+    
+    func dismiss(animated flag: Bool, completion: (() -> Void)?) {
+        dismissWasCalled = true
+        dismissAnimatedArg = flag
+        dismissCompletionArg = completion
+    }
+}
+
 class FavoritesControllerTests: XCTestCase {
     
     func testClearFavoritesAction() {
-        
-        class FakeNamesModel : NamesModelProtocol {
-            public func encode(with aCoder: NSCoder) {}
-            required init?(coder aDecoder: NSCoder) {}
-            init() {}
-            var clearFavoritesWasCalled = false
-            func clearFavorites() {
-                clearFavoritesWasCalled = true
-            }
-            func archivableState() -> NSCoding {
-                return NSArray()
-            }
-            func addObserver(_ observer: NamesModelObserving) {}
-            func nextName() -> String { return "" }
-            func previousName() -> String? { return "" }
-            var currentNameIsFavorited: Bool = false
-            var favorites: [String] = []
-            var observers: [NamesModelObserving] = []
-            var currentName: String? = nil
-        }
-        
-        class FakeFavoritesViewController : FavoritesViewControllerProtocol {
-            var dismissWasCalled = false
-            func dismiss(animated flag: Bool, completion: (() -> Void)?) {
-                dismissWasCalled = true
-            }
-        }
-
         let fakeNamesModel = FakeNamesModel()
         let SUT = FavoritesController(namesModel: fakeNamesModel, favoritesViewController: FakeFavoritesViewController())
         
@@ -48,37 +52,6 @@ class FavoritesControllerTests: XCTestCase {
     }
 
     func testDoneButtonAction() {
-        class FakeNamesModel : NamesModelProtocol {
-            public func encode(with aCoder: NSCoder) {}
-            required init?(coder aDecoder: NSCoder) {}
-            init() {}
-            var clearFavoritesWasCalled = false
-            func clearFavorites() {
-                clearFavoritesWasCalled = true
-            }
-            func archivableState() -> NSCoding {
-                return NSArray()
-            }
-            func addObserver(_ observer: NamesModelObserving) {}
-            func nextName() -> String { return "" }
-            func previousName() -> String? { return "" }
-            var currentNameIsFavorited: Bool = false
-            var favorites: [String] = []
-            var observers: [NamesModelObserving] = []
-            var currentName: String? = nil
-        }
-        class FakeFavoritesViewController : FavoritesViewControllerProtocol {
-            var dismissWasCalled = false
-            var dismissAnimatedArg : Bool? = nil
-            var dismissCompletionArg: (() -> Void)? = nil
-            
-            func dismiss(animated flag: Bool, completion: (() -> Void)?) {
-                dismissWasCalled = true
-                dismissAnimatedArg = flag
-                dismissCompletionArg = completion
-            }
-        }
-
         let fakeNamesModel = FakeNamesModel()
         let fakeFavoritesViewController = FakeFavoritesViewController()
         let SUT = FavoritesController(namesModel: fakeNamesModel, favoritesViewController: fakeFavoritesViewController)
