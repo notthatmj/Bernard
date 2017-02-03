@@ -42,5 +42,22 @@ class FavoritesViewControllerTests: XCTestCase {
         SUT.doneButtonAction(sender)
         XCTAssertTrue(fakeFavoritesController.doneButtonActionWasCalled)
     }
-    
+
+    func testOutlets() {
+        // Setup
+        let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+        
+        guard let SUT = storyboard.instantiateViewController(withIdentifier: "FavoritesViewController")
+            as? FavoritesViewController else {
+                XCTAssertTrue(false)
+                return
+        }
+        XCTAssertNotNil(SUT)
+        
+        // Load the view
+        _ = SUT.view
+        
+        XCTAssertNotNil(SUT.navigationBar)
+    }
+
 }

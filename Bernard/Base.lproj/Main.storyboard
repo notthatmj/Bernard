@@ -175,6 +175,7 @@
                     <connections>
                         <outlet property="clearButton" destination="0Qf-22-qbk" id="x1h-Sy-pE0"/>
                         <outlet property="doneButton" destination="AcW-2l-Ma3" id="d6w-HQ-Jlk"/>
+                        <outlet property="navigationBar" destination="GgT-tM-pt8" id="YUU-jB-NUP"/>
                         <outlet property="shareButton" destination="yFs-an-1Hz" id="9BF-6Z-Yxv"/>
                         <outlet property="tableView" destination="0Bz-qr-2wM" id="gZY-wE-JgX"/>
                     </connections>
