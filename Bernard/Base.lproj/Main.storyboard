@@ -31,13 +31,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wo3-jQ-sO9">
-                                <rect key="frame" x="16" y="562" width="103" height="30"/>
-                                <state key="normal" title="Previous Name"/>
-                                <connections>
-                                    <action selector="previousNameButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ScC-L5-f28"/>
-                                </connections>
-                            </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4qy-C7-9er">
                                 <rect key="frame" x="310" y="319" width="51" height="31"/>
                                 <connections>
@@ -53,6 +46,18 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OF5-Ku-rRT">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
+                                    <barButtonItem title="Previous" id="DUU-PP-aaQ">
+                                        <connections>
+                                            <action selector="previousNameButtonAction:" destination="BYZ-38-t0r" id="pbw-rP-Y4C"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="uNt-o9-RA6"/>
+                                    <barButtonItem title="Next" id="rZc-pf-ZHJ">
+                                        <connections>
+                                            <action selector="nextNameButtonAction:" destination="BYZ-38-t0r" id="rUS-Dr-Rx4"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="DfW-0b-rN5"/>
                                     <barButtonItem title="Favorites" id="5N5-q1-AD1">
                                         <connections>
                                             <segue destination="mbq-ml-amd" kind="presentation" id="Tcj-bj-2Ea"/>
@@ -60,21 +65,11 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upJ-FL-spR">
-                                <rect key="frame" x="283" y="562" width="76" height="30"/>
-                                <state key="normal" title="Next Name"/>
-                                <connections>
-                                    <action selector="nextNameButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tu5-mu-Hvx"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="upJ-FL-spR" secondAttribute="trailing" id="4Hc-0A-1BS"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="wo3-jQ-sO9" secondAttribute="leading" id="PMH-FF-iPV"/>
-                            <constraint firstItem="upJ-FL-spR" firstAttribute="top" secondItem="Oie-XR-4N4" secondAttribute="bottom" constant="251" id="Q1A-Mt-Zix"/>
+                            <constraint firstItem="OF5-Ku-rRT" firstAttribute="top" secondItem="XJe-h5-1Kr" secondAttribute="bottom" constant="278" id="L5r-ij-AhE"/>
                             <constraint firstItem="XJe-h5-1Kr" firstAttribute="centerY" secondItem="4qy-C7-9er" secondAttribute="centerY" id="RKF-lO-ju3"/>
-                            <constraint firstItem="OF5-Ku-rRT" firstAttribute="top" secondItem="upJ-FL-spR" secondAttribute="bottom" constant="31" id="RyA-vN-qCr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4qy-C7-9er" secondAttribute="trailing" id="S9Q-hY-uln"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Oie-XR-4N4" secondAttribute="trailing" id="U2x-la-WOU"/>
                             <constraint firstItem="4qy-C7-9er" firstAttribute="leading" secondItem="XJe-h5-1Kr" secondAttribute="trailing" constant="8" id="bik-IX-LQC"/>
@@ -82,7 +77,6 @@
                             <constraint firstItem="4qy-C7-9er" firstAttribute="top" secondItem="Oie-XR-4N4" secondAttribute="bottom" constant="8" id="g36-bK-qRr"/>
                             <constraint firstItem="OF5-Ku-rRT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="jyc-hM-gVs"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Oie-XR-4N4" secondAttribute="leading" id="nCm-MY-L27"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wo3-jQ-sO9" secondAttribute="bottom" constant="75" id="xi8-V2-lo7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OF5-Ku-rRT" secondAttribute="trailing" constant="-16" id="y2r-d3-P6K"/>
                         </constraints>
                     </view>
@@ -90,8 +84,8 @@
                     <connections>
                         <outlet property="favoriteToggle" destination="4qy-C7-9er" id="PBt-59-Kf8"/>
                         <outlet property="nameLabel" destination="Oie-XR-4N4" id="Ru8-xy-EEI"/>
-                        <outlet property="nextNameButton" destination="upJ-FL-spR" id="3UT-Fx-xxS"/>
-                        <outlet property="previousNameButton" destination="wo3-jQ-sO9" id="QTb-7c-5z0"/>
+                        <outlet property="nextNameButton" destination="rZc-pf-ZHJ" id="Gb5-fd-l4y"/>
+                        <outlet property="previousNameButton" destination="DUU-PP-aaQ" id="aX8-wE-7bs"/>
                         <outlet property="toolbar" destination="OF5-Ku-rRT" id="MoT-TD-fCT"/>
                     </connections>
                 </viewController>

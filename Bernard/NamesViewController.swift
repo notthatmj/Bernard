@@ -16,8 +16,8 @@ protocol NamesViewControllerProtocol {
 
 class NamesViewController: UIViewController, NamesViewControllerProtocol {
 
-    @IBOutlet weak var previousNameButton: UIButton!
-    @IBOutlet weak var nextNameButton: UIButton!
+    @IBOutlet weak var previousNameButton: UIBarButtonItem!
+    @IBOutlet weak var nextNameButton: UIBarButtonItem!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var favoriteToggle: UISwitch!
     @IBOutlet weak var toolbar: UIToolbar!
@@ -42,11 +42,11 @@ class NamesViewController: UIViewController, NamesViewControllerProtocol {
         }
     }
     
-    @IBAction func nextNameButtonAction(_ sender: UIButton) {
+    @IBAction func nextNameButtonAction(_ sender: UIBarButtonItem) {
         controller.nextNameButtonAction()
     }
 
-    @IBAction func previousNameButtonAction(_ sender: UIButton) {
+    @IBAction func previousNameButtonAction(_ sender: UIBarButtonItem) {
         controller.previousNameButtonAction()
     }
 

@@ -62,6 +62,11 @@ class NamesViewControllerTests: XCTestCase {
         checkThatActionName(for: button, UIControlEvents.touchUpInside, is: name)
     }
     
+    func checkThatActionName(for barButtonItem: UIBarButtonItem?, is name: String) {
+        XCTAssert(viewController! === barButtonItem?.target)
+        XCTAssertEqual(barButtonItem?.action, Selector(name))
+    }
+
     func checkThatActionName(forSwitch aSwitch: UISwitch?, is name: String) {
         checkThatActionName(for: aSwitch, UIControlEvents.valueChanged, is: name)
     }
@@ -70,7 +75,7 @@ class NamesViewControllerTests: XCTestCase {
         loadView()
         
         XCTAssertNotNil(viewController?.nextNameButton)
-        checkThatActionName(forButton: viewController?.nextNameButton, is: "nextNameButtonAction:")
+        checkThatActionName(for: viewController?.nextNameButton, is: "nextNameButtonAction:")
 
         XCTAssertNotNil(viewController?.nameLabel)
         XCTAssertEqual(viewController?.nameLabel?.text, "")
@@ -79,8 +84,7 @@ class NamesViewControllerTests: XCTestCase {
         checkThatActionName(forSwitch: viewController?.favoriteToggle, is: "favoriteToggleWasUpdatedAction:")
 
         XCTAssertNotNil(viewController?.previousNameButton)
-        checkThatActionName(forButton: viewController?.previousNameButton, is: "previousNameButtonAction:")
-        
+        checkThatActionName(for: viewController?.previousNameButton, is: "previousNameButtonAction:")
         XCTAssertNotNil(viewController?.toolbar)
     }
     
