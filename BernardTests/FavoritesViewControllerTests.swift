@@ -18,33 +18,10 @@ class FakeFavoritesController : FavoritesControllerProtocol {
 }
 
 class FavoritesViewControllerTests: XCTestCase {
+    var SUT: FavoritesViewController!
     
-    func testFavoritesViewController() {
-        // Setup
-        let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-        
-        guard let SUT = storyboard.instantiateViewController(withIdentifier: "FavoritesViewController")
-            as? FavoritesViewController else {
-                XCTAssertTrue(false)
-                return
-        }
-        XCTAssertNotNil(SUT)
-        
-        _ = SUT.view
-        
-        guard let sender = SUT.doneButton else {
-            XCTAssertTrue(false)
-            return
-        }
-        
-        let fakeFavoritesController = FakeFavoritesController()
-        SUT.controller = fakeFavoritesController
-        SUT.doneButtonAction(sender)
-        XCTAssertTrue(fakeFavoritesController.doneButtonActionWasCalled)
-    }
-
-    func testOutlets() {
-        // Setup
+    override func setUp() {
+        super.setUp()
         let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         
         guard let SUT = storyboard.instantiateViewController(withIdentifier: "FavoritesViewController")
@@ -57,6 +34,28 @@ class FavoritesViewControllerTests: XCTestCase {
         // Load the view
         _ = SUT.view
         
+        self.SUT = SUT
+        
+    }
+    
+    func testFavoritesViewController() {
+        // Setup
+        guard let sender = SUT.doneButton else {
+            XCTAssertTrue(false)
+            return
+        }
+        
+        let fakeFavoritesController = FakeFavoritesController()
+        SUT.controller = fakeFavoritesController
+        
+        // Run
+        SUT.doneButtonAction(sender)
+        
+        // Verify
+        XCTAssertTrue(fakeFavoritesController.doneButtonActionWasCalled)
+    }
+
+    func testOutlets() {
         XCTAssertNotNil(SUT.navigationBar)
     }
 
