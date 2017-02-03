@@ -51,7 +51,7 @@ class NamesViewController: UIViewController, NamesViewControllerProtocol {
     }
 
     @IBAction func favoriteToggleWasUpdatedAction(_ sender: UISwitch) {
-        controller.favoriteToggleWasUpdatedAction()
+        controller.updateModel()
     }
     
     override func viewDidLoad() {

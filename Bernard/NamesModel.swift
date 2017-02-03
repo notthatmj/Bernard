@@ -92,6 +92,7 @@ class NamesModel : NSObject, NSCoding, NamesModelProtocol {
         if currentNameIndex != nil && currentNameIndex! > 0 {
             currentNameIndex! -= 1
         }
+        notifyObserversOfUpdate()
         return currentName
     }
     

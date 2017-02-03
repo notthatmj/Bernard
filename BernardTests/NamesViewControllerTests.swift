@@ -13,7 +13,7 @@ fileprivate class FakeController:NamesControllerProtocol {
     
     var nextNameButtonActionWasCalled = false
     var previousNameButtonActionWasCalled = false
-    var favoriteToggleWasUpdatedActionWasCalled = false
+    var updateModelWasCalled = false
     
     func nextNameButtonAction() {
         nextNameButtonActionWasCalled = true
@@ -23,8 +23,8 @@ fileprivate class FakeController:NamesControllerProtocol {
         previousNameButtonActionWasCalled = true
     }
     
-    func favoriteToggleWasUpdatedAction() {
-        favoriteToggleWasUpdatedActionWasCalled = true
+    func updateModel() {
+        updateModelWasCalled = true
     }
     func viewDidLoad() {}
     
@@ -115,7 +115,7 @@ class NamesViewControllerTests: XCTestCase {
         if let favoriteToggle = viewController.favoriteToggle {
             viewController.favoriteToggleWasUpdatedAction(favoriteToggle)
         }
-        XCTAssertTrue(fakeController.favoriteToggleWasUpdatedActionWasCalled)
+        XCTAssertTrue(fakeController.updateModelWasCalled)
     }
 
     
