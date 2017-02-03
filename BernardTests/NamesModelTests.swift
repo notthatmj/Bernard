@@ -97,5 +97,15 @@ class NamesModelTests: XCTestCase {
         }
         XCTAssertNil(unarchivedModel.currentName)
     }
+    
+    func testPreviousNameIsAvailable() {
+        XCTAssertFalse(SUT.previousNameIsAvailable)
+        _ = SUT.nextName()
+        XCTAssertFalse(SUT.previousNameIsAvailable)
+        _ = SUT.nextName()
+        XCTAssert(SUT.previousNameIsAvailable)
+        _ = SUT.previousName()
+        XCTAssertFalse(SUT.previousNameIsAvailable)
+    }
 
 }

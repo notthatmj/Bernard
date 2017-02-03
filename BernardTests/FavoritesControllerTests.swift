@@ -27,6 +27,7 @@ fileprivate class FakeNamesModel : NamesModelProtocol {
     var favorites: [String] = []
     var observers: [NamesModelObserving] = []
     var currentName: String? = nil
+    var previousNameIsAvailable: Bool = false
 }
 
 fileprivate class FakeFavoritesViewController : FavoritesViewControllerProtocol {

@@ -17,6 +17,7 @@ protocol NamesModelProtocol : NSCoding {
     var currentNameIsFavorited : Bool {get set}
     var favorites : [String] {get}
     var observers : [NamesModelObserving] {get}
+    var previousNameIsAvailable : Bool {get}
     
     func clearFavorites()
     func nextName() -> String
@@ -56,6 +57,13 @@ class NamesModel : NSObject, NSCoding, NamesModelProtocol {
 
     var favorites : [String] {
         return namesHistory.filter({$0.isFavorited}).map({$0.name})
+    }
+
+    var previousNameIsAvailable: Bool {
+        if currentNameIndex ?? 0 > 0 {
+            return true
+        }
+        return false
     }
 
     private(set) var observers : [NamesModelObserving] = [NamesModelObserving]()
