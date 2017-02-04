@@ -52,15 +52,15 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="uNt-o9-RA6"/>
-                                    <barButtonItem title="Next" id="rZc-pf-ZHJ">
-                                        <connections>
-                                            <action selector="nextNameButtonAction:" destination="BYZ-38-t0r" id="rUS-Dr-Rx4"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="DfW-0b-rN5"/>
                                     <barButtonItem title="Favorites" id="5N5-q1-AD1">
                                         <connections>
                                             <segue destination="mbq-ml-amd" kind="presentation" id="Tcj-bj-2Ea"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="DfW-0b-rN5"/>
+                                    <barButtonItem title="       Next" id="rZc-pf-ZHJ">
+                                        <connections>
+                                            <action selector="nextNameButtonAction:" destination="BYZ-38-t0r" id="rUS-Dr-Rx4"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -120,11 +120,11 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T8M-Mc-oJT" id="tRS-fP-Lg0">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nu6-7U-fW8">
-                                                    <rect key="frame" x="15" y="0.0" width="313" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="313" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
