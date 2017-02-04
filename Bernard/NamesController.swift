@@ -43,18 +43,26 @@ class NamesController : NamesControllerProtocol, NamesModelObserving {
         viewController.nameText = namesModel.previousName()
     }
     
+    func viewDidLoad() {
+        viewController.favoriteToggleIsOn = namesModel.currentNameIsFavorited
+        namesModel.addObserver(self)
+        if namesModel.currentName == nil {
+            _ = namesModel.nextName()
+        } else {
+            namesModelDidUpdate()
+        }
+    }
+    
+    func updateViewController() {
+        viewController.favoriteToggleIsOn = namesModel.currentNameIsFavorited
+        viewController.nameText = namesModel.currentName
+    }
+
     func updateModel() {
         namesModel.currentNameIsFavorited = viewController.favoriteToggleIsOn
     }
-    
-    func viewDidLoad() {
-        viewController.favoriteToggleIsOn = namesModel.currentNameIsFavorited
-        viewController.nameText = namesModel.currentName ?? ""
-        namesModel.addObserver(self)
-    }
-    
+
     func namesModelDidUpdate() {
-        viewController.favoriteToggleIsOn = namesModel.currentNameIsFavorited
-        viewController.nameText = namesModel.currentName
+        updateViewController()
     }
 }

@@ -39,7 +39,6 @@ class NamesControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         SUT = NamesController.init(viewController:fakeViewController, nameGenerator: FakeNameGenerator())
-        SUT.viewDidLoad()
     }
     
     func testNextNameButtonAction() {
@@ -52,6 +51,7 @@ class NamesControllerTests: XCTestCase {
     }
 
     func testThatFavoritesAreRemembered() {
+        SUT.viewDidLoad()
         XCTAssertFalse(fakeViewController.favoriteToggleIsOn)
         SUT.nextNameButtonAction()
 
@@ -99,7 +99,7 @@ class NamesControllerTests: XCTestCase {
         XCTAssertEqual(fakeViewController.nameText, "Blammo")
     }
     
-    func testViewDidLoad() {
+    func testViewDidLoadWithPreloadedModel() {
         // Setup
         let namesModel = NamesModel()
         let firstName = namesModel.nextName()
@@ -115,8 +115,18 @@ class NamesControllerTests: XCTestCase {
         XCTAssert(namesModel.observers.contains(where: { $0 as? NamesController === SUT!}))
     }
 
+    func testViewDidLoadWithFreshModel() {
+        // Test
+        SUT.viewDidLoad()
+        
+        // Assert
+        XCTAssertNotNil(SUT.viewController.nameText)
+        XCTAssertNotEqual(SUT.viewController.nameText, "")
+        XCTAssertEqual(SUT.viewController.favoriteToggleIsOn, false)
+    }
+
     func testFavoritesToggleChangesWhenNamesCleared() {
-//        SUT.viewDidLoad()
+        SUT.viewDidLoad()
         _ = SUT.nextNameButtonAction()
         fakeViewController.favoriteToggleIsOn = true
         SUT.updateModel()
