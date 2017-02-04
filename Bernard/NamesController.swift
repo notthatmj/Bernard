@@ -14,6 +14,7 @@ protocol NamesControllerProtocol {
     func previousNameButtonAction()
     func updateModel()
     func viewDidLoad()
+    
 }
 
 class NamesController : NamesControllerProtocol, NamesModelObserving {
@@ -56,6 +57,7 @@ class NamesController : NamesControllerProtocol, NamesModelObserving {
     func updateViewController() {
         viewController.favoriteToggleIsOn = namesModel.currentNameIsFavorited
         viewController.nameText = namesModel.currentName
+        viewController.previousNameButtonIsEnabled = namesModel.previousNameIsAvailable
     }
 
     func updateModel() {

@@ -12,6 +12,7 @@ protocol NamesViewControllerProtocol {
     var nameText : String? {get set}
     var favoriteToggleIsOn : Bool {get set}
     var tabBarController : UITabBarController? { get }
+    var previousNameButtonIsEnabled : Bool { get set}
 }
 
 class NamesViewController: UIViewController, NamesViewControllerProtocol {
@@ -42,6 +43,14 @@ class NamesViewController: UIViewController, NamesViewControllerProtocol {
         }
     }
     
+    var previousNameButtonIsEnabled: Bool {
+        get {
+            return previousNameButton.isEnabled
+        }
+        set {
+            previousNameButton.isEnabled = newValue
+        }
+    }
     @IBAction func nextNameButtonAction(_ sender: UIBarButtonItem) {
         controller.nextNameButtonAction()
     }
