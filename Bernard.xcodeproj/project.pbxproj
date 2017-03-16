@@ -26,6 +26,7 @@
 		899272081E3420CD0055BA82 /* PersistanceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899272071E3420CD0055BA82 /* PersistanceLayer.swift */; };
 		8992720A1E3444E60055BA82 /* ArchiverGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899272091E3444E60055BA82 /* ArchiverGateway.swift */; };
 		8992720C1E355BFF0055BA82 /* ArchiverGatewayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8992720B1E355BFF0055BA82 /* ArchiverGatewayTests.swift */; };
+		89B342EC1E788D590049AA9F /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B342EB1E788D590049AA9F /* FavoriteButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		899272071E3420CD0055BA82 /* PersistanceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistanceLayer.swift; sourceTree = "<group>"; };
 		899272091E3444E60055BA82 /* ArchiverGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiverGateway.swift; sourceTree = "<group>"; };
 		8992720B1E355BFF0055BA82 /* ArchiverGatewayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiverGatewayTests.swift; sourceTree = "<group>"; };
+		89B342EB1E788D590049AA9F /* FavoriteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				8957A67A1DF61CFB00DB709F /* AppDelegate.swift */,
 				896FD8C91E09961200247FCB /* NamesModel.swift */,
 				8957A67C1DF61CFB00DB709F /* NamesViewController.swift */,
+				89B342EB1E788D590049AA9F /* FavoriteButton.swift */,
 				8957A6AA1DF77BA200DB709F /* NamesController.swift */,
 				890EC4971E2EB83C0091337D /* FavoritesViewController.swift */,
 				899271F71E2EF29A0055BA82 /* FavoritesController.swift */,
@@ -243,6 +246,7 @@
 				899272081E3420CD0055BA82 /* PersistanceLayer.swift in Sources */,
 				8992720A1E3444E60055BA82 /* ArchiverGateway.swift in Sources */,
 				8957A67D1DF61CFB00DB709F /* NamesViewController.swift in Sources */,
+				89B342EC1E788D590049AA9F /* FavoriteButton.swift in Sources */,
 				8957A67B1DF61CFB00DB709F /* AppDelegate.swift in Sources */,
 				890EC4981E2EB83C0091337D /* FavoritesViewController.swift in Sources */,
 				899271F81E2EF29A0055BA82 /* FavoritesController.swift in Sources */,

@@ -20,8 +20,8 @@ class NamesViewController: UIViewController, NamesViewControllerProtocol {
     @IBOutlet weak var previousNameButton: UIBarButtonItem!
     @IBOutlet weak var nextNameButton: UIBarButtonItem!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var favoriteToggle: UISwitch!
     @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet weak var favoriteButton: FavoriteButton!
     
     var controller : NamesControllerProtocol!
     
@@ -36,10 +36,14 @@ class NamesViewController: UIViewController, NamesViewControllerProtocol {
     
     var favoriteToggleIsOn : Bool {
         get {
-            return favoriteToggle.isOn
+            return favoriteButton.isSelected
         }
         set {
-            favoriteToggle.setOn(newValue, animated: true)
+            if (newValue == true) {
+                favoriteButton.select()
+            } else {
+                favoriteButton.deselect()
+            }
         }
     }
     
@@ -59,6 +63,15 @@ class NamesViewController: UIViewController, NamesViewControllerProtocol {
         controller.previousNameButtonAction()
     }
 
+    @IBAction func favoriteButtonAction(_ sender: FavoriteButton) {
+        if (sender.isSelected) {
+            sender.deselect()
+        } else {
+            sender.select()
+        }
+        controller.updateModel()
+    }
+    
     @IBAction func favoriteToggleWasUpdatedAction(_ sender: UISwitch) {
         controller.updateModel()
     }
