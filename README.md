@@ -11,5 +11,3 @@ This is mainly an educational project, although I hope to publish it when I
 feel it's ready. It's intended to help me improve my iOS development skills,
 with an emphasis on learning Swift.
 
-Currently, the main functionality is implemented, although the interface is
-visually very basic.
