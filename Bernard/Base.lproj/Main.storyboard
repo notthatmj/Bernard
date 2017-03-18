@@ -22,24 +22,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oie-XR-4N4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOREL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oie-XR-4N4">
                                 <rect key="frame" x="16" y="262" width="343" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="kDg-zS-9nu"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4qy-C7-9er">
-                                <rect key="frame" x="310" y="319" width="51" height="31"/>
-                                <connections>
-                                    <action selector="favoriteToggleWasUpdatedAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="xXK-x3-i0Y"/>
-                                </connections>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJe-h5-1Kr">
-                                <rect key="frame" x="236" y="324" width="66" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="48"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -66,16 +54,31 @@
                                 </items>
                                 <color key="tintColor" red="0.15759372711181641" green="0.51902616024017334" blue="0.98171967267990112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRt-J3-ehX" customClass="FavoriteButton" customModule="Bernard" customModuleProvider="target">
+                                <rect key="frame" x="164.5" y="319" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="3vL-i6-Td7"/>
+                                    <constraint firstAttribute="width" constant="45" id="GVj-ck-ghH"/>
+                                </constraints>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="Star Image"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="imageColorOn">
+                                        <color key="value" red="1" green="0.67450980392156867" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="favoriteButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1km-cb-eM4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="OF5-Ku-rRT" firstAttribute="top" secondItem="XJe-h5-1Kr" secondAttribute="bottom" constant="278" id="L5r-ij-AhE"/>
-                            <constraint firstItem="XJe-h5-1Kr" firstAttribute="centerY" secondItem="4qy-C7-9er" secondAttribute="centerY" id="RKF-lO-ju3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4qy-C7-9er" secondAttribute="trailing" id="S9Q-hY-uln"/>
+                            <constraint firstItem="CRt-J3-ehX" firstAttribute="top" secondItem="Oie-XR-4N4" secondAttribute="bottom" constant="8" id="DBy-3a-bsR"/>
+                            <constraint firstItem="CRt-J3-ehX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Fga-N1-MPD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Oie-XR-4N4" secondAttribute="trailing" id="U2x-la-WOU"/>
-                            <constraint firstItem="4qy-C7-9er" firstAttribute="leading" secondItem="XJe-h5-1Kr" secondAttribute="trailing" constant="8" id="bik-IX-LQC"/>
+                            <constraint firstItem="OF5-Ku-rRT" firstAttribute="top" secondItem="Oie-XR-4N4" secondAttribute="bottom" constant="312" id="X9q-ty-Cnf"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OF5-Ku-rRT" secondAttribute="bottom" id="eJ1-s5-coV"/>
-                            <constraint firstItem="4qy-C7-9er" firstAttribute="top" secondItem="Oie-XR-4N4" secondAttribute="bottom" constant="8" id="g36-bK-qRr"/>
                             <constraint firstItem="OF5-Ku-rRT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="jyc-hM-gVs"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Oie-XR-4N4" secondAttribute="leading" id="nCm-MY-L27"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OF5-Ku-rRT" secondAttribute="trailing" constant="-16" id="y2r-d3-P6K"/>
@@ -83,7 +86,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Names" id="uOF-uy-CZ3"/>
                     <connections>
-                        <outlet property="favoriteToggle" destination="4qy-C7-9er" id="PBt-59-Kf8"/>
+                        <outlet property="favoriteButton" destination="CRt-J3-ehX" id="pXQ-14-19A"/>
                         <outlet property="nameLabel" destination="Oie-XR-4N4" id="Ru8-xy-EEI"/>
                         <outlet property="nextNameButton" destination="rZc-pf-ZHJ" id="Gb5-fd-l4y"/>
                         <outlet property="previousNameButton" destination="DUU-PP-aaQ" id="aX8-wE-7bs"/>
@@ -92,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1014" y="-342"/>
+            <point key="canvasLocation" x="1013.6" y="-342.27886056971516"/>
         </scene>
         <!--Favorites View Controller-->
         <scene sceneID="m9p-yF-lBE">
@@ -113,7 +116,7 @@
                                     <action selector="shareButtonAction:" destination="mbq-ml-amd" eventType="touchUpInside" id="OkX-zi-ugw"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Bz-qr-2wM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Bz-qr-2wM">
                                 <rect key="frame" x="16" y="72" width="343" height="537"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -127,7 +130,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nu6-7U-fW8">
                                                     <rect key="frame" x="15" y="0.0" width="313" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -186,4 +189,7 @@
             <point key="canvasLocation" x="1013.6" y="409.7451274362819"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Star Image" width="32" height="32"/>
+    </resources>
 </document>
