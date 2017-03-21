@@ -101,7 +101,7 @@ class NamesControllerTests: XCTestCase {
         XCTAssertEqual(fakeViewController.nameText, "Blammo")
     }
     
-    func testViewDidLoadWithPreloadedModel() {
+    func testConfigureViewControllerWithPreloadedModel() {
         // Setup
         let namesModel = NamesModel()
         _ = namesModel.nextName()
@@ -122,7 +122,7 @@ class NamesControllerTests: XCTestCase {
         XCTAssertTrue(viewController.previousNameButtonIsEnabled)
     }
 
-    func testViewDidLoadWithFreshModel() {
+    func testConfigureViewControllerWithFreshModel() {
         // Test
         SUT.configureViewController()
         
