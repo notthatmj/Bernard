@@ -66,10 +66,6 @@ class NamesViewControllerTests: XCTestCase {
         XCTAssert(viewController === barButtonItem?.target)
         XCTAssertEqual(barButtonItem?.action, Selector(name))
     }
-
-    func checkThatActionName(forSwitch aSwitch: UISwitch?, is name: String) {
-        checkThatActionName(for: aSwitch, UIControlEvents.valueChanged, is: name)
-    }
     
     func testOutletsAndActionSettings() {
         loadView()
@@ -78,17 +74,16 @@ class NamesViewControllerTests: XCTestCase {
         checkThatActionName(for: viewController.nextNameButton, is: "nextNameButtonAction:")
 
         XCTAssertNotNil(viewController.nameLabel)
-        XCTAssertEqual(viewController.nameLabel?.text, "")
         
-        XCTAssertNotNil(viewController.favoriteToggle)
-        checkThatActionName(forSwitch: viewController.favoriteToggle, is: "favoriteToggleWasUpdatedAction:")
+        XCTAssertNotNil(viewController.favoriteButton)
+        checkThatActionName(forButton: viewController.favoriteButton, is: "favoriteButtonAction:")
 
         XCTAssertNotNil(viewController.previousNameButton)
         checkThatActionName(for: viewController.previousNameButton, is: "previousNameButtonAction:")
         XCTAssertNotNil(viewController.toolbar)
     }
     
-    func testViewDidLoadInitializesDelegate() {
+    func testViewDidLoadInitializesController() {
         loadView()
         
         XCTAssertNotNil(viewController.controller)
@@ -110,39 +105,29 @@ class NamesViewControllerTests: XCTestCase {
         XCTAssertTrue(fakeController.previousNameButtonActionWasCalled);
     }
 
-    func testFavoriteToggleWasUpdatedAction() {
-        loadView()
-        if let favoriteToggle = viewController.favoriteToggle {
-            viewController.favoriteToggleWasUpdatedAction(favoriteToggle)
-        }
-        XCTAssertTrue(fakeController.updateModelWasCalled)
-    }
-
-    
     func testNameText() {
         XCTAssertEqual(viewController.nameText,nil)
         loadView()
-        XCTAssertEqual(viewController.nameText,"")
         let testText = "Foobar"
         viewController.nameText = testText
         XCTAssertEqual(viewController.nameText, testText)
         XCTAssertEqual(viewController.nameLabel.text, testText)
     }
-    
+
     func testGetFavoriteToggleIsOn() {
         loadView()
-        viewController.favoriteToggle?.isOn = false
+        viewController.favoriteButton.isSelected = false
         XCTAssertEqual(viewController.favoriteToggleIsOn, false)
-        viewController.favoriteToggle?.isOn = true
+        viewController.favoriteButton.isSelected = true
         XCTAssertEqual(viewController.favoriteToggleIsOn, true)
     }
-
+    
     func testSetFavoriteToggleIsOn() {
         loadView()
         viewController.favoriteToggleIsOn = false
-        XCTAssertEqual(viewController.favoriteToggle?.isOn, false)
+        XCTAssertEqual(viewController.favoriteButton?.isSelected, false)
         viewController.favoriteToggleIsOn = true
-        XCTAssertEqual(viewController.favoriteToggle?.isOn, true)
+        XCTAssertEqual(viewController.favoriteButton?.isSelected, true)
     }
     
 }
