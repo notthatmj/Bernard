@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol NamesViewControllerProtocol {
+protocol NamesViewControllerProtocol: class {
     var nameText : String? {get set}
     var favoriteToggleIsOn : Bool {get set}
     var tabBarController : UITabBarController? { get }
