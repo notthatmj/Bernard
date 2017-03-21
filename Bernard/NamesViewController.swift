@@ -39,11 +39,7 @@ class NamesViewController: UIViewController, NamesViewControllerProtocol {
             return favoriteButton.isSelected
         }
         set {
-            if (newValue == true) {
-                favoriteButton.select()
-            } else {
-                favoriteButton.deselect()
-            }
+            favoriteButton.isSelected = newValue
         }
     }
     
@@ -64,15 +60,7 @@ class NamesViewController: UIViewController, NamesViewControllerProtocol {
     }
 
     @IBAction func favoriteButtonAction(_ sender: FavoriteButton) {
-        if (sender.isSelected) {
-            sender.deselect()
-        } else {
-            sender.select()
-        }
-        controller.updateModel()
-    }
-    
-    @IBAction func favoriteToggleWasUpdatedAction(_ sender: UISwitch) {
+        sender.isSelected = !sender.isSelected
         controller.updateModel()
     }
     

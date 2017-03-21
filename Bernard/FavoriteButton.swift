@@ -58,6 +58,16 @@ import UIKit
         }
     }
     
+    override var isSelected: Bool {
+        willSet {
+            if newValue == true {
+                imageShape.fillColor = imageColorOn.cgColor
+            } else {
+                imageShape.fillColor = imageColorOff.cgColor
+            }
+        }
+    }
+    
     func createLayers(image: UIImage!) {
         self.layer.sublayers = nil
         
@@ -76,17 +86,6 @@ import UIKit
         imageShape.mask!.contents = image.cgImage
         imageShape.mask!.bounds = imageFrame
         imageShape.mask!.position = imgCenterPoint
-
-    }
-
-    func select() {
-        isSelected = true
-        imageShape.fillColor = imageColorOn.cgColor
-    }
-
-    func deselect() {
-        isSelected = false
-        imageShape.fillColor = imageColorOff.cgColor
     }
     
 }
