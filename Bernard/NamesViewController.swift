@@ -69,7 +69,7 @@ class NamesViewController: UIViewController, NamesViewControllerProtocol {
         if controller == nil {
             controller = NamesController.init(viewController:self)
         }
-        controller.viewDidLoad()
+        controller.configureViewController()
     }
     
 }
