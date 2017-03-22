@@ -35,7 +35,7 @@ import UIKit
 
 @IBDesignable class FavoriteButton: UIButton {
 
-    var imageShape: CAShapeLayer!
+    var imageShape: CAShapeLayer?
     @IBInspectable open var image: UIImage! {
         didSet {
             createLayers(image: image)
@@ -45,7 +45,7 @@ import UIKit
     @IBInspectable open var imageColorOff: UIColor! = UIColor(red: 136/255, green: 153/255, blue: 166/255, alpha: 1.0) {
         didSet {
             if (!isSelected) {
-                imageShape.fillColor = imageColorOff.cgColor
+                imageShape?.fillColor = imageColorOff.cgColor
             }
         }
     }
@@ -53,7 +53,7 @@ import UIKit
     @IBInspectable open var imageColorOn: UIColor! = UIColor(red: 255/255, green: 172/255, blue: 51/255, alpha: 1.0) {
         didSet {
             if (isSelected) {
-                imageShape.fillColor = imageColorOn.cgColor
+                imageShape?.fillColor = imageColorOn.cgColor
             }
         }
     }
@@ -61,9 +61,9 @@ import UIKit
     override var isSelected: Bool {
         willSet {
             if newValue == true {
-                imageShape.fillColor = imageColorOn.cgColor
+                imageShape?.fillColor = imageColorOn.cgColor
             } else {
-                imageShape.fillColor = imageColorOff.cgColor
+                imageShape?.fillColor = imageColorOff.cgColor
             }
         }
     }
@@ -74,7 +74,7 @@ import UIKit
         let imageFrame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
         let imgCenterPoint = CGPoint(x: imageFrame.midX, y: imageFrame.midY)
 
-        imageShape = CAShapeLayer()
+        let imageShape = CAShapeLayer()
         imageShape.bounds = imageFrame
         imageShape.position = imgCenterPoint
         imageShape.path = UIBezierPath(rect: imageFrame).cgPath
@@ -86,6 +86,8 @@ import UIKit
         imageShape.mask!.contents = image.cgImage
         imageShape.mask!.bounds = imageFrame
         imageShape.mask!.position = imgCenterPoint
+        
+        self.imageShape = imageShape
     }
     
 }
