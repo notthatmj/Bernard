@@ -44,27 +44,16 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         self.present(alertController, animated: true, completion: nil)
     }
     
-    private func favoritesString() -> String? {
-        let activityItems : [String]? = namesModel?.favorites
-        if activityItems! != [] {
-            let favoritesString = activityItems?.joined(separator: "\n")
-            return favoritesString
-        } else {
-            return nil
-        }
-    }
-    
-    private func displayShareSheet(for string:String) {
-        let activityViewController = UIActivityViewController(activityItems: [string],
+    private func displayShareSheet(for aString:String) {
+        let activityViewController = UIActivityViewController(activityItems: [aString],
                                                               applicationActivities: nil)
         self.present(activityViewController, animated: true, completion: nil)
     }
     
     @IBAction func shareButtonAction(_ sender: UIButton) {
-        if let favoritesString = self.favoritesString() {
+        if let favoritesString = self.controller.favoritesString() {
             displayShareSheet(for: favoritesString)
         }
-        
     }
     
     @IBAction func doneButtonAction(_ sender: UIBarButtonItem) {

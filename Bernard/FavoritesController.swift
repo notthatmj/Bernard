@@ -11,6 +11,7 @@ import Foundation
 protocol FavoritesControllerProtocol {
     func doneButtonAction()
     func clearFavoritesAction()
+    func favoritesString() -> String?
 }
 
 class FavoritesController : FavoritesControllerProtocol {
@@ -29,4 +30,15 @@ class FavoritesController : FavoritesControllerProtocol {
     func clearFavoritesAction() {
         namesModel.clearFavorites()
     }
+    
+    func favoritesString() -> String? {
+        let activityItems : [String]? = namesModel.favorites
+        if activityItems! != [] {
+            let favoritesString = activityItems?.joined(separator: "\n")
+            return favoritesString
+        } else {
+            return nil
+        }
+    }
+
 }
