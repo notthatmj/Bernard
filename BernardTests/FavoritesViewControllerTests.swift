@@ -18,7 +18,7 @@ class FakeFavoritesController : FavoritesControllerProtocol {
     func shareButtonAction() {
         
     }
-    func favoritesString() -> String? {
+    func favoritesText() -> String? {
         return ""
     }
 }

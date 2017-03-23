@@ -12,7 +12,7 @@ protocol FavoritesControllerProtocol {
     func doneButtonAction()
     func clearFavoritesAction()
     func shareButtonAction()
-    func favoritesString() -> String?
+    func favoritesText() -> String?
 }
 
 class FavoritesController : FavoritesControllerProtocol {
@@ -33,12 +33,12 @@ class FavoritesController : FavoritesControllerProtocol {
     }
     
     func shareButtonAction() {
-        if let favoritesString = self.favoritesString() {
+        if let favoritesString = self.favoritesText() {
             favoritesViewController?.displayShareSheet(for: favoritesString)
         }
     }
     
-    func favoritesString() -> String? {
+    func favoritesText() -> String? {
         let activityItems : [String]? = namesModel.favorites
         if activityItems! != [] {
             let favoritesString = activityItems?.joined(separator: "\n")
