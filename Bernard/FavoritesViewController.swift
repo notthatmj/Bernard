@@ -26,6 +26,10 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         FavoritesController(namesModel: PersistanceLayer.sharedInstance.namesModel,
                             favoritesViewController: self)
 
+    private var namesModel : NamesModelProtocol? {
+        return PersistanceLayer.sharedInstance.namesModel
+    }
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
@@ -58,16 +62,16 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     @IBAction func doneButtonAction(_ sender: UIBarButtonItem) {
         self.controller.doneButtonAction()
     }
-    
-    private var namesModel : NamesModelProtocol? {
-        return PersistanceLayer.sharedInstance.namesModel
-    }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    private var namesModelFavoriteCount: Int {
         if let namesModelFavoritesCount = namesModel?.favorites.count {
             return namesModelFavoritesCount
         }
         return 0
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.namesModelFavoriteCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
