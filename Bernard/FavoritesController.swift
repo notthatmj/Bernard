@@ -14,6 +14,7 @@ protocol FavoritesControllerProtocol {
     func shareButtonAction()
     var favoritesText: String? { get }
     var favoritesCount: Int { get }
+    var favorites: [String] { get }
 }
 
 class FavoritesController : FavoritesControllerProtocol {
@@ -51,5 +52,9 @@ class FavoritesController : FavoritesControllerProtocol {
     
     public var favoritesCount: Int {
         return namesModel.favorites.count
+    }
+    
+    var favorites: [String] {
+        return namesModel.favorites
     }
 }

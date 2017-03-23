@@ -21,8 +21,12 @@ class FakeFavoritesController : FavoritesControllerProtocol {
     var favoritesText: String? {
         return ""
     }
-    var namesModelFavoritesCount: Int {
+    var favoritesCount: Int {
         return 0
+    }
+    
+    var favorites: [String] {
+        return []
     }
 }
 
