@@ -15,6 +15,12 @@ class FakeFavoritesController : FavoritesControllerProtocol {
     func doneButtonAction() {
         doneButtonActionWasCalled = true
     }
+    func shareButtonAction() {
+        
+    }
+    func favoritesString() -> String? {
+        return ""
+    }
 }
 
 class FavoritesViewControllerTests: XCTestCase {

@@ -40,6 +40,8 @@ fileprivate class FakeFavoritesViewController : FavoritesViewControllerProtocol 
         dismissAnimatedArg = flag
         dismissCompletionArg = completion
     }
+    
+    func displayShareSheet(for aString: String) {}
 }
 
 class FavoritesControllerTests: XCTestCase {

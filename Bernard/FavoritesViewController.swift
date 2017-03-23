@@ -11,6 +11,7 @@ import UIKit
 
 protocol FavoritesViewControllerProtocol : class {
     func dismiss(animated flag: Bool, completion: (() -> Void)?)
+    func displayShareSheet(for aString:String)
 }
 
 class FavoritesNavigationBarDelegate: NSObject, UINavigationBarDelegate {
@@ -44,18 +45,16 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         self.present(alertController, animated: true, completion: nil)
     }
     
-    private func displayShareSheet(for aString:String) {
+    func displayShareSheet(for aString:String) {
         let activityViewController = UIActivityViewController(activityItems: [aString],
                                                               applicationActivities: nil)
         self.present(activityViewController, animated: true, completion: nil)
     }
     
     @IBAction func shareButtonAction(_ sender: UIButton) {
-        if let favoritesString = self.controller.favoritesString() {
-            displayShareSheet(for: favoritesString)
-        }
+        self.controller.shareButtonAction()
     }
-    
+
     @IBAction func doneButtonAction(_ sender: UIBarButtonItem) {
         self.controller.doneButtonAction()
     }

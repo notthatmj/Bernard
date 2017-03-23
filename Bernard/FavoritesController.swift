@@ -11,6 +11,7 @@ import Foundation
 protocol FavoritesControllerProtocol {
     func doneButtonAction()
     func clearFavoritesAction()
+    func shareButtonAction()
     func favoritesString() -> String?
 }
 
@@ -29,6 +30,12 @@ class FavoritesController : FavoritesControllerProtocol {
     
     func clearFavoritesAction() {
         namesModel.clearFavorites()
+    }
+    
+    func shareButtonAction() {
+        if let favoritesString = self.favoritesString() {
+            favoritesViewController?.displayShareSheet(for: favoritesString)
+        }
     }
     
     func favoritesString() -> String? {
