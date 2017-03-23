@@ -10,7 +10,7 @@ import Foundation
 
 protocol FavoritesControllerProtocol {
     func doneButtonAction()
-    func clearFavoritesAction()
+    func clearFavorites()
     func shareButtonAction()
     var favoritesText: String? { get }
     var favoritesCount: Int { get }
@@ -40,7 +40,7 @@ class FavoritesController : FavoritesControllerProtocol {
         favoritesViewController?.dismiss(animated: true, completion: nil)
     }
     
-    func clearFavoritesAction() {
+    func clearFavorites() {
         namesModel.clearFavorites()
     }
     

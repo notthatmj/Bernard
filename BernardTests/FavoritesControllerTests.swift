@@ -46,11 +46,11 @@ fileprivate class FakeFavoritesViewController : FavoritesViewControllerProtocol 
 
 class FavoritesControllerTests: XCTestCase {
     
-    func testClearFavoritesAction() {
+    func testClearFavorites() {
         let fakeNamesModel = FakeNamesModel()
         let SUT = FavoritesController(namesModel: fakeNamesModel, favoritesViewController: FakeFavoritesViewController())
         
-        SUT.clearFavoritesAction()
+        SUT.clearFavorites()
         XCTAssertTrue(fakeNamesModel.clearFavoritesWasCalled)
     }
 

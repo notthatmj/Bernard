@@ -11,7 +11,7 @@ import XCTest
 
 class FakeFavoritesController : FavoritesControllerProtocol {
     var doneButtonActionWasCalled = false
-    func clearFavoritesAction() {}
+    func clearFavorites() {}
     func doneButtonAction() {
         doneButtonActionWasCalled = true
     }
