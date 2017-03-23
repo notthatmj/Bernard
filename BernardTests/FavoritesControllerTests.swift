@@ -42,6 +42,7 @@ fileprivate class FakeFavoritesViewController : FavoritesViewControllerProtocol 
     }
     
     func displayShareSheet(for aString: String) {}
+    func reloadTableData() {}
 }
 
 class FavoritesControllerTests: XCTestCase {

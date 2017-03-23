@@ -17,7 +17,11 @@ protocol FavoritesControllerProtocol {
     var favorites: [String] { get }
 }
 
-class FavoritesController : FavoritesControllerProtocol {
+class FavoritesController : FavoritesControllerProtocol, NamesModelObserving {
+    func namesModelDidUpdate() {
+        favoritesViewController?.reloadTableData()
+    }
+
     let namesModel : NamesModelProtocol
     weak var favoritesViewController : FavoritesViewControllerProtocol?
 
@@ -33,6 +37,7 @@ class FavoritesController : FavoritesControllerProtocol {
     
     init(namesModel: NamesModelProtocol, favoritesViewController: FavoritesViewControllerProtocol) {
         self.namesModel = namesModel
+        self.namesModel.addObserver(self)
         self.favoritesViewController = favoritesViewController
     }
     
