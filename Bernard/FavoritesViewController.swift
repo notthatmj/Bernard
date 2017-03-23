@@ -63,15 +63,8 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         self.controller.doneButtonAction()
     }
 
-    private var namesModelFavoriteCount: Int {
-        if let namesModelFavoritesCount = namesModel?.favorites.count {
-            return namesModelFavoritesCount
-        }
-        return 0
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.namesModelFavoriteCount
+        return self.controller.namesModelFavoritesCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

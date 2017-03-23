@@ -21,6 +21,9 @@ class FakeFavoritesController : FavoritesControllerProtocol {
     var favoritesText: String? {
         return ""
     }
+    var namesModelFavoritesCount: Int {
+        return 0
+    }
 }
 
 class FavoritesViewControllerTests: XCTestCase {

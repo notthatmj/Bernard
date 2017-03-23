@@ -13,6 +13,7 @@ protocol FavoritesControllerProtocol {
     func clearFavoritesAction()
     func shareButtonAction()
     var favoritesText: String? { get }
+    var namesModelFavoritesCount: Int { get }
 }
 
 class FavoritesController : FavoritesControllerProtocol {
@@ -48,4 +49,7 @@ class FavoritesController : FavoritesControllerProtocol {
         }
     }
     
+    public var namesModelFavoritesCount: Int {
+        return namesModel.favorites.count
+    }
 }
