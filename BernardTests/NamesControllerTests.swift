@@ -53,7 +53,7 @@ class NamesControllerTests: XCTestCase {
     }
 
     func testThatFavoritesAreRemembered() {
-        SUT.viewDidLoad()
+        SUT.configureViewController()
         XCTAssertFalse(fakeViewController.favoriteToggleIsOn)
         SUT.nextNameButtonAction()
 
@@ -101,7 +101,7 @@ class NamesControllerTests: XCTestCase {
         XCTAssertEqual(fakeViewController.nameText, "Blammo")
     }
     
-    func testViewDidLoadWithPreloadedModel() {
+    func testConfigureViewControllerWithPreloadedModel() {
         // Setup
         let namesModel = NamesModel()
         _ = namesModel.nextName()
@@ -110,28 +110,35 @@ class NamesControllerTests: XCTestCase {
         SUT.namesModel = namesModel
 
         // Test
-        SUT.viewDidLoad()
+        SUT.configureViewController()
 
         // Assert
-        XCTAssertEqual(SUT.viewController.nameText, secondName)
-        XCTAssertEqual(SUT.viewController.favoriteToggleIsOn, true)
-        XCTAssert(namesModel.observers.contains(where: { $0 as? NamesController === SUT!}))
-        XCTAssertTrue(SUT.viewController.previousNameButtonIsEnabled)
+        guard let viewController = SUT.viewController else {
+            XCTAssert(false)
+            return
+        }
+        XCTAssertEqual(viewController.nameText, secondName)
+        XCTAssertEqual(viewController.favoriteToggleIsOn, true)
+        XCTAssertTrue(viewController.previousNameButtonIsEnabled)
     }
 
-    func testViewDidLoadWithFreshModel() {
+    func testConfigureViewControllerWithFreshModel() {
         // Test
-        SUT.viewDidLoad()
+        SUT.configureViewController()
         
         // Assert
-        XCTAssertNotNil(SUT.viewController.nameText)
-        XCTAssertNotEqual(SUT.viewController.nameText, "")
-        XCTAssertFalse(SUT.viewController.favoriteToggleIsOn)
-        XCTAssertFalse(SUT.viewController.previousNameButtonIsEnabled)
+        guard let viewController = SUT.viewController else {
+            XCTAssert(false)
+            return
+        }
+        XCTAssertNotNil(viewController.nameText)
+        XCTAssertNotEqual(viewController.nameText, "")
+        XCTAssertFalse(viewController.favoriteToggleIsOn)
+        XCTAssertFalse(viewController.previousNameButtonIsEnabled)
     }
 
     func testFavoritesToggleChangesWhenNamesCleared() {
-        SUT.viewDidLoad()
+        SUT.configureViewController()
         _ = SUT.nextNameButtonAction()
         fakeViewController.favoriteToggleIsOn = true
         SUT.updateModel()

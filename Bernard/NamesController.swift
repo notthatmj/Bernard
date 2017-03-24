@@ -13,13 +13,14 @@ protocol NamesControllerProtocol {
     func nextNameButtonAction()
     func previousNameButtonAction()
     func updateModel()
-    func viewDidLoad()
+    func configureViewController()
     
 }
 
 class NamesController : NamesControllerProtocol, NamesModelObserving {
     
-    var viewController : NamesViewControllerProtocol
+    weak var viewController : NamesViewControllerProtocol?
+    
     var namesModel : NamesModelProtocol
     
     convenience init(viewController : NamesViewControllerProtocol) {
@@ -37,15 +38,15 @@ class NamesController : NamesControllerProtocol, NamesModelObserving {
     }
     
     func nextNameButtonAction() {
-        viewController.nameText = namesModel.nextName()
+        viewController?.nameText = namesModel.nextName()
     }
     
     func previousNameButtonAction() {
-        viewController.nameText = namesModel.previousName()
+        viewController?.nameText = namesModel.previousName()
     }
     
-    func viewDidLoad() {
-        viewController.favoriteToggleIsOn = namesModel.currentNameIsFavorited
+    func configureViewController() {
+        viewController?.favoriteToggleIsOn = namesModel.currentNameIsFavorited
         namesModel.addObserver(self)
         if namesModel.currentName == nil {
             _ = namesModel.nextName()
@@ -55,13 +56,16 @@ class NamesController : NamesControllerProtocol, NamesModelObserving {
     }
     
     func updateViewController() {
-        viewController.favoriteToggleIsOn = namesModel.currentNameIsFavorited
-        viewController.nameText = namesModel.currentName
-        viewController.previousNameButtonIsEnabled = namesModel.previousNameIsAvailable
+        viewController?.favoriteToggleIsOn = namesModel.currentNameIsFavorited
+        viewController?.nameText = namesModel.currentName
+        viewController?.previousNameButtonIsEnabled = namesModel.previousNameIsAvailable
     }
 
     func updateModel() {
-        namesModel.currentNameIsFavorited = viewController.favoriteToggleIsOn
+        guard viewController != nil else {
+            return
+        }
+        namesModel.currentNameIsFavorited = viewController!.favoriteToggleIsOn
     }
 
     func namesModelDidUpdate() {

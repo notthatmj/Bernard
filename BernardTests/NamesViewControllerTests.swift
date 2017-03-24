@@ -26,7 +26,7 @@ fileprivate class FakeController:NamesControllerProtocol {
     func updateModel() {
         updateModelWasCalled = true
     }
-    func viewDidLoad() {}
+    func configureViewController() {}
     
 }
 

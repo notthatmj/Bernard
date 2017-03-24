@@ -9,7 +9,7 @@
 import UIKit
 
 
-protocol FavoritesViewControllerProtocol {
+protocol FavoritesViewControllerProtocol : class {
     func dismiss(animated flag: Bool, completion: (() -> Void)?)
 }
 

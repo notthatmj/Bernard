@@ -15,7 +15,7 @@ protocol FavoritesControllerProtocol {
 
 class FavoritesController : FavoritesControllerProtocol {
     let namesModel : NamesModelProtocol
-    let favoritesViewController : FavoritesViewControllerProtocol
+    weak var favoritesViewController : FavoritesViewControllerProtocol?
     
     init(namesModel: NamesModelProtocol, favoritesViewController: FavoritesViewControllerProtocol) {
         self.namesModel = namesModel
@@ -23,7 +23,7 @@ class FavoritesController : FavoritesControllerProtocol {
     }
     
     func doneButtonAction() {
-        favoritesViewController.dismiss(animated: true, completion: nil)
+        favoritesViewController?.dismiss(animated: true, completion: nil)
     }
     
     func clearFavoritesAction() {
