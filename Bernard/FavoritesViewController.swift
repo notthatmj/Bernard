@@ -58,7 +58,7 @@ UITableViewDelegate, UINavigationBarDelegate, FavoritesViewControllerProtocol {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = controller.favorites[indexPath.row];
+        cell.textLabel?.text = controller.favorites[indexPath.row]
         return cell
     }
     
@@ -81,8 +81,7 @@ UITableViewDelegate, UINavigationBarDelegate, FavoritesViewControllerProtocol {
             self.controller.clearFavorites()
         }
         confirmationController.addAction(okAction)
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {(action: UIAlertAction) in return
-        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) 
         confirmationController.addAction(cancelAction)
         self.present(confirmationController, animated: true, completion: nil)
     }
