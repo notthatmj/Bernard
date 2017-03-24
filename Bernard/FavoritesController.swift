@@ -12,8 +12,6 @@ protocol FavoritesControllerProtocol {
     func doneButtonAction()
     func clearFavorites()
     func shareButtonAction()
-    var favoritesText: String? { get }
-    var favoritesCount: Int { get }
     var favorites: [String] { get }
 }
 
@@ -26,13 +24,8 @@ class FavoritesController : FavoritesControllerProtocol, NamesModelObserving {
     weak var favoritesViewController : FavoritesViewControllerProtocol?
 
     var favoritesText: String? {
-        let activityItems : [String]? = namesModel.favorites
-        if activityItems! != [] {
-            let favoritesString = activityItems?.joined(separator: "\n")
-            return favoritesString
-        } else {
-            return nil
-        }
+        let favorites = namesModel.favorites
+        return favorites.isEmpty ? nil : favorites.joined(separator: "\n")
     }
     
     init(namesModel: NamesModelProtocol, favoritesViewController: FavoritesViewControllerProtocol) {

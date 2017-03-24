@@ -53,7 +53,7 @@ UITableViewDelegate, UINavigationBarDelegate, FavoritesViewControllerProtocol {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.controller.favoritesCount
+        return self.controller.favorites.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
