@@ -60,11 +60,7 @@ import UIKit
     
     override var isSelected: Bool {
         willSet {
-            if newValue == true {
-                imageShape?.fillColor = imageColorOn.cgColor
-            } else {
-                imageShape?.fillColor = imageColorOff.cgColor
-            }
+            imageShape?.fillColor = (newValue) ? imageColorOn.cgColor : imageColorOff.cgColor
         }
     }
     

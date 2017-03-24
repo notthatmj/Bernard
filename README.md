@@ -7,7 +7,6 @@ context of a medieval fantasy setting. This app is designed to help with that
 task. It lets the user randomly generate such names, mark her favorites, and
 quickly share the list of favorites.
 
-This is mainly an educational project, although I hope to publish it when I
-feel it's ready. It's intended to help me improve my iOS development skills,
-with an emphasis on learning Swift.
+This is an educational project. It's intended to help me improve my iOS
+development skills, with an emphasis on learning Swift.
 

@@ -40,15 +40,18 @@ fileprivate class FakeFavoritesViewController : FavoritesViewControllerProtocol 
         dismissAnimatedArg = flag
         dismissCompletionArg = completion
     }
+    
+    func displayShareSheet(for aString: String) {}
+    func reloadTableData() {}
 }
 
 class FavoritesControllerTests: XCTestCase {
     
-    func testClearFavoritesAction() {
+    func testClearFavorites() {
         let fakeNamesModel = FakeNamesModel()
         let SUT = FavoritesController(namesModel: fakeNamesModel, favoritesViewController: FakeFavoritesViewController())
         
-        SUT.clearFavoritesAction()
+        SUT.clearFavorites()
         XCTAssertTrue(fakeNamesModel.clearFavoritesWasCalled)
     }
 

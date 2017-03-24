@@ -10,15 +10,27 @@ import Foundation
 
 protocol FavoritesControllerProtocol {
     func doneButtonAction()
-    func clearFavoritesAction()
+    func clearFavorites()
+    func shareButtonAction()
+    var favorites: [String] { get }
 }
 
-class FavoritesController : FavoritesControllerProtocol {
+class FavoritesController : FavoritesControllerProtocol, NamesModelObserving {
+    func namesModelDidUpdate() {
+        favoritesViewController?.reloadTableData()
+    }
+
     let namesModel : NamesModelProtocol
     weak var favoritesViewController : FavoritesViewControllerProtocol?
+
+    var favoritesText: String? {
+        let favorites = namesModel.favorites
+        return favorites.isEmpty ? nil : favorites.joined(separator: "\n")
+    }
     
     init(namesModel: NamesModelProtocol, favoritesViewController: FavoritesViewControllerProtocol) {
         self.namesModel = namesModel
+        self.namesModel.addObserver(self)
         self.favoritesViewController = favoritesViewController
     }
     
@@ -26,7 +38,21 @@ class FavoritesController : FavoritesControllerProtocol {
         favoritesViewController?.dismiss(animated: true, completion: nil)
     }
     
-    func clearFavoritesAction() {
+    func clearFavorites() {
         namesModel.clearFavorites()
+    }
+    
+    func shareButtonAction() {
+        if let favoritesString = self.favoritesText {
+            favoritesViewController?.displayShareSheet(for: favoritesString)
+        }
+    }
+    
+    public var favoritesCount: Int {
+        return namesModel.favorites.count
+    }
+    
+    var favorites: [String] {
+        return namesModel.favorites
     }
 }
